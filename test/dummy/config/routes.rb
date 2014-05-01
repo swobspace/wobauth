@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Wobauth::Engine => "/wobauth"
+  mount Wobauth::Engine => "/auth"
 end
