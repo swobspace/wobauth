@@ -11,3 +11,8 @@ Role
 
     bin/rails g scaffold Role name:string --no-skip-test-unit
 
+Group
+----
+
+    bin/rails g scaffold Group name:string description:string --no-skip-test-unit
+

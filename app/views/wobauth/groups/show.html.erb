@@ -1,0 +1,17 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.name')%>:</th>
+    <td><%= @group.name %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.description')%>:</th>
+    <td><%= @group.description %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@group) %>
+  <%= delete_link(@group) %>
+  <%= new_link Group %>
+</div>

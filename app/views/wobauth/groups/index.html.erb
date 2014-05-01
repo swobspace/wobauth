@@ -1,0 +1,30 @@
+<h1><%= t('controller.groups') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.name') %></th>
+    <th><%= t('attributes.description') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @groups.each do |group| %>
+  <%= content_tag_for(:tr, group) do %>
+    <td><%= group.name %></td>
+    <td><%= group.description %></td>
+    <td class="nowrap">
+      <%= show_link group %>
+      <%= edit_link group %>
+      <%= delete_link group %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Group %>
