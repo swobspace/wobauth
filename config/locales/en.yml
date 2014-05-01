@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      wobauth/authority: Authority
+      wobauth/group: Group
+      wobauth/membership: Member
+      wobauth/role: Role
+
+    attributes:
+      name: Name
+
+  controller:
+    wobauth/authorities: Authorities
+    wobauth/groups: Groups
+    wobauth/memberships: Memberships
+    wobauth/roles: Roles
