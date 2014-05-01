@@ -1,0 +1,27 @@
+<h1><%= t('controller.roles') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.name') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @roles.each do |role| %>
+  <%= content_tag_for(:tr, role) do %>
+    <td><%= role.name %></td>
+    <td class="nowrap">
+      <%= show_link role %>
+      <%= edit_link role %>
+      <%= delete_link role %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
