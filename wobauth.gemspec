@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "wobapphelpers"
   s.add_dependency "simple_form"
 
+  s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'sass-rails', '~> 4.0.3'
   s.add_development_dependency 'jquery-rails'
