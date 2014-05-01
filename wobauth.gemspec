@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "bootstrap-sass", "~> 3.1.1"
   # s.add_development_dependency "capybara"
   s.add_development_dependency "cancancan", '~> 1.7.1'
-  # s.add_development_dependency "shoulda-context"
+  s.add_development_dependency "shoulda"
   # s.add_development_dependency "mocha"
 
 end
