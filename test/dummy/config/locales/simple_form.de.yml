@@ -1,0 +1,20 @@
+de:
+  simple_form:
+    "yes": 'Ja'
+    "no": 'Nein'
+    required:
+      text: 'erforderlich'
+      mark: '*'
+    error_notification:
+      default_message: "Fehler aufgetreten:"
+    labels:
+      defaults:
+        password: 'Passwort'
+      applic_states:
+        state: 'Status'
+    options:
+      vote:
+        final_vote:
+          ok: 'OK'
+          warning: 'Mit Einschränkung OK'
+          critical: 'Nicht einverstanden'
