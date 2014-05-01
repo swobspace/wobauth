@@ -2,8 +2,11 @@ require 'test_helper'
 
 module Wobauth
   class GroupsControllerTest < ActionController::TestCase
+    fixtures :groups
+    set_fixture_class groups: Wobauth::Group
     setup do
       @group = groups(:one)
+      @routes = Wobauth::Engine.routes
     end
 
     test "should get index" do
