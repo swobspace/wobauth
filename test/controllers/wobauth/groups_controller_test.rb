@@ -28,6 +28,14 @@ module Wobauth
       assert_redirected_to group_path(assigns(:group))
     end
 
+    test "should not create group with duplicate name" do
+      assert_no_difference('Group.count') do
+        post :create, group: { description: "text", name: @group.name }
+      end
+      assert_response :success
+      assert_match "ist bereits vergeben", response.body
+    end
+
     test "should show group" do
       get :show, id: @group
       assert_response :success
