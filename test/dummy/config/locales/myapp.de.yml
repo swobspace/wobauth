@@ -12,4 +12,5 @@ de:
     username: Username
  
   controller:
+    home: Home
     users: Benutzer
