@@ -22,7 +22,7 @@ module Wobauth
 
     test "should create group" do
       assert_difference('Group.count') do
-        post :create, group: { description: @group.description, name: @group.name }
+        post :create, group: { description: "text", name: "myadmin" }
       end
 
       assert_redirected_to group_path(assigns(:group))
