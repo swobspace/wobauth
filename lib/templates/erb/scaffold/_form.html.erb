@@ -7,10 +7,9 @@
     file: :horizontal_file_input,
     boolean: :horizontal_boolean
   }) do |f| %>
-  <%%= f.error_notification %>
 
-    <fieldset>
-      <%%= form_legend %>
+  <fieldset>
+    <%%= form_legend %>
 
     <div class="form-inputs">
     <%- attributes.each do |attribute| -%>
