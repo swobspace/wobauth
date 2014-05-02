@@ -20,6 +20,11 @@ module Wobauth
       assert_response :success
     end
 
+    test "should get new with specific title" do
+      get :new
+      assert_select "legend", text: "Neue Gruppe"
+    end
+
     test "should create group" do
       assert_difference('Group.count') do
         post :create, group: { description: "text", name: "myadmin" }
@@ -44,6 +49,11 @@ module Wobauth
     test "should get edit" do
       get :edit, id: @group
       assert_response :success
+    end
+
+    test "should get edit with specific title" do
+      get :edit, id: @group
+      assert_select "legend", text: "Gruppe überarbeiten"
     end
 
     test "should update group" do

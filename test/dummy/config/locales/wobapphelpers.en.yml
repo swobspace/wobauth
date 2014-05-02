@@ -5,4 +5,6 @@ en:
       cancel: Cancel
     controller:
       new:  "create %{name}"
+      create:  "create %{name}"
       edit:  "update %{name}"
+      update:  "update %{name}"
