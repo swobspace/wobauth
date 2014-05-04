@@ -68,7 +68,7 @@ module Wobauth
     has_many :authorities
     has_many :users,  through:     :authorities,
                       source:      :authorizable,
-                      source_type: Wobauth.user_class.to_s,
+                      source_type: Wobauth.user_class.to_s
     ...
   end
 end
@@ -85,9 +85,5 @@ class User < ActiveRecord::Base
   has_many :group_roles, through: :groups, source: :roles
   has_many :groups,      through: :memberships, uniq: true
   ...
-  # as mentioned in http://guides.rubyonrails.org/engines.html#configuring-an-engine
-  def self.user_class
-    @@user_class.constantize
-  end
 end
 ```
