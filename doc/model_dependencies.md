@@ -40,7 +40,7 @@ module Wobauth
     has_many :roles,       through: :authorities
     has_many :memberships
     has_many :users,  -> { uniq }, through: :memberships, 
-                      source:  Wobauth.user_class.to_s
+                      source:  Wobauth.user_source
     ...
   end
 end
@@ -68,7 +68,7 @@ module Wobauth
     has_many :authorities
     has_many :users,  through:     :authorities,
                       source:      :authorizable,
-                      source_type: Wobauth.user_class.to_s
+                      source_type: Wobauth.user_source
     ...
   end
 end

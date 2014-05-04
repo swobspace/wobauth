@@ -16,4 +16,8 @@ module Wobauth
     @@user_class.constantize
   end
 
+  def self.user_source
+    @@user_class.underscore.to_sym
+  end
+
 end
