@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  group_id: 
+  user_id: 11
+  group_id: 12
   auto: false
 
 two:
-  user_id: 
-  group_id: 
+  user_id: 21
+  group_id: 22
   auto: false
