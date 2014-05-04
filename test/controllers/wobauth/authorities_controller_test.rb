@@ -2,8 +2,11 @@ require 'test_helper'
 
 module Wobauth
   class AuthoritiesControllerTest < ActionController::TestCase
+    fixtures :authorities
+    set_fixture_class authorities: Wobauth::Authority
     setup do
       @authority = authorities(:one)
+      @routes = Wobauth::Engine.routes
     end
 
     test "should get index" do
