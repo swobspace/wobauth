@@ -25,5 +25,6 @@ class ActionDispatch::IntegrationTest
 end
 
 # For generators
-# require "rails/generators/test_case"
+require "rails/generators/test_case"
+require "generators/wobauth/install_generator"
 

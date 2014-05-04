@@ -37,7 +37,17 @@ Dependencies
 
 Installation
 ------------
-TBD
+Add wobauth to your Gemfile:
+
+```ruby
+gem 'wobauth', git: 'git@github.com:swobspace/wobauth.git', branch: 'master'
+```
+Run
+
+```ruby
+rails g wobauth:install
+```
+to create an example configuration in ''config/initializers/wobauth.rb''
 
 Configuration
 -------------
