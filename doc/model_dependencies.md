@@ -1,8 +1,8 @@
 Dependencies between User model (application) and wobauth models
 ================================================================
 
-Wobauth initializer config/initializers/wobauth.rb:
----------------------------------------------------
+Wobauth initializer
+-------------------
 The name of the User class may vary, so the class name should
 be set in an initializer as mentioned in 
 http://guides.rubyonrails.org/engines.html#configuring-an-engine
@@ -40,7 +40,7 @@ module Wobauth
     has_many :roles,       through: :authorities
     has_many :memberships
     has_many :users,       through: :memberships, uniq: true,
-	                   source:  Wobauth.user_class.to_s
+                           source:  Wobauth.user_class.to_s
     ...
   end
 end
@@ -67,8 +67,8 @@ module Wobauth
   class Membership < ActiveRecord::Base
     has_many :authorities
     has_many :users,  through:     :authorities,
-	              source:      :authorizable,
-	              source_type: Wobauth.user_class.to_s,
+                      source:      :authorizable,
+                      source_type: Wobauth.user_class.to_s,
     ...
   end
 end
@@ -80,7 +80,7 @@ User (application)
 ```ruby
 class User < ActiveRecord::Base
   has_many :authorities, as: :authorizable, dependent: :destroy
-  has_many :roles, 	 through: :authorities
+  has_many :roles,       through: :authorities
   has_many :memberships, dependent: :destroy
   has_many :group_roles, through: :groups, source: :roles
   has_many :groups,      through: :memberships, uniq: true
