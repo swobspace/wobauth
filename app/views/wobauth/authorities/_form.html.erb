@@ -12,19 +12,15 @@
     <%= form_legend %>
 
     <div class="form-inputs">
-      <%= f.association :authorizable
-       %>
-      <%= f.input :authorizable_type
+      <%= f.input :authorizable_type, collection: Wobauth.authorizable_types
        %>
       <%= f.association :role
        %>
-      <%= f.association :authorized_for
+      <%= f.input :authorized_for_type, collection: Wobauth.authorized_for_types
        %>
-      <%= f.input :authorized_for_type
+      <%= f.input :valid_from, as: :string, class: 'datepicker'
        %>
-      <%= f.input :valid_from
-       %>
-      <%= f.input :valid_until
+      <%= f.input :valid_until, as: :string, class: 'datepicker'
        %>
     </div>
 
