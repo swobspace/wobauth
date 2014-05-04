@@ -30,5 +30,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "cancancan", '~> 1.7.1'
   s.add_development_dependency "shoulda"
   # s.add_development_dependency "mocha"
+  s.add_development_dependency "devise"
 
 end
