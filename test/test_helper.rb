@@ -28,3 +28,6 @@ end
 require "rails/generators/test_case"
 require "generators/wobauth/install_generator"
 
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
