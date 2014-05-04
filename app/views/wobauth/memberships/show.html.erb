@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.user')%>:</th>
+    <td><%= @membership.user %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.group')%>:</th>
+    <td><%= @membership.group %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.auto')%>:</th>
+    <td><%= @membership.auto %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@membership) %>
+  <%= delete_link(@membership) %>
+  <%= new_link Membership %>
+</div>
