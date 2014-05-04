@@ -68,7 +68,7 @@ module Wobauth
     has_many :authorities
     has_many :users,  through:     :authorities,
                       source:      :authorizable,
-                      source_type: Wobauth.user_source
+                      source_type: Wobauth.user_class.to_s
     ...
   end
 end
