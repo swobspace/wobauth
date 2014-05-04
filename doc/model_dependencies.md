@@ -39,8 +39,8 @@ module Wobauth
     has_many :authorities, as: :authorizable
     has_many :roles,       through: :authorities
     has_many :memberships
-    has_many :users,       through: :memberships, uniq: true,
-                           source:  Wobauth.user_class.to_s
+    has_many :users,  -> { uniq }, through: :memberships, 
+                      source:  Wobauth.user_class.to_s
     ...
   end
 end
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   has_many :roles,       through: :authorities
   has_many :memberships, dependent: :destroy
   has_many :group_roles, through: :groups, source: :roles
-  has_many :groups,      through: :memberships, uniq: true
+  has_many :groups, -> { uniq }, through: :memberships
   ...
 end
 ```
