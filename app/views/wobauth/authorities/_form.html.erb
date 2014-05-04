@@ -12,12 +12,10 @@
     <%= form_legend %>
 
     <div class="form-inputs">
-      <%= f.input :authorizable_type, collection: Wobauth.authorizable_types
-       %>
-      <%= f.association :role
-       %>
-      <%= f.input :authorized_for_type, collection: Wobauth.authorized_for_types
-       %>
+      <%= polymorphic_selector(f, 'authorizable', Wobauth.authorizable_types) %>
+      <%= f.association :role %>
+      <%= polymorphic_selector(f, 'authorized_for', Wobauth.authorized_for_types) %>
+
       <%= f.input :valid_from, as: :string, class: 'datepicker'
        %>
       <%= f.input :valid_until, as: :string, class: 'datepicker'
