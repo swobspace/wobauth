@@ -24,7 +24,7 @@ module Wobauth
   # authorizable types
   #
   mattr_reader :authorizable_types 
-  @@authorizable_types = [ "User", "Group" ]
+  @@authorizable_types = [ "User", "Wobauth::Group" ]
   
   # authorized_for types
   # Objects on which Wobauth should set authorization
