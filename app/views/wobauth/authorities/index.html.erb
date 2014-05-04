@@ -1,0 +1,40 @@
+<h1><%= t('controller.authorities') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.authorizable') %></th>
+    <th><%= t('attributes.authorizable_type') %></th>
+    <th><%= t('attributes.role') %></th>
+    <th><%= t('attributes.authorized_for') %></th>
+    <th><%= t('attributes.authorized_for_type') %></th>
+    <th><%= t('attributes.valid_from') %></th>
+    <th><%= t('attributes.valid_until') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @authorities.each do |authority| %>
+  <%= content_tag_for(:tr, authority) do %>
+    <td><%= authority.authorizable %></td>
+    <td><%= authority.authorizable_type %></td>
+    <td><%= authority.role %></td>
+    <td><%= authority.authorized_for %></td>
+    <td><%= authority.authorized_for_type %></td>
+    <td><%= authority.valid_from %></td>
+    <td><%= authority.valid_until %></td>
+    <td class="nowrap">
+      <%= show_link authority %>
+      <%= edit_link authority %>
+      <%= delete_link authority %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Authority %>

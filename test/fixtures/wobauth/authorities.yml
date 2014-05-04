@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  authorizable_id: 
+  authorizable_type: MyString
+  role_id: 
+  authorized_for_id: 
+  authorized_for_type: MyString
+  valid_from: 2014-05-04
+  valid_until: 2014-05-04
+
+two:
+  authorizable_id: 
+  authorizable_type: MyString
+  role_id: 
+  authorized_for_id: 
+  authorized_for_type: MyString
+  valid_from: 2014-05-04
+  valid_until: 2014-05-04

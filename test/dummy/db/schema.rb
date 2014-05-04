@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504124045) do
+ActiveRecord::Schema.define(version: 20140504143328) do
 
   create_table "users", force: true do |t|
     t.text     "gruppen"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 20140504124045) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wobauth_authorities", force: true do |t|
+    t.integer  "authorizable_id"
+    t.string   "authorizable_type"
+    t.integer  "role_id"
+    t.integer  "authorized_for_id"
+    t.string   "authorized_for_type"
+    t.date     "valid_from"
+    t.date     "valid_until"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wobauth_authorities", ["authorizable_id"], name: "index_wobauth_authorities_on_authorizable_id"
+  add_index "wobauth_authorities", ["authorized_for_id"], name: "index_wobauth_authorities_on_authorized_for_id"
+  add_index "wobauth_authorities", ["role_id"], name: "index_wobauth_authorities_on_role_id"
 
   create_table "wobauth_groups", force: true do |t|
     t.string   "name"
