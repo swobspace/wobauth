@@ -41,9 +41,9 @@
 <div class="container">
   <p>
     <% if current_user %>
-    <%= current_user %> | <%= link_to "Logout", main_app.destroy_user_session_path, method: :delete %>
+    <%= current_user %> | <%= link_to "Logout", wobauth.destroy_user_session_path, method: :delete %>
     <% else %>
-    <%= link_to "Login", main_app.new_user_session_path %>
+    <%= link_to "Login", wobauth.new_user_session_path %>
     <% end %>
   </p>
 </div>

@@ -1,7 +1,7 @@
 module Wobauth
   class Membership < ActiveRecord::Base
     # -- associations
-    belongs_to :user, class_name: Wobauth.user_class.to_s
+    belongs_to :user
     belongs_to :group
 
     # -- configuration

@@ -2,7 +2,7 @@
 
 one:
   authorizable_id: 1
-  authorizable_type: User
+  authorizable_type: Wobauth::User
   role_id: 2
   authorized_for_id:
   authorized_for_type:
@@ -11,7 +11,7 @@ one:
 
 two:
   authorizable_id: 7
-  authorizable_type: User
+  authorizable_type: Wobauth::User
   role_id: 2
   authorized_for_id:
   authorized_for_type:
