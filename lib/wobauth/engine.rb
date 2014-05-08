@@ -1,3 +1,4 @@
+require 'devise'
 module Wobauth
   class Engine < ::Rails::Engine
     isolate_namespace Wobauth

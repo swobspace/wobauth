@@ -1,5 +1,4 @@
 require "wobauth/engine"
-require "devise"
 
 module Wobauth
 
