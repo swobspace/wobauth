@@ -7,10 +7,10 @@ module Wobauth
   end
 
   # class_name for the user model of your application.
-  # Default: "User"
+  # Default: "Wobauth::User"
   #
   mattr_accessor :user_class
-  @@user_class = "User"
+  @@user_class = "Wobauth::User"
 
   def self.user_class
     @@user_class.constantize
@@ -24,7 +24,7 @@ module Wobauth
   # authorizable types
   #
   mattr_reader :authorizable_types 
-  @@authorizable_types = [ "User", "Wobauth::Group" ]
+  @@authorizable_types = [ "Wobauth::User", "Wobauth::Group" ]
   
   # authorized_for types
   # Objects on which Wobauth should set authorization
