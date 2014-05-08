@@ -1,0 +1,23 @@
+<h2>Login</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <fieldset class="container">
+  
+  <div class="row">
+  <div class="form-inputs col-sm-4">
+    <%= f.input :username, autofocus: true %>
+    <%= f.input :password, as: :password, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="form-actions col-sm-4">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= cancel_button %>
+  </div>
+  </div>
+ </fieldset>
+<% end %>
+
