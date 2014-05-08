@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency "wobapphelpers"
   s.add_dependency "simple_form"
+  s.add_dependency "devise"
 
   s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
