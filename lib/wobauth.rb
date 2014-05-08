@@ -1,24 +1,10 @@
 require "wobauth/engine"
+require "devise"
 
 module Wobauth
 
   def self.setup
     yield self
-  end
-
-  # class_name for the user model of your application.
-  # Default: "Wobauth::User"
-  #
-  mattr_accessor :user_class
-  @@user_class = "Wobauth::User"
-
-  def self.user_class
-    @@user_class.constantize
-  end
-
-  # returns the user_class as underscored symbol for source: statements
-  def self.user_source
-    @@user_class.underscore.to_sym
   end
 
   # authorizable types
