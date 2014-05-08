@@ -1,6 +1,19 @@
 class DeviseCreateWobauthUsers < ActiveRecord::Migration
   def change
     create_table(:wobauth_users) do |t|
+
+      # -- devise_cas_authenticable
+      t.string :username, :null => false, :default => ""
+
+      # -- wob's extensions
+      t.text "gruppen"
+      t.string "sn"
+      t.string "givenname"
+      t.string "displayname"
+      t.string "telephone"
+      t.string "active_directory_guid"
+      t.string "userprincipalname"
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
