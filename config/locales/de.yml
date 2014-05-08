@@ -6,8 +6,18 @@ de:
       wobauth/membership: Mitgliedschaft
       wobauth/role: Rolle
 
-    attributes:
-      name: Name
+  attributes:
+    name: Name
+    authorizable: Authorisierbar
+    authorizable_type: Authorisierbar/Typ
+    authorized_for: Berechtigung auf
+    authorized_for_type: Berechtigung auf/Typ
+    auto: Auto
+    group: Gruppe
+    membership: Mitgliedschaft
+    role: Rolle
+    valid_from: gültig von
+    valid_until: gültig bis
 
   controller:
     wobauth/authorities: Berechtigungen

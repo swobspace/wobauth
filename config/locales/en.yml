@@ -8,9 +8,20 @@ en:
 
     attributes:
       name: Name
+    authorizable: authorizable
+    authorizable_type: authorizable type
+    authorized_for: authorized for
+    authorized_for_type: authorized for type
+    auto: auto
+    group: gruppe
+    membership: membership
+    role: role
+    valid_from: valid from
+    valid_until: valid until
 
   controller:
     wobauth/authorities: Authorities
     wobauth/groups: Groups
     wobauth/memberships: Memberships
     wobauth/roles: Roles
+
