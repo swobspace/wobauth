@@ -1,5 +1,6 @@
 <h2>Login</h2>
 
+<div class="container">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -20,4 +21,4 @@
   </div>
  </fieldset>
 <% end %>
-
+</div>
