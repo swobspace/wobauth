@@ -1,6 +1,7 @@
 de:
   activerecord:
     models:
+      wobauth/user: Benutzer
       wobauth/authority: Berechtigung
       wobauth/group: Gruppe
       wobauth/membership: Mitgliedschaft
@@ -20,6 +21,7 @@ de:
     valid_until: gültig bis
 
   controller:
+    wobauth/users: Benutzer
     wobauth/authorities: Berechtigungen
     wobauth/groups: Gruppen
     wobauth/memberships: Mitgliedschaften
