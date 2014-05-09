@@ -11,5 +11,11 @@ module Wobauth
     self.responder = Wobapphelpers::Responders
     respond_to :html, :json
 
+    # -- cancan
+    load_and_authorize_resource unless: :devise_controller?
+
+    def current_ability
+      @current_ability ||= Wobauth::Ability.new(current_user)
+    end
   end
 end
