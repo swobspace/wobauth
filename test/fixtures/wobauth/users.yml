@@ -9,3 +9,7 @@ one: {}
 #
 two: {}
 #  column: value
+admin:
+  email: root@localhost.local
+  username: admin
+  encrypted_password: <%= User.new.(password_salt: '1234567').send(:password_digest, 'test99') %>
