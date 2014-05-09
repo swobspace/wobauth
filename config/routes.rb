@@ -10,4 +10,6 @@ Wobauth::Engine.routes.draw do
 
   resources :roles
 
+  get '#', to: "devise/sessions#login", as: :login
+
 end
