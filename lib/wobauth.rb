@@ -17,5 +17,14 @@ module Wobauth
   mattr_accessor :authorized_for_types 
   @@authorized_for_types = [ ]
   
+  # is remote authentication possible using REMOTE_USER?
+  # default: check devise settings
+  mattr_writer :remote_authentication
+  @@remote_authentication = true
+  # User.devise_modules.include?(:remote_user_authenticatable) won't work
+
+  def self.remote_authentication?
+    @@remote_authentication
+  end
 
 end
