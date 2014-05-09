@@ -20,11 +20,12 @@ module Wobauth
   # is remote authentication possible using REMOTE_USER?
   # default: check devise settings
   mattr_writer :remote_authentication
-  @@remote_authentication = true
-  # User.devise_modules.include?(:remote_user_authenticatable) won't work
+  @@remote_authentication = nil
 
   def self.remote_authentication?
+    if @@remote_authentication.nil?
+      @@remote_authentication = User.devise_modules.include?(:remote_user_authenticatable)
+    end
     @@remote_authentication
   end
-
 end
