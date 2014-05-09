@@ -3,6 +3,11 @@ module Wobauth
     # -- use the application default layout
     layout "application"
 
+    # -- devise
+    before_filter :authenticate_user!, :unless => :devise_controller?
+    # -- cancan
+    load_and_authorize_resource unless: :devise_controller?
+
     # -- breadcrumbs
     include Wobapphelpers::Breadcrumbs
     before_filter :add_breadcrumb_index, only: [:index]
@@ -11,11 +16,10 @@ module Wobauth
     self.responder = Wobapphelpers::Responders
     respond_to :html, :json
 
-    # -- cancan
-    load_and_authorize_resource unless: :devise_controller?
 
+    # -- cancan ability for wobauth
     def current_ability
-      @current_ability ||= Wobauth::Ability.new(current_user)
+      @current_ability ||= Wobauth::AdminAbility.new(current_user)
     end
   end
 end
