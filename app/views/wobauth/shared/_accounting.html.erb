@@ -1,0 +1,27 @@
+<ul class="nav navbar-nav pull-right">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <% unless can? :navigate, Wobauth::User %>
+        <i class="icon-user"></i>
+      <% end %>
+      <% if user_signed_in? %>
+	Account
+      <% else %>
+	Login
+      <% end %>
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <% unless user_signed_in? %>
+	<% if Wobauth.remote_authentication? %>
+	  <li><%= link_to "Single-Sign-On", wobauth.login_path -%></li>
+	<% end %>
+	<li><%= link_to "Login-Formular", wobauth.new_user_session_path -%></li>
+      <% else %>
+      <li><%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Mein Profil", wobauth.edit_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

@@ -13,5 +13,13 @@ module Wobauth
 	msg.html_safe
       end
     end
+
+    def navigation_admin_links
+      render partial: 'wobauth/shared/admin'
+    end
+
+    def navigation_account_links
+      render partial: 'wobauth/shared/accounting'
+    end
   end
 end

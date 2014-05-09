@@ -22,12 +22,8 @@
           <a class="navbar-brand" href="<%= root_path if defined?(root_path)%>#">Dummy</a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-            <% ['groups', 'memberships', 'roles', 'authorities'].each do |ctrlr| %>
-            <li><%= link_to t('controller.wobauth/' + ctrlr), wobauth.send("#{ctrlr}_path") %></li>
-            <% end %>
-          </ul>
+          <%= navigation_admin_links %>
+          <%= navigation_account_links %>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -38,16 +34,6 @@
   <%= show_flash %>
   <%= yield %>
 </div>
-<div class="container">
-  <p>
-    <% if current_user %>
-    <%= current_user %> | <%= link_to "Logout", wobauth.destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Login", wobauth.new_user_session_path %>
-    <% end %>
-  </p>
-</div>
-
 
 </body>
 </html>
