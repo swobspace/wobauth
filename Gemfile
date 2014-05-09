@@ -22,3 +22,4 @@ gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git',
                    branch: 'master'
 
 gem 'devise'
+gem 'cancancan', '~> 1.7.0'

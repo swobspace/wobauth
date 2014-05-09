@@ -19,6 +19,7 @@ PATH
   remote: .
   specs:
     wobauth (0.0.1)
+      cancancan (~> 1.7.0)
       devise
       rails (~> 4.1.0)
       simple_form
@@ -139,7 +140,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
-  cancancan (~> 1.7.1)
+  cancancan (~> 1.7.0)
   devise
   jquery-rails
   minitest
