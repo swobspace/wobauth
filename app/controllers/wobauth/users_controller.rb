@@ -54,6 +54,10 @@ module Wobauth
 
       # Only allow a trusted parameter "white list" through.
       def user_params
+        if params[:user][:password].blank? && action_name == 'update'
+          params[:user].delete(:password)
+          params[:user].delete(:password_confirmation)
+        end
         params.require(:user).permit(:username, :gruppen, :sn, :givenname, 
           :displayname, :telephone, :email, :password, :password_confirmation)
       end
