@@ -3,13 +3,12 @@
 <table id="dataTable" class="table table-bordered table-striped dataTable">
 <thead>
   <tr>
+    <th><%= t('attributes.name') %></th>
     <th><%= t('attributes.username') %></th>
-    <th><%= t('attributes.gruppen') %></th>
-    <th><%= t('attributes.sn') %></th>
-    <th><%= t('attributes.givenname') %></th>
-    <th><%= t('attributes.displayname') %></th>
     <th><%= t('attributes.telephone') %></th>
     <th><%= t('attributes.email') %></th>
+    <th><%= t('attributes.last_sign_in_at') %></th>
+    <th><%= t('attributes.sign_in_count') %></th>
     <th></th>
   </tr>
 </thead>
@@ -17,13 +16,12 @@
 
 <% @users.each do |user| %>
   <%= content_tag_for(:tr, user) do %>
+    <td><%= user %></td>
     <td><%= user.username %></td>
-    <td><%= user.gruppen %></td>
-    <td><%= user.sn %></td>
-    <td><%= user.givenname %></td>
-    <td><%= user.displayname %></td>
     <td><%= user.telephone %></td>
     <td><%= user.email %></td>
+    <td><%= user.last_sign_in_at.try(:to_date) %></td>
+    <td><%= user.sign_in_count %></td>
     <td class="nowrap">
       <%= show_link user %>
       <%= edit_link user %>
