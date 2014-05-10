@@ -7,11 +7,14 @@
 one:
   email: one@example.org
   username: one
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
 #
 two:
   email: two@example.org
   username: two
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
 #
 admin:
   email: root@example.org
   username: admin
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
