@@ -2,11 +2,12 @@ require 'test_helper'
 
 module Wobauth
   class MembershipsControllerTest < ActionController::TestCase
-    fixtures :memberships
-    set_fixture_class memberships: Wobauth::Membership
+    fixtures :memberships, :users
+    set_fixture_class memberships: Wobauth::Membership, users: Wobauth::User
     setup do 
       @membership = memberships(:one)
       @routes = Wobauth::Engine.routes
+      sign_in users(:admin)
     end
 
     test "should get index" do

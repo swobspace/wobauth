@@ -2,10 +2,11 @@ require 'test_helper'
 
 module Wobauth
   class RolesControllerTest < ActionController::TestCase
-    fixtures :roles
-    set_fixture_class roles: Wobauth::Role
+    fixtures :roles, :users
+    set_fixture_class roles: Wobauth::Role, users: Wobauth::User
     setup do
       @role = roles(:one)
+      sign_in users(:admin)
     end
 
     test "should get index" do
