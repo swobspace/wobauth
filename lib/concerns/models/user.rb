@@ -12,7 +12,11 @@ module Wobauth
       end
 
       def to_s
-	email
+        if sn.blank? and givenname.blank?
+	  "#{email}"
+        else
+          "#{sn}, #{givenname}"
+        end
       end
 
     end
