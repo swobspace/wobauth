@@ -1,0 +1,20 @@
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+ <thead> 
+  <tr>
+    <th>Name</th>
+    <th>Typ</th>
+    <th>Recht auf</th>
+    <th>Typ</th>
+  </tr>
+ </thead>
+ <tbody>
+<% authorities.valid(Date.today).each do |authority| %>
+  <%= content_tag_for(:tr, authority) do %>
+    <td><%= authority.authorizable %></td>
+    <td><%= authority.authorizable_type %></td>
+    <td><%= authority.authorized_for %></td>
+    <td><%= authority.authorized_for_type %></td>
+  <% end %>
+<% end %>
+</tbody>
+</table>

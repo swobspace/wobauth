@@ -5,6 +5,10 @@
   </tr>
 </table>
 
+<h2> Zuordnungen zu dieser Rolle </h2>
+<%= render :partial => 'role_authorities',
+           :locals => {:authorities => @role.authorities} %>
+
 <div class="btn-toolbar" role="toolbar">
   <%= back_link %>
 </div>
