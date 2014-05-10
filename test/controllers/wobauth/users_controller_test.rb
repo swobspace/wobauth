@@ -61,5 +61,15 @@ module Wobauth
 
       assert_redirected_to users_path
     end
+
+    test "should get all translations in index" do
+      get :index
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
+    test "should get all translations in show" do
+      get :show, id: @user
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
   end
 end

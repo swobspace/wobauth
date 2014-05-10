@@ -2,6 +2,7 @@ require 'test_helper'
 
 module Wobauth
   class GroupsControllerTest < ActionController::TestCase
+
     fixtures :groups, :users
     set_fixture_class groups: Wobauth::Group, users: Wobauth::User
     setup do
@@ -69,5 +70,16 @@ module Wobauth
 
       assert_redirected_to groups_path
     end
+    
+    test "should get all translations in index" do
+      get :index
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
+    test "should get all translations in show" do
+      get :show, id: @group
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
   end
 end

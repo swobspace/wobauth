@@ -8,15 +8,27 @@ de:
       wobauth/role: Rolle
 
   attributes:
-    name: Name
+    active_directory_guid: Active Directory GUID
     authorizable: Authorisierbar
     authorizable_type: Authorisierbar/Typ
     authorized_for: Berechtigung auf
     authorized_for_type: Berechtigung auf/Typ
     auto: Auto
+    current_sign_in_at: Aktueller Login
+    current_sign_in_ip: Aktuelle Login-IP
+    email: E-Mail
     group: Gruppe
+    gruppen: Gruppen (auto)
+    last_sign_in_at: Letzter Login
+    last_sign_in_ip: Letzte Login-IP
     membership: Mitgliedschaft
+    name: Name
     role: Rolle
+    sign_in_count: Anzahl Logins
+    telephone: Telefon
+    user: Benutzer
+    username: Username
+    userprincipalname: Principalname
     valid_from: gültig von
     valid_until: gültig bis
 
