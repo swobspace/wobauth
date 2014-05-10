@@ -32,3 +32,9 @@ Authority
                 valid_from:date valid_until:date \
                 --no-skip-test-unit
 
+## User (controller only, rest was done by devise)
+
+    bin/rails g scaffold_controller User username:string gruppen:text sn:string \
+           givenname:string displayname:string telephone:string \
+           email:string --no-skip-test-unit
+

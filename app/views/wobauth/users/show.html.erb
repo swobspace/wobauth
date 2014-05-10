@@ -1,0 +1,37 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.username')%>:</th>
+    <td><%= @user.username %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.gruppen')%>:</th>
+    <td><%= @user.gruppen %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.sn')%>:</th>
+    <td><%= @user.sn %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.givenname')%>:</th>
+    <td><%= @user.givenname %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.displayname')%>:</th>
+    <td><%= @user.displayname %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.telephone')%>:</th>
+    <td><%= @user.telephone %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.email')%>:</th>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@user) %>
+  <%= delete_link(@user) %>
+  <%= new_link Wobauth::User %>
+</div>

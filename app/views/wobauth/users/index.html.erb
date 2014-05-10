@@ -1,0 +1,40 @@
+<h1><%= t('controller.users') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.username') %></th>
+    <th><%= t('attributes.gruppen') %></th>
+    <th><%= t('attributes.sn') %></th>
+    <th><%= t('attributes.givenname') %></th>
+    <th><%= t('attributes.displayname') %></th>
+    <th><%= t('attributes.telephone') %></th>
+    <th><%= t('attributes.email') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @users.each do |user| %>
+  <%= content_tag_for(:tr, user) do %>
+    <td><%= user.username %></td>
+    <td><%= user.gruppen %></td>
+    <td><%= user.sn %></td>
+    <td><%= user.givenname %></td>
+    <td><%= user.displayname %></td>
+    <td><%= user.telephone %></td>
+    <td><%= user.email %></td>
+    <td class="nowrap">
+      <%= show_link user %>
+      <%= edit_link user %>
+      <%= delete_link user %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Wobauth::User %>
