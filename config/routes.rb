@@ -1,5 +1,5 @@
 Wobauth::Engine.routes.draw do
-  devise_for :users, class_name: "Wobauth::User", module: :devise,
+  devise_for :users, path: 'accounts', class_name: "Wobauth::User", module: :devise,
 	      controllers: {registrations: 'wobauth/registrations'} 
 
   resources :users
