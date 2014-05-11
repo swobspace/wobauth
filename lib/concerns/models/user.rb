@@ -22,6 +22,10 @@ module Wobauth
           "#{sn}, #{givenname}"
         end
       end
+  
+      def name
+        to_s
+      end
 
     end
   end
