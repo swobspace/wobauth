@@ -7,5 +7,11 @@ module Wobauth
       @admin_auth ||= Wobauth::Authority.create(:authorizable => @admin, :role => @admin_role)
       sign_in @admin
     end
+
+    def login_user
+      request.env["devise.mapping"] = Devise.mappings[:user]
+      @user      ||= users(:dummy)
+      sign_in @user
+    end
   end
 end
