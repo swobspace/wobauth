@@ -34,4 +34,5 @@ require "generators/wobauth/install_generator"
 
 class ActionController::TestCase
   include Devise::TestHelpers
+  include Wobauth::ControllerMacros
 end

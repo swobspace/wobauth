@@ -7,7 +7,7 @@ module Wobauth
 
     setup do
       @role = roles(:one)
-      sign_in users(:admin)
+      login_admin
     end
 
     test "should get index" do
