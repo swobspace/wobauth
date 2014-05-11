@@ -1,0 +1,13 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.name')%>:</th>
+    <td><%= @category.name %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@category) %>
+  <%= delete_link(@category) %>
+  <%= new_link Category %>
+</div>
