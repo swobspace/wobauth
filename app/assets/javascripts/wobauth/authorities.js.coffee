@@ -1,3 +1,4 @@
+$('#authority_authorizable_id optgroup').find('option').andSelf().hide()
 $(document).on('click', '#authority_authorizable_type', ->
   type = $(this).find("option:selected").val()
   # alert(type)
