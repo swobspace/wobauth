@@ -22,6 +22,7 @@
           <a class="navbar-brand" href="<%= (main_app||self).root_path %>">Dummy</a>
         </div>
         <div class="collapse navbar-collapse">
+          <%= render partial: 'shared/navi' %>
           <%= navigation_account_links %>
           <%= navigation_admin_links %>
         </div><!--/.nav-collapse -->

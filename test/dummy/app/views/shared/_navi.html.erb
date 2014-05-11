@@ -1,0 +1,8 @@
+<ul class="nav navbar-nav">
+  <li class="<%= active_class('posts') %>">
+    <%= link_to t('controller.posts'), main_app.posts_path %>
+  </li>
+  <li class="<%= active_class('categories') %>"> 
+    <%= link_to t('controller.categories'), main_app.categories_path %>
+  </li>
+</ul>
