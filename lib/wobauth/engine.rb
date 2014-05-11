@@ -8,5 +8,9 @@ module Wobauth
     end
 
     config.eager_load_paths += Dir["#{config.root}/lib/concerns"]
+
+    initializer "wobauth.assets.precompile" do |app|
+      app.config.assets.precompile += %w(wobauth/authorities.js)
+    end
   end
 end
