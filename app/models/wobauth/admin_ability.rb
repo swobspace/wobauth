@@ -5,8 +5,9 @@ module Wobauth
     def initialize(user)
       @user = user
       return if @user.nil?
-
-      can :manage, :all
+      if @user.roles.map{|r| r.name.camelize}.include?('Admin')
+        can :manage, :all
+      end
     end
   end
 end
