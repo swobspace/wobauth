@@ -1,4 +1,4 @@
-<% if can? :navigate, Wobauth::User %>
+<% if Wobauth::AdminAbility.new(current_user).can? :navigate, Wobauth::User %>
   <ul class="nav navbar-nav">
     <li class="dropdown <%= admin_active_class %>">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
