@@ -6,6 +6,10 @@ require "rails/test_help"
 # require 'capybara/rails'
 # require 'mocha/test_unit'
 require 'shoulda'
+require 'devise'
+require 'cancancan'
+require 'sass-rails'
+require 'coffee-rails'
 
 Rails.backtrace_cleaner.remove_silencers!
 
