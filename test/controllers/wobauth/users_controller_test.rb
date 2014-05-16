@@ -82,5 +82,16 @@ module Wobauth
         end
       end
     end
+
+    test "should show assigned" do
+      group = FactoryGirl.create(:group, name: "Vereinsmeierei")
+      FactoryGirl.create(:membership, user: @user, group: group)
+      get :show, id: @user
+      assert_select "div#user_groups" do
+        assert_select "tbody tr[class=?]", "membership" do
+          assert_select "td", text: "Vereinsmeierei"
+        end
+      end
+    end
   end
 end

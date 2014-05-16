@@ -1,0 +1,21 @@
+<table class="table table-bordered autowidth">
+ <thead> 
+  <tr>
+    <th><%= t('attributes.group') %> </th>
+    <th><%= t('attributes.auto') %> </th>
+    <th></th>
+  </tr>
+ </thead>
+ <tbody>
+<% user.memberships.each do |membership| %>
+  <%= content_tag_for(:tr, membership) do %>
+    <td><%= membership.group %></td>
+    <td><%= membership.auto %></td>
+    <td class="nowrap"> 
+      <%= edit_link(membership) %>
+      <%= delete_link(membership) %>
+    </td>
+  <% end %>
+<% end %>
+ </tbody>
+</table>

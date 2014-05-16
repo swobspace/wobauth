@@ -1,6 +1,6 @@
 <h2><%= t('attributes.role')%>: <%= @role.name %></h2>
 
-<h3> Zuordnungen zu dieser Rolle </h3>
+<h3> <%= t('controller.wobauth/authorities')%> </h3>
 
 <div id="role_authorities">
   <%= render :partial => 'role_authorities',

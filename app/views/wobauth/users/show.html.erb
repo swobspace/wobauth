@@ -56,9 +56,15 @@
 
 <br/>
 
-<h3>Userbezogene Berechtigungen</h3>
+<h3><%= t('controller.wobauth/authorities') %></h3>
 
 <div id="user_roles">
   <%= render partial: 'user_roles', locals: {user: @user} %>
+</div>
+
+<h3><%= t('controller.wobauth/groups') %></h3>
+
+<div id="user_groups">
+  <%= render partial: 'user_groups', locals: {user: @user} %>
 </div>
 
