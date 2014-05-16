@@ -1,13 +1,11 @@
-<table class="table table-bordered table-hover autowidth">
-  <tr>
-    <th><%= t('attributes.name')%>:</th>
-    <td><%= @role.name %></td>
-  </tr>
-</table>
+<h2><%= t('attributes.role')%>: <%= @role.name %></h2>
 
-<h2> Zuordnungen zu dieser Rolle </h2>
-<%= render :partial => 'role_authorities',
-           :locals => {:authorities => @role.authorities} %>
+<h3> Zuordnungen zu dieser Rolle </h3>
+
+<div id="role_authorities">
+  <%= render :partial => 'role_authorities',
+             :locals => {:authorities => @role.authorities} %>
+</div>
 
 <div class="btn-toolbar" role="toolbar">
   <%= back_link %>

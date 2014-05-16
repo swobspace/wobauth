@@ -71,5 +71,16 @@ module Wobauth
       get :show, id: @user
       assert_select "span[class=?]", "translation_missing", count: 0
     end
+
+    test "should show user authorities" do
+      role = FactoryGirl.create(:role, name: "Testrole")
+      FactoryGirl.create(:authority, authorizable: @user, role: role)
+      get :show, id: @user
+      assert_select "div#user_roles" do
+        assert_select "tbody tr[class=?]", "authority" do
+          assert_select "td", text: "Testrole"
+        end
+      end
+    end
   end
 end

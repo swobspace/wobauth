@@ -53,3 +53,12 @@
   <%= delete_link(@user) %>
   <%= new_link Wobauth::User %>
 </div>
+
+<br/>
+
+<h3>Userbezogene Berechtigungen</h3>
+
+<div id="user_roles">
+  <%= render partial: 'user_roles', locals: {user: @user} %>
+</div>
+

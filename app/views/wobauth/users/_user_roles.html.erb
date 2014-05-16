@@ -1,0 +1,21 @@
+<table class="table table-bordered autowidth">
+ <thead> 
+  <tr>
+    <th><%= t('attributes.role') %></th>
+    <th><%= t('attributes.authorized_for') %></th>
+    <th><%= t('attributes.authorized_for_type') %></th>
+    <th></th>
+  </tr>
+ </thead>
+ <tbody>
+<% user.authorities.each do |authority| %>
+  <%= content_tag_for(:tr, authority) do %>
+    <td><%= link_to authority.role, wobauth.role_path(authority.role) %></td>
+    <td><%= authorized_for_link(authority.authorized_for) %></td>
+    <td><%= authority.authorized_for_type %></td>
+    <td class="nowrap"> <%= edit_link(authority, remote: false) %>
+    </td>
+  <% end %>
+<% end %>
+ </tbody>
+</table>
