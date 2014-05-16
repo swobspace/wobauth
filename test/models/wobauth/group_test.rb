@@ -9,5 +9,13 @@ module Wobauth
 
     should validate_presence_of(:name)
     should validate_uniqueness_of(:name)
+
+    should "simple factory working" do
+      f = FactoryGirl.create(:group)
+      g = FactoryGirl.create(:group)
+      assert g.valid?
+      assert f.valid?
+    end
+
   end
 end

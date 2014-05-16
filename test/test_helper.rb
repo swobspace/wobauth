@@ -10,6 +10,7 @@ require 'devise'
 require 'cancancan'
 require 'sass-rails'
 require 'coffee-rails'
+require 'factory_girl_rails'
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -35,4 +36,8 @@ require "generators/wobauth/install_generator"
 class ActionController::TestCase
   include Devise::TestHelpers
   include Wobauth::ControllerMacros
+end
+
+class MiniTest::Unit::TestCase
+  include FactoryGirl::Syntax::Methods
 end
