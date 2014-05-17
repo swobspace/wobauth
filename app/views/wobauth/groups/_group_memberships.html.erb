@@ -1,0 +1,21 @@
+<table class="table table-striped table-condensed autowidth">
+ <thead> 
+  <tr>
+    <th><%= t('attributes.user') %> </th>
+    <th><%= t('attributes.auto') %> </th>
+    <th></th>
+  </tr>
+ </thead>
+ <tbody>
+<% group.memberships.each do |membership| %>
+  <%= content_tag_for(:tr, membership) do %>
+    <td><%= membership.user %></td>
+    <td><%= membership.auto %></td>
+    <td class="nowrap"> 
+      <%= edit_link(membership, class: 'btn btn-default btn-sm') %>
+      <%= delete_link(membership, class: 'btn btn-sm btn-danger') %>
+    </td>
+  <% end %>
+<% end %>
+ </tbody>
+</table>

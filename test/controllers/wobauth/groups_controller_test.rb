@@ -81,5 +81,28 @@ module Wobauth
       assert_select "span[class=?]", "translation_missing", count: 0
     end
 
+    test "should show group authorities" do
+      role = FactoryGirl.create(:role, name: "Testrole")
+      FactoryGirl.create(:authority, authorizable: @group, role: role)
+      get :show, id: @group
+      assert_select "div#group_roles" do
+        assert_select "tbody tr[class=?]", "authority" do
+          assert_select "td", text: "Testrole"
+        end
+      end
+    end
+
+    test "should show assigned memberships" do
+      user = FactoryGirl.create(:user, sn: "Berlin", givenname: "Mike")
+      FactoryGirl.create(:membership, user: user, group: @group)
+      get :show, id: @group
+      assert_select "div#group_memberships" do
+        assert_select "tbody tr[class=?]", "membership" do
+          assert_select "td", text: "Berlin, Mike"
+        end
+      end
+    end
+
+
   end
 end

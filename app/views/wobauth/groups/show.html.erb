@@ -1,13 +1,5 @@
-<table class="table table-bordered table-hover autowidth">
-  <tr>
-    <th><%= t('attributes.name')%>:</th>
-    <td><%= @group.name %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.description')%>:</th>
-    <td><%= @group.description %></td>
-  </tr>
-</table>
+<h2><%= t('attributes.group')%>: <%= @group.name %></h2>
+<p><%= t('attributes.description')%>: <%= @group.description %></p>
 
 <div class="btn-toolbar" role="toolbar">
   <%= back_link %>
@@ -15,3 +7,20 @@
   <%= delete_link(@group) %>
   <%= new_link Wobauth::Group %>
 </div>
+
+<h3><%= t('controller.wobauth/authorities') %></h3>
+
+<div id="group_roles">
+  <%= render partial: 'group_roles', locals: {group: @group} %>
+</div>
+
+<%= new_link(Wobauth::Authority, group_id: @group.to_param) %>
+
+<h3><%= t('controller.wobauth/groups') %></h3>
+
+<div id="group_memberships">
+  <%= render partial: 'group_memberships', locals: {group: @group} %>
+</div>
+
+<%= new_link(Wobauth::Membership, group_id: @group.to_param) %>
+
