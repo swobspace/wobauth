@@ -83,7 +83,7 @@ module Wobauth
       end
     end
 
-    test "should show assigned" do
+    test "should show assigned memberships" do
       group = FactoryGirl.create(:group, name: "Vereinsmeierei")
       FactoryGirl.create(:membership, user: @user, group: group)
       get :show, id: @user
