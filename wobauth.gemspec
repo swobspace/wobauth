@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.authors     = ["Wolfgang Barth"]
   s.email       = ["wob@swobspace.de"]
   s.homepage    = "http://github.com/swobspace/wobauth"
-  s.summary     = "Rails engine providing MVCs for Group, Role, Membership and Authority"
-  s.description = "Rails engine providing MVCs for Group, Role, Membership and Authority"
-  s.license     = "GPLv2"
+  s.summary     = "Rails engine providing MVCs for User, Group, Role, Membership and Authority"
+  s.description = "Rails engine providing MVCs for User, Group, Role, Membership and Authority"
+  s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
