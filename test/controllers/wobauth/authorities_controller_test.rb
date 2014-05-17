@@ -2,11 +2,13 @@ require 'test_helper'
 
 module Wobauth
   class AuthoritiesControllerTest < ActionController::TestCase
-    fixtures :authorities
-    set_fixture_class authorities: Wobauth::Authority
+    fixtures :authorities, :users, :roles
+    set_fixture_class authorities: Wobauth::Authority, 
+                      users: Wobauth::User, roles: Wobauth::Role
     setup do
       @authority = authorities(:one)
       @routes = Wobauth::Engine.routes
+      login_admin
     end
 
     test "should get index" do
@@ -18,6 +20,30 @@ module Wobauth
     test "should get new" do
       get :new
       assert_response :success
+    end
+
+    test "should get new with preselected user" do
+      user = FactoryGirl.create(:user)
+      get :new, user_id: user.to_param
+      assert_response :success
+      assert_select "select#authority_authorizable_type" do
+        assert_select "option[selected=?][value=?]", "selected", 'Wobauth::User'
+      end
+      assert_select "select#authority_authorizable_id" do
+        assert_select "option[selected=?][value=?]", "selected", user.to_param
+      end
+    end
+
+    test "should get new with preselected group" do
+      group = FactoryGirl.create(:group)
+      get :new, group_id: group.to_param
+      assert_response :success
+      assert_select "select#authority_authorizable_type" do
+        assert_select "option[selected=?][value=?]", "selected", 'Wobauth::Group'
+      end
+      assert_select "select#authority_authorizable_id" do
+        assert_select "option[selected=?][value=?]", "selected", group.to_param
+      end
     end
 
     test "should create authority" do
@@ -49,6 +75,16 @@ module Wobauth
       end
 
       assert_redirected_to authorities_path
+    end
+
+    test "should get all translations in index" do
+      get :index
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
+    test "should get all translations in show" do
+      get :show, id: @authority
+      assert_select "span[class=?]", "translation_missing", count: 0
     end
   end
 end

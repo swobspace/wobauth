@@ -6,25 +6,10 @@ module Wobauth
     yield self
   end
 
-  # class_name for the user model of your application.
-  # Default: "User"
-  #
-  mattr_accessor :user_class
-  @@user_class = "User"
-
-  def self.user_class
-    @@user_class.constantize
-  end
-
-  # returns the user_class as underscored symbol for source: statements
-  def self.user_source
-    @@user_class.underscore.to_sym
-  end
-
   # authorizable types
   #
   mattr_reader :authorizable_types 
-  @@authorizable_types = [ "User", "Wobauth::Group" ]
+  @@authorizable_types = [ "Wobauth::User", "Wobauth::Group" ]
   
   # authorized_for types
   # Objects on which Wobauth should set authorization
@@ -32,5 +17,15 @@ module Wobauth
   mattr_accessor :authorized_for_types 
   @@authorized_for_types = [ ]
   
+  # is remote authentication possible using REMOTE_USER?
+  # default: check devise settings
+  mattr_writer :remote_authentication
+  @@remote_authentication = nil
 
+  def self.remote_authentication?
+    if @@remote_authentication.nil?
+      @@remote_authentication = User.devise_modules.include?(:remote_user_authenticatable)
+    end
+    @@remote_authentication
+  end
 end

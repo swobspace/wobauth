@@ -11,32 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504143328) do
+ActiveRecord::Schema.define(version: 20140511101309) do
 
-  create_table "users", force: true do |t|
-    t.text     "gruppen"
-    t.string   "sn"
-    t.string   "givenname"
-    t.string   "displayname"
-    t.string   "telephone"
-    t.string   "userprincipalname"
-    t.string   "username",               default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table "posts", force: true do |t|
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
 
   create_table "wobauth_authorities", force: true do |t|
     t.integer  "authorizable_id"
@@ -77,5 +68,31 @@ ActiveRecord::Schema.define(version: 20140504143328) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "wobauth_users", force: true do |t|
+    t.string   "username",               default: "", null: false
+    t.text     "gruppen"
+    t.string   "sn"
+    t.string   "givenname"
+    t.string   "displayname"
+    t.string   "telephone"
+    t.string   "active_directory_guid"
+    t.string   "userprincipalname"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wobauth_users", ["email"], name: "index_wobauth_users_on_email", unique: true
+  add_index "wobauth_users", ["reset_password_token"], name: "index_wobauth_users_on_reset_password_token", unique: true
 
 end

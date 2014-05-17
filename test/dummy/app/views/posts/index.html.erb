@@ -1,0 +1,32 @@
+<h1><%= t('controller.posts') %></h1>
+
+<table id="dataTable" class="table table-bordered table-striped dataTable">
+<thead>
+  <tr>
+    <th><%= t('attributes.subject') %></th>
+    <th><%= t('attributes.message') %></th>
+    <th><%= t('attributes.category') %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+
+<% @posts.each do |post| %>
+  <%= content_tag_for(:tr, post) do %>
+    <td><%= post.subject %></td>
+    <td><%= post.message %></td>
+    <td><%= post.category %></td>
+    <td class="nowrap">
+      <%= show_link post %>
+      <%= edit_link post %>
+      <%= delete_link post %>
+    </td>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= back_link %>
+<%= new_link Post %>

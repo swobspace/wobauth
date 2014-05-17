@@ -5,7 +5,7 @@ module Wobauth
     has_many :roles,       through: :authorities
     has_many :memberships
     has_many :users, -> { uniq }, through: :memberships,
-                     source:  Wobauth.user_source
+                     source: :user
     # -- configuration
     # -- validations and callbacks
     validates :name, :presence => true, :uniqueness => true

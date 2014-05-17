@@ -1,0 +1,15 @@
+<% if Wobauth::AdminAbility.new(current_user).can? :navigate, Wobauth::User %>
+  <ul class="nav navbar-nav">
+    <li class="dropdown <%= admin_active_class %>">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Admin<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <% ['users', 'groups', 'memberships', 'roles', 'authorities'].each do |ctrlr| %>
+        <li>
+          <%=link_to t('controller.wobauth/' + ctrlr), wobauth.send("#{ctrlr}_path")%>
+        </li>
+    <% end %>
+      </ul>
+    </li>
+  </ul>
+<% end %>

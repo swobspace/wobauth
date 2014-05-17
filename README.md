@@ -1,12 +1,15 @@
 wobauth
 =======
 
-Rails engine providing MVCs for Roles, Groups, Authorities and Memberships
-to support authorization of the main application, but no user model and no logic
-for authoritations.
+Rails engine providing MVCs for Users, Roles, Groups, Authorities and Memberships
+to support authorization of the main application.
 
-The User model is mostly coupled with your application. The concrete
-authorization logic too since it has to know which models are available. The rest
+The User model is mostly coupled with your application, so Woauth::User is open classed.
+You should overwrite it depending on your needs. See 
+test/dummy/app/models/wobauth/user.rb for an example.
+
+You have to build your own concrete authorization logic with cancancan or
+something similiar. The basic principle
 is always the same. A subject (user or group) has some rights (the role) on
 concret objects. The objects may be organizational units, sites, categories
 or something else whatever your application provides. The object may be nil
@@ -19,13 +22,6 @@ members of group. Memberships are separate model here (not only an plain
 many-to-many association) to allow both manual memberships and
 automatically created memberships during the login process.
 
-Since the user model is not included, you have to provide your own user model
-and authentication function. Choose something like devise or authlogic, but you
-can also build an authentication from scratch.
-
-**THIS APPLICATION IS WORK IN PROGRESS AND NOT FUNCTIONAL YET!**
-You will loose all your hair and teeth if you use this application ;-)
-
 Dependencies
 ------------
 
@@ -34,6 +30,7 @@ Dependencies
 * wobapphelpers
 * bootstrap v3; must be included by by yourself (via gem or manually)
 * simple_form >= 3.1
+* devise
 
 Installation
 ------------
@@ -63,22 +60,13 @@ If you are looking for examples using wobauth, have a look at
 [boskop](https://github.com/swobspace/boskop). BTW the project
 isn't really started. Stay tuned and try it again in a few weeks.
 
+Another simple example is the [test/dummy](test/dummy) application
+included in this rails engine.
+
 Licence
 -------
 
 wobauth Copyright (C) 2014  Wolfgang Barth
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+MIT license, see [LICENSE](LICENSE)
 

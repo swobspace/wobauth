@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  email: one@example.org
+  username: one
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
+#
+two:
+  email: two@example.org
+  username: two
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
+#
+admin:
+  email: root@example.org
+  username: admin
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>
+#
+dummy:
+  email: dummy@example.org
+  username: dummy
+  encrypted_password: <%= Wobauth::User.new.send(:password_digest, 'test99') %>

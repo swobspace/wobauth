@@ -1,16 +1,22 @@
 de:
   activerecord:
     models:
-      user: User
+      category: Kategorie
+      post: Posting
  
   attributes:
+    category: Kategorie
     description: Beschreibung
     displayname: Anzeigename
     givenname: Vorname
+    message: Nachricht
     name: Name
+    post: Posting
     sn: Nachname
+    subject: Betreff
     username: Username
  
   controller:
     home: Home
-    users: Benutzer
+    categories: Kategorien
+    posts: Postings

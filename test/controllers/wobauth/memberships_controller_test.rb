@@ -2,11 +2,13 @@ require 'test_helper'
 
 module Wobauth
   class MembershipsControllerTest < ActionController::TestCase
-    fixtures :memberships
-    set_fixture_class memberships: Wobauth::Membership
+    fixtures :memberships, :users, :roles
+    set_fixture_class memberships: Wobauth::Membership, 
+                      users: Wobauth::User, roles: Wobauth::Role
     setup do 
       @membership = memberships(:one)
       @routes = Wobauth::Engine.routes
+      login_admin
     end
 
     test "should get index" do
@@ -18,6 +20,24 @@ module Wobauth
     test "should get new" do
       get :new
       assert_response :success
+    end
+
+    test "get new should preselected user" do
+      user = FactoryGirl.create(:user)
+      get :new, user_id: user.to_param
+      assert_response :success
+      assert_select "select#membership_user_id" do
+        assert_select "option[selected=?][value=?]", "selected", user.to_param
+      end
+    end
+
+    test "get new should preselected group" do
+      group = FactoryGirl.create(:group)
+      get :new, group_id: group.to_param
+      assert_response :success
+      assert_select "select#membership_group_id" do
+        assert_select "option[selected=?][value=?]", "selected", group.to_param
+      end
     end
 
     test "should create membership" do
@@ -50,5 +70,16 @@ module Wobauth
 
       assert_redirected_to memberships_path
     end
+
+    test "should get all translations in index" do
+      get :index
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
+    test "should get all translations in show" do
+      get :show, id: @membership
+      assert_select "span[class=?]", "translation_missing", count: 0
+    end
+
   end
 end

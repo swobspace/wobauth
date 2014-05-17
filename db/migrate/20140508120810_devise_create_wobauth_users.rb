@@ -1,6 +1,9 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class DeviseCreateWobauthUsers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:wobauth_users) do |t|
+
+      # -- devise_cas_authenticable
+      t.string :username, :null => false, :default => ""
 
       # -- wob's extensions
       t.text "gruppen"
@@ -8,8 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string "givenname"
       t.string "displayname"
       t.string "telephone"
+      t.string "active_directory_guid"
       t.string "userprincipalname"
-      t.string :username, :null => false, :default => ""
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -44,9 +47,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :wobauth_users, :email,                unique: true
+    add_index :wobauth_users, :reset_password_token, unique: true
+    # add_index :wobauth_users, :confirmation_token,   unique: true
+    # add_index :wobauth_users, :unlock_token,         unique: true
   end
 end

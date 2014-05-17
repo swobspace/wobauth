@@ -18,7 +18,7 @@ module Wobauth
 
     # GET /authorities/new
     def new
-      @authority = Authority.new
+      @authority = Authority.new(new_authority_params)
       respond_with(@authority)
     end
 
@@ -55,6 +55,14 @@ module Wobauth
       # Only allow a trusted parameter "white list" through.
       def authority_params
         params.require(:authority).permit(:authorizable_id, :authorizable_type, :role_id, :authorized_for_id, :authorized_for_type, :valid_from, :valid_until)
+      end
+
+      def new_authority_params
+        if params[:user_id]
+          { authorizable_type: 'Wobauth::User', authorizable_id: params[:user_id] }
+        elsif params[:group_id]
+          { authorizable_type: 'Wobauth::Group', authorizable_id: params[:group_id] }
+        end
       end
   end
 end

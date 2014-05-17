@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover autowidth">
+  <tr>
+    <th><%= t('attributes.subject')%>:</th>
+    <td><%= @post.subject %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.message')%>:</th>
+    <td><%= @post.message %></td>
+  </tr>
+  <tr>
+    <th><%= t('attributes.category')%>:</th>
+    <td><%= @post.category %></td>
+  </tr>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+  <%= back_link %>
+  <%= edit_link(@post) %>
+  <%= delete_link(@post) %>
+  <%= new_link Post %>
+</div>

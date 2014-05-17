@@ -9,5 +9,13 @@ module Wobauth
     should validate_presence_of(:authorizable_id)
     should validate_presence_of(:authorizable_type)
     should validate_presence_of(:role_id)
+
+    should "simple factory working" do
+      f = FactoryGirl.create(:authority)
+      g = FactoryGirl.create(:authority)
+      assert g.valid?
+      assert f.valid?
+    end
+
   end
 end
