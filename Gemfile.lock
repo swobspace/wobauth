@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/wobapphelpers.git
-  revision: ba65ef6ec51041ad5650a866a63326fd4ce50647
+  revision: dc6a1903fe9644e61e9ec11847eb0fbef40f1890
   branch: master
   specs:
     wobapphelpers (0.0.1)
@@ -92,7 +92,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    minitest (5.3.3)
+    minitest (5.3.4)
     multi_json (1.10.0)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
@@ -114,7 +114,7 @@ GEM
       activesupport (= 4.1.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.3.1)
+    rake (10.3.2)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     sass (3.2.19)
