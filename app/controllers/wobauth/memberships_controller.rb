@@ -18,7 +18,10 @@ module Wobauth
 
     # GET /memberships/new
     def new
-      @membership = Membership.new
+      @membership = Membership.new(
+                      user_id: params.fetch(:user_id, nil),
+                      group_id: params.fetch(:group_id, nil),
+                    )
       respond_with(@membership)
     end
 
