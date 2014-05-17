@@ -62,9 +62,12 @@
   <%= render partial: 'user_roles', locals: {user: @user} %>
 </div>
 
+<%= new_link(Wobauth::Authority, user_id: @user.to_param) %>
+
 <h3><%= t('controller.wobauth/groups') %></h3>
 
 <div id="user_groups">
   <%= render partial: 'user_groups', locals: {user: @user} %>
 </div>
 
+<%= new_link(Wobauth::Membership, user_id: @user.to_param) %>
