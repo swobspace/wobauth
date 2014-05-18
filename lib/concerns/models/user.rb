@@ -11,13 +11,12 @@ module Wobauth
 	has_many :groups, -> { uniq }, through: :memberships
 
         validates :username, presence: true, uniqueness: true
-        validates :email, presence: true
       end
 
 
       def to_s
         if sn.blank? and givenname.blank?
-	  "#{email}"
+	  "#{username}"
         else
           "#{sn}, #{givenname}"
         end
