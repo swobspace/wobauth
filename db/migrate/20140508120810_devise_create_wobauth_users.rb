@@ -47,7 +47,7 @@ class DeviseCreateWobauthUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :wobauth_users, :email,                unique: true
+    add_index :wobauth_users, :username,             unique: true
     add_index :wobauth_users, :reset_password_token, unique: true
     # add_index :wobauth_users, :confirmation_token,   unique: true
     # add_index :wobauth_users, :unlock_token,         unique: true
