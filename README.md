@@ -66,7 +66,7 @@ class Wobauth::User < ActiveRecord::Base
   ... add your associations and methods ...
 end
 ```
-**DO NOT USE :validatable**, since ''wobauth'' uses :username as authentication key
+**DO NOT USE :validatable**, since wobauth uses :username as authentication key
 (devise default :email, will be required if you use :validatable). 
 
 ### Authorized_for types
