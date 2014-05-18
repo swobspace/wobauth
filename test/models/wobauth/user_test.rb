@@ -9,7 +9,7 @@ module Wobauth
     should have_many(:groups).through(:memberships)
 
     should validate_presence_of(:username)
-    should validate_presence_of(:email)
+    should allow_value("").for(:email)
     should validate_uniqueness_of(:username)
 
     should "simple factory working" do
