@@ -48,7 +48,53 @@ to create an example configuration in ''config/initializers/wobauth.rb''
 
 Configuration
 -------------
-TBD
+
+### User model
+
+To customize the user model to your needs, create app/models/wobauth/users.rb in
+your application:
+
+```ruby
+# main_app/app/models/wobauth/user.rb
+
+class Wobauth::User < ActiveRecord::Base
+  include Wobauth::Concerns::Models::User
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable
+
+  ... add your associations and methods ...
+end
+```
+**DO NOT USE :validatable**, since wobauth uses :username as authentication key
+(devise default :email, will be required if you use :validatable). 
+
+### Authorized_for types
+
+If you have objects for which wobauth should provide authority configuration, 
+set your models in the initializer (created by ```rails g wobauth:install```). 
+In this example we will use Category from your main application:
+
+```ruby
+Wobauth.setup do |config|
+  #
+  # Configuration for Authorization
+  # 1. Subject: Authorizable
+  # do not change it unless you know exactly what you are doing
+  #
+  # config.authorizable_types = [ "Wobauth::User", "Wobauth::Group" ]
+  #
+  # 2. Object: Authorized_for
+  # depends on your application ...
+  # default: []
+   
+  config.authorized_for_types = [ "Category" ]
+   
+end
+```
+
+You can create and delete authority records within wobauth, but you have to build
+your own authorization with cancan(can) in your main application.
 
 Deployment
 ----------
