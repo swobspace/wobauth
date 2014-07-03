@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "wobapphelpers"
   s.add_dependency "simple_form"
   s.add_dependency "devise"
-  s.add_dependency "cancancan", "~> 1.7.0"
+  s.add_dependency "cancancan", "~> 1.7"
   s.add_dependency 'sass-rails'
   s.add_dependency 'coffee-rails'
 
