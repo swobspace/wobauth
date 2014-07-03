@@ -37,7 +37,7 @@ Installation
 Add wobauth to your Gemfile:
 
 ```ruby
-gem 'wobauth', git: 'git@github.com:swobspace/wobauth.git', branch: 'master'
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
 ```
 Run
 
