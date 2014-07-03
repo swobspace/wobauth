@@ -107,7 +107,7 @@ You can create and delete authority records within wobauth, but you have to buil
 your own authorization with cancan(can) in your main application.
 
 ### Routes
-Add the following to `routes.rb`: 
+Mount the rails engine:
 
 ```ruby
 # config/routes.rb
