@@ -4,7 +4,7 @@ wobauth
 Rails engine providing MVCs for Users, Roles, Groups, Authorities and Memberships
 to support authorization of the main application.
 
-The User model is mostly coupled with your application, so Woauth::User is open classed.
+The User model is mostly coupled with your application, so Wobauth::User is open classed.
 You should overwrite it depending on your needs. See 
 test/dummy/app/models/wobauth/user.rb for an example.
 
@@ -78,6 +78,20 @@ end
 ```
 **DO NOT USE :validatable**, since wobauth uses :username as authentication key
 (devise default :email, will be required if you use :validatable). 
+
+### Application controller
+
+```ruby
+class ApplicationController < ActionController::Base
+  helper Wobauth::ApplicationHelper
+  ...
+end
+```
+
+Helpers for bootstrap navbar:
+
+* `navigation_account_links` : navigation partial for login/userprofile/logout
+* `navigation_admin_links` : navigation partial for user/roles/authorities ...
 
 ### Authorized_for types
 
