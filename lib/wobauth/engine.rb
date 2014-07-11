@@ -12,5 +12,9 @@ module Wobauth
     initializer "wobauth.assets.precompile" do |app|
       app.config.assets.precompile += %w(wobauth/authorities.js)
     end
+
+    config.to_prepare do
+      Wobauth::ApplicationController.helper Rails.application.helpers
+    end
   end
 end
