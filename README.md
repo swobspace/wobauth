@@ -69,14 +69,7 @@ end
 **DO NOT USE :validatable**, since wobauth uses :username as authentication key
 (devise default :email, will be required if you use :validatable). 
 
-### Application controller
-
-```ruby
-class ApplicationController < ActionController::Base
-  helper Wobauth::ApplicationHelper
-  ...
-end
-```
+### Views
 
 Helpers for bootstrap navbar:
 
