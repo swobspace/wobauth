@@ -13,8 +13,15 @@ module Wobauth
       app.config.assets.precompile += %w(wobauth/authorities.js)
     end
 
+    initializer 'wobauth.action_controller' do |app|
+      ActiveSupport.on_load :action_controller do
+        helper Wobauth::ApplicationHelper
+      end
+    end
+
     config.to_prepare do
       Wobauth::ApplicationController.helper Rails.application.helpers
     end
+
   end
 end
