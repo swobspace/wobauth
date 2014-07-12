@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/wobapphelpers.git
-  revision: dc6a1903fe9644e61e9ec11847eb0fbef40f1890
+  revision: 43efcdcc0e90814e41598464db6462e6a50f813c
   branch: master
   specs:
     wobapphelpers (0.0.1)
@@ -19,7 +19,7 @@ PATH
   remote: .
   specs:
     wobauth (0.0.1)
-      cancancan (~> 1.7.0)
+      cancancan (~> 1.7)
       coffee-rails
       devise
       rails (~> 4.1.0)
@@ -76,7 +76,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
-    execjs (2.0.2)
+    execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -95,7 +95,7 @@ GEM
     minitest (5.3.4)
     multi_json (1.10.0)
     orm_adapter (0.5.0)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
