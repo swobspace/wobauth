@@ -56,6 +56,12 @@ rails g wobauth:install
 ```
 to create an example configuration in ''config/initializers/wobauth.rb''
 
+```ruby
+rake wobauth:install:migrations
+```
+copies wobauth migration files wobauth to your application. Do this before you
+create your own migration files if possible.
+
 Configuration
 -------------
 
