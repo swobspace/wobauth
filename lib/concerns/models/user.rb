@@ -26,6 +26,13 @@ module Wobauth
         to_s
       end
 
+      def is_admin?
+        role?(:admin)
+      end
+
+      def role?(role)
+        !!self.roles.find_by_name(role.to_s.camelize)
+      end
     end
   end
 end
