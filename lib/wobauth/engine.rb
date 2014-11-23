@@ -19,6 +19,10 @@ module Wobauth
       end
     end
 
+    initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
+      FactoryGirl.definition_file_paths << File.expand_path('../../../test/factories', __FILE__) if defined?(FactoryGirl)
+    end
+
     config.to_prepare do
       Wobauth::ApplicationController.helper Rails.application.helpers
     end
