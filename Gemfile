@@ -21,4 +21,4 @@ gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
 gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git',
                    branch: 'master'
 
-gem 'cancancan', '~> 1.7.0'
+gem 'cancancan', '~> 1.7'
