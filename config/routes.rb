@@ -9,5 +9,5 @@ Wobauth::Engine.routes.draw do
   resources :groups
   resources :roles
 
-  get 'login/login', as: :login
+  get 'login' => 'login#login', as: :login
 end
