@@ -38,3 +38,6 @@ Authority
            givenname:string displayname:string telephone:string \
            email:string --no-skip-test-unit
 
+Login
+
+    bin/rails g controller Login login
