@@ -6,7 +6,7 @@ require "wobauth/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "wobauth"
-  s.version     = Wobauth::VERSION
+  s.version     = Wobauth::VERSION.dup
   s.authors     = ["Wolfgang Barth"]
   s.email       = ["wob@swobspace.de"]
   s.homepage    = "http://github.com/swobspace/wobauth"
