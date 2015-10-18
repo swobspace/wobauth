@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency "bootstrap-sass"
   s.add_development_dependency "shoulda"
-  s.add_development_dependency "devise"
   s.add_development_dependency "factory_girl_rails"
 
 end
