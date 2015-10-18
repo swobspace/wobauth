@@ -24,12 +24,12 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "simple_form"
   s.add_runtime_dependency "devise"
   s.add_runtime_dependency "cancancan", "~> 1.9"
-  s.add_runtime_dependency 'sass-rails'
+  s.add_runtime_dependency 'sass-rails', '>= 0'
   s.add_runtime_dependency 'coffee-rails'
 
   s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency 'sass-rails'
+  s.add_development_dependency 'sass-rails', '>= 0'
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency "bootstrap-sass"
   s.add_development_dependency "shoulda"
