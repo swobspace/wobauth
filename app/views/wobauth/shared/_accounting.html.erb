@@ -16,9 +16,11 @@
 	<% end %>
 	<li><%= link_to "Login-Formular", wobauth.new_user_session_path -%></li>
       <% else %>
-      <li><%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Mein Profil", wobauth.edit_user_registration_path %></li>
+        <li><%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete %></li>
+        <% if Wobauth::User.devise_modules.include?(:registerable) %>
+          <li class="divider"></li>
+          <li><%= link_to "Mein Profil", wobauth.edit_user_registration_path %></li>
+        <% end %>
       <% end %>
     </ul>
   </li>
