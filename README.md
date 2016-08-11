@@ -22,15 +22,25 @@ members of group. Memberships are separate model here (not only an plain
 many-to-many association) to allow both manual memberships and
 automatically created memberships during the login process.
 
+Versions
+--------
+
+wobauth 1.x is for Rails 4, wobauth 2.x will support Rails 5.
+
 Dependencies
 ------------
 
-* rails >= 4.1
+Branch ''master'':
+
+* rails ~> 4.1
 * ruby >= 2.0
 * wobapphelpers
-* bootstrap v3; must be included by by yourself (via gem or manually)
+* bootstrap v3; must be included by by yourself (via gem, bower or manually)
 * simple_form >= 3.1
 * devise
+
+wobauth is not Rails5 ready, I am waiting until simple_form supports Rails5. Stay
+tuned.
 
 Installation
 ------------
@@ -96,15 +106,10 @@ end
 You can create and delete authority records within wobauth, but you have to build
 your own authorization with cancan(can) in your main application.
 
-Deployment
-----------
-TBD
-
 Applications using wobauth
 --------------------------
 If you are looking for examples using wobauth, have a look at
-[boskop](https://github.com/swobspace/boskop). BTW the project
-isn't really started. Stay tuned and try it again in a few weeks.
+[boskop](https://github.com/swobspace/boskop). 
 
 Another simple example is the [test/dummy](test/dummy) application
 included in this rails engine.
@@ -112,7 +117,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014  Wolfgang Barth
+wobauth Copyright (C) 2014-2016  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 
