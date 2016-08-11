@@ -34,7 +34,7 @@ require "rails/generators/test_case"
 require "generators/wobauth/install_generator"
 
 class ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
   include Wobauth::ControllerMacros
 end
 
