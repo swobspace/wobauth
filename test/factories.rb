@@ -1,17 +1,12 @@
 FactoryGirl.define do
 
-
-  sequence :name do |n|
-    "name_#{n}"
-  end
-
   factory :authority, class: Wobauth::Authority do
     association :authorizable, factory: :user
     role
   end
 
   factory :group, class: Wobauth::Group do
-    name
+    sequence(:name) { |n| "name_#{n}" }
   end
 
   factory :membership, class: Wobauth::Membership do
@@ -21,7 +16,7 @@ FactoryGirl.define do
   end
 
   factory :role, class: Wobauth::Role do
-    name
+    sequence(:name) { |n| "name_#{n}" }
   end
 
   factory :user, class: Wobauth::User do
