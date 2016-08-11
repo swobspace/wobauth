@@ -6,7 +6,9 @@ require "wobauth/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "wobauth"
-  s.version     = Wobauth::VERSION
+  s.version     = Wobauth::VERSION.dup
+  s.platform    = Gem::Platform::RUBY
+  s.require_paths = ["lib"]
   s.authors     = ["Wolfgang Barth"]
   s.email       = ["wob@swobspace.de"]
   s.homepage    = "http://github.com/swobspace/wobauth"
@@ -14,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = "Rails engine providing MVCs for User, Group, Role, Membership and Authority"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.1"

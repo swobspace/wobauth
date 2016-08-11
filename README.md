@@ -4,7 +4,7 @@ wobauth
 Rails engine providing MVCs for Users, Roles, Groups, Authorities and Memberships
 to support authorization of the main application.
 
-The User model is mostly coupled with your application, so Woauth::User is open classed.
+The User model is mostly coupled with your application, so Wobauth::User is open classed.
 You should overwrite it depending on your needs. See 
 test/dummy/app/models/wobauth/user.rb for an example.
 
@@ -56,6 +56,12 @@ rails g wobauth:install
 ```
 to create an example configuration in ''config/initializers/wobauth.rb''
 
+```ruby
+rake wobauth:install:migrations
+```
+copies wobauth migration files wobauth to your application. Do this before you
+create your own migration files if possible.
+
 Configuration
 -------------
 
@@ -78,6 +84,13 @@ end
 ```
 **DO NOT USE :validatable**, since wobauth uses :username as authentication key
 (devise default :email, will be required if you use :validatable). 
+
+### Views
+
+Helpers for bootstrap navbar:
+
+* `navigation_account_links` : navigation partial for login/userprofile/logout
+* `navigation_admin_links` : navigation partial for user/roles/authorities ...
 
 ### Authorized_for types
 
@@ -105,6 +118,17 @@ end
 
 You can create and delete authority records within wobauth, but you have to build
 your own authorization with cancan(can) in your main application.
+
+### Routes
+Mount the rails engine:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  mount Wobauth::Engine, at: '/auth'
+  ...
+end
+```
 
 Applications using wobauth
 --------------------------
