@@ -16,6 +16,7 @@ gemspec
 # specifying git is not possible in *gemrc
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git', 
                      branch: "master"
-gem 'simple_form'
 
-gem 'cancancan', '~> 1.9'
+gem 'cancancan', '~> 1.7'
+gem 'bower-rails', '~> 0.10.0'
+gem 'simple_form'

@@ -7,7 +7,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     get home_path
     assert_response :success
     assert_select "div#breadcrumbs" do
-      assert_select "[href='/home\?bci=0']", title: "Home"
+      assert_select "[href=?]", '/home?bci=0', title: "Home"
     end
   end
 end

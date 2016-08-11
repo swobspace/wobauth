@@ -4,7 +4,7 @@ wobauth
 Rails engine providing MVCs for Users, Roles, Groups, Authorities and Memberships
 to support authorization of the main application.
 
-The User model is mostly coupled with your application, so Wobauth::User is open classed.
+The User model is mostly coupled with your application, so Woauth::User is open classed.
 You should overwrite it depending on your needs. See 
 test/dummy/app/models/wobauth/user.rb for an example.
 
@@ -22,15 +22,25 @@ members of group. Memberships are separate model here (not only an plain
 many-to-many association) to allow both manual memberships and
 automatically created memberships during the login process.
 
+Versions
+--------
+
+wobauth 1.x is for Rails 4, wobauth 2.x will support Rails 5.
+
 Dependencies
 ------------
 
-* rails >= 4.1
+Branch ''master'':
+
+* rails ~> 4.1
 * ruby >= 2.0
 * wobapphelpers
-* bootstrap v3; must be included by by yourself (via gem or manually)
+* bootstrap v3; must be included by by yourself (via gem, bower or manually)
 * simple_form >= 3.1
 * devise
+
+wobauth is not Rails5 ready, I am waiting until simple_form supports Rails5. Stay
+tuned.
 
 Installation
 ------------
@@ -45,12 +55,6 @@ Run
 rails g wobauth:install
 ```
 to create an example configuration in ''config/initializers/wobauth.rb''
-
-```ruby
-rake wobauth:install:migrations
-```
-copies wobauth migration files wobauth to your application. Do this before you
-create your own migration files if possible.
 
 Configuration
 -------------
@@ -74,13 +78,6 @@ end
 ```
 **DO NOT USE :validatable**, since wobauth uses :username as authentication key
 (devise default :email, will be required if you use :validatable). 
-
-### Views
-
-Helpers for bootstrap navbar:
-
-* `navigation_account_links` : navigation partial for login/userprofile/logout
-* `navigation_admin_links` : navigation partial for user/roles/authorities ...
 
 ### Authorized_for types
 
@@ -109,26 +106,10 @@ end
 You can create and delete authority records within wobauth, but you have to build
 your own authorization with cancan(can) in your main application.
 
-### Routes
-Mount the rails engine:
-
-```ruby
-# config/routes.rb
-Rails.application.routes.draw do
-  mount Wobauth::Engine, at: '/auth'
-  ...
-end
-```
-
-Deployment
-----------
-TBD
-
 Applications using wobauth
 --------------------------
 If you are looking for examples using wobauth, have a look at
-[boskop](https://github.com/swobspace/boskop). BTW the project
-isn't really started. Stay tuned and try it again in a few weeks.
+[boskop](https://github.com/swobspace/boskop). 
 
 Another simple example is the [test/dummy](test/dummy) application
 included in this rails engine.
@@ -136,7 +117,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014  Wolfgang Barth
+wobauth Copyright (C) 2014-2016  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 
