@@ -1,0 +1,7 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "jquery": "~> 2",
+    "bootstrap-sass": "~> 3.3"
+  }
+}

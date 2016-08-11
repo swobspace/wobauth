@@ -1,8 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'jquery-rails'
-require 'bootstrap-sass'
+require "jquery-rails"
 
 Bundler.require(*Rails.groups)
 require "wobauth"

@@ -20,4 +20,3 @@ gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git',
 gem 'cancancan', '~> 1.7'
 gem 'bower-rails', '~> 0.10.0'
 gem 'simple_form'
-
