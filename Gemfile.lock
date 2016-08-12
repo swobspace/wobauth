@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    wobauth (1.0.0)
+    wobauth (1.0.1)
       cancancan (~> 1.7)
       coffee-rails
       devise
