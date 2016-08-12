@@ -18,7 +18,6 @@ test/tmp
 ## Environment normalisation:
 /.bundle
 /vendor/bundle
-test/dummy/public/assets/
 
 # ignore bower stuff
 /vendor/assets/bower_components
