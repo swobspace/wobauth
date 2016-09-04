@@ -24,7 +24,7 @@ module Wobauth
 
     test "get new should preselected user" do
       user = FactoryGirl.create(:user)
-      get :new, user_id: user.to_param
+      get :new, params: { user_id: user.to_param }
       assert_response :success
       assert_select "select#membership_user_id" do
         assert_select "option[selected=?][value=?]", "selected", user.to_param
@@ -33,7 +33,7 @@ module Wobauth
 
     test "get new should preselected group" do
       group = FactoryGirl.create(:group)
-      get :new, group_id: group.to_param
+      get :new, params: { group_id: group.to_param }
       assert_response :success
       assert_select "select#membership_group_id" do
         assert_select "option[selected=?][value=?]", "selected", group.to_param
@@ -42,30 +42,30 @@ module Wobauth
 
     test "should create membership" do
       assert_difference('Membership.count') do
-        post :create, membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id }
+        post :create, params: { membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id } }
       end
 
       assert_redirected_to membership_path(assigns(:membership))
     end
 
     test "should show membership" do
-      get :show, id: @membership
+      get :show, params: { id: @membership }
       assert_response :success
     end
 
     test "should get edit" do
-      get :edit, id: @membership
+      get :edit, params: { id: @membership }
       assert_response :success
     end
 
     test "should update membership" do
-      patch :update, id: @membership, membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id }
+      patch :update, params: { id: @membership, membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id } }
       assert_redirected_to membership_path(assigns(:membership))
     end
 
     test "should destroy membership" do
       assert_difference('Membership.count', -1) do
-        delete :destroy, id: @membership
+        delete :destroy, params: { id: @membership }
       end
 
       assert_redirected_to memberships_path
@@ -77,7 +77,7 @@ module Wobauth
     end
 
     test "should get all translations in show" do
-      get :show, id: @membership
+      get :show, params: { id: @membership }
       assert_select "span[class=?]", "translation_missing", count: 0
     end
 

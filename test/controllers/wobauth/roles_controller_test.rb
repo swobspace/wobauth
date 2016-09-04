@@ -18,7 +18,7 @@ module Wobauth
     end
 
     test "should show role" do
-      get :show, id: @role
+      get :show, params: { id: @role }
       assert_response :success
     end
 
@@ -28,14 +28,14 @@ module Wobauth
     end
 
     test "should get all translations in show" do
-      get :show, id: @role
+      get :show, params: { id: @role }
       assert_select "span[class=?]", "translation_missing", count: 0
     end
 
     test "should show assigned authorities" do
       user = FactoryGirl.create(:user, sn: "Quark", givenname: "Guenter")
       FactoryGirl.create(:authority, authorizable: user, role: @role)
-      get :show, id: @role
+      get :show, params: { id: @role }
       assert_select "div#role_authorities" do
         assert_select "tbody tr[class=?]", "authority" do
           assert_select "td", text: "Quark, Guenter"

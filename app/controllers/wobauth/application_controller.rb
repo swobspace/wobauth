@@ -4,13 +4,13 @@ module Wobauth
     layout "application"
 
     # -- devise
-    before_filter :authenticate_user!, :unless => :devise_controller?
+    before_action :authenticate_user!, :unless => :devise_controller?
     # -- cancan
     load_and_authorize_resource unless: :devise_controller?
 
     # -- breadcrumbs
     include Wobapphelpers::Breadcrumbs
-    before_filter :add_breadcrumb_index, only: [:index]
+    before_action :add_breadcrumb_index, only: [:index]
 
     # -- flash responder
     self.responder = Wobapphelpers::Responders

@@ -11,6 +11,8 @@ require 'cancancan'
 require 'sass-rails'
 require 'coffee-rails'
 require 'factory_girl_rails'
+require 'rails-controller-testing'
+Rails::Controller::Testing.install
 
 Rails.backtrace_cleaner.remove_silencers!
 

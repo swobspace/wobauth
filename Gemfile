@@ -17,6 +17,8 @@ gemspec
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git', 
                      branch: "master"
 
-gem 'cancancan', '~> 1.7'
+gem 'cancancan'
 gem 'bower-rails', '~> 0.10.0'
 gem 'simple_form'
+gem 'record_tag_helper', '~> 1.0'
+
