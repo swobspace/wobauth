@@ -24,7 +24,7 @@ module Wobauth
 
     test "should get new with preselected user" do
       user = FactoryGirl.create(:user)
-      get :new, user_id: user.to_param
+      get :new, params: { user_id: user.to_param }
       assert_response :success
       assert_select "select#authority_authorizable_type" do
         assert_select "option[selected=?][value=?]", "selected", 'Wobauth::User'
@@ -36,7 +36,7 @@ module Wobauth
 
     test "should get new with preselected group" do
       group = FactoryGirl.create(:group)
-      get :new, group_id: group.to_param
+      get :new, params: { group_id: group.to_param }
       assert_response :success
       assert_select "select#authority_authorizable_type" do
         assert_select "option[selected=?][value=?]", "selected", 'Wobauth::Group'
@@ -48,30 +48,30 @@ module Wobauth
 
     test "should create authority" do
       assert_difference('Authority.count') do
-        post :create, authority: { authorizable_id: @authority.authorizable_id, authorizable_type: @authority.authorizable_type, authorized_for_id: @authority.authorized_for_id, authorized_for_type: @authority.authorized_for_type, role_id: @authority.role_id, valid_from: @authority.valid_from, valid_until: @authority.valid_until }
+        post :create, params: { authority: { authorizable_id: @authority.authorizable_id, authorizable_type: @authority.authorizable_type, authorized_for_id: @authority.authorized_for_id, authorized_for_type: @authority.authorized_for_type, role_id: @authority.role_id, valid_from: @authority.valid_from, valid_until: @authority.valid_until } }
       end
 
       assert_redirected_to authority_path(assigns(:authority))
     end
 
     test "should show authority" do
-      get :show, id: @authority
+      get :show, params: { id: @authority }
       assert_response :success
     end
 
     test "should get edit" do
-      get :edit, id: @authority
+      get :edit, params: { id: @authority }
       assert_response :success
     end
 
     test "should update authority" do
-      patch :update, id: @authority, authority: { authorizable_id: @authority.authorizable_id, authorizable_type: @authority.authorizable_type, authorized_for_id: @authority.authorized_for_id, authorized_for_type: @authority.authorized_for_type, role_id: @authority.role_id, valid_from: @authority.valid_from, valid_until: @authority.valid_until }
+      patch :update, params: { id: @authority, authority: { authorizable_id: @authority.authorizable_id, authorizable_type: @authority.authorizable_type, authorized_for_id: @authority.authorized_for_id, authorized_for_type: @authority.authorized_for_type, role_id: @authority.role_id, valid_from: @authority.valid_from, valid_until: @authority.valid_until } }
       assert_redirected_to authority_path(assigns(:authority))
     end
 
     test "should destroy authority" do
       assert_difference('Authority.count', -1) do
-        delete :destroy, id: @authority
+        delete :destroy, params: { id: @authority }
       end
 
       assert_redirected_to authorities_path
@@ -83,7 +83,7 @@ module Wobauth
     end
 
     test "should get all translations in show" do
-      get :show, id: @authority
+      get :show, params: { id: @authority }
       assert_select "span[class=?]", "translation_missing", count: 0
     end
   end

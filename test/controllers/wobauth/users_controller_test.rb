@@ -24,7 +24,7 @@ module Wobauth
 
     test "should create user" do
       assert_difference('User.count') do
-        post :create, user: { 
+        post :create, params: { user: { 
           username: 'tester',
           password: 'test99',
           password_confirmation: 'test99',
@@ -33,30 +33,30 @@ module Wobauth
           givenname: 'Müller',
           sn: 'Meier',
           telephone: '0123 456789'
-        }
+        } }
       end
 
       assert_redirected_to user_path(assigns(:user))
     end
 
     test "should show user" do
-      get :show, id: @user
+      get :show, params: { id: @user }
       assert_response :success
     end
 
     test "should get edit" do
-      get :edit, id: @user
+      get :edit, params: { id: @user }
       assert_response :success
     end
 
     test "should update user" do
-      patch :update, id: @user, user: { displayname: @user.displayname, email: @user.email, givenname: @user.givenname, gruppen: @user.gruppen, sn: @user.sn, telephone: @user.telephone, username: @user.username }
+      patch :update, params: { id: @user, user: { displayname: @user.displayname, email: @user.email, givenname: @user.givenname, gruppen: @user.gruppen, sn: @user.sn, telephone: @user.telephone, username: @user.username } }
       assert_redirected_to user_path(assigns(:user))
     end
 
     test "should destroy user" do
       assert_difference('User.count', -1) do
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
       end
 
       assert_redirected_to users_path
@@ -68,14 +68,14 @@ module Wobauth
     end
 
     test "should get all translations in show" do
-      get :show, id: @user
+      get :show, params: { id: @user }
       assert_select "span[class=?]", "translation_missing", count: 0
     end
 
     test "should show user authorities" do
       role = FactoryGirl.create(:role, name: "Testrole")
       FactoryGirl.create(:authority, authorizable: @user, role: role)
-      get :show, id: @user
+      get :show, params: { id: @user }
       assert_select "div#user_roles" do
         assert_select "tbody tr[class=?]", "authority" do
           assert_select "td", text: "Testrole"
@@ -86,7 +86,7 @@ module Wobauth
     test "should show assigned memberships" do
       group = FactoryGirl.create(:group, name: "Vereinsmeierei")
       FactoryGirl.create(:membership, user: @user, group: group)
-      get :show, id: @user
+      get :show, params: { id: @user }
       assert_select "div#user_groups" do
         assert_select "tbody tr[class=?]", "membership" do
           assert_select "td", text: "Vereinsmeierei"
