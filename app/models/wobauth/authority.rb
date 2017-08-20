@@ -3,7 +3,7 @@ module Wobauth
     # -- associations
     belongs_to :authorizable,   polymorphic: true
     belongs_to :role
-    belongs_to :authorized_for, polymorphic: true
+    belongs_to :authorized_for, polymorphic: true, optional: true
 
     # -- configuration
     # -- validations and callbacks
