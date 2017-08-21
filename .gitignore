@@ -20,5 +20,5 @@ test/tmp
 /vendor/bundle
 
 # ignore bower stuff
-/vendor/assets/bower_components
+/node_modules
 test/dummy/public/assets/
