@@ -125,10 +125,26 @@ Mount the rails engine:
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
-  mount Wobauth::Engine, at: '/auth'
   ...
+  mount Wobauth::Engine, at: '/auth'
 end
 ```
+
+With rails 5.1 there are some problems with engine routing in in engines.
+Add the `mount` statement at the bottom of `Rails.application.routes.draw` and
+use always a suburl for mount like `/auth`. Don't use `/`.
+
+Using datatables
+--------------------------
+
+Wobauth comes with support for datatables. To select the tables, use the
+following jQuery selector:
+
+```ruby
+$('table[role="datatable"]')
+```
+
+`$('dataTable')` mayy be removed in a future release.
 
 Applications using wobauth
 --------------------------
