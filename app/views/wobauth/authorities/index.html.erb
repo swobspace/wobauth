@@ -1,6 +1,7 @@
 <h1><%= t('controller.wobauth/authorities') %></h1>
 
-<table id="dataTable" class="table table-bordered table-striped dataTable">
+<%= content_tag :table, id: :wobauth_authorities, role: :wobauth_datatable,
+    class: "table table-bordered table-striped dataTable" do %>
 <thead>
   <tr>
     <th><%= t('attributes.authorizable') %></th>
@@ -32,7 +33,7 @@
   <% end %>
 <% end %>
 </tbody>
-</table>
+<% end %>
 
 <br />
 

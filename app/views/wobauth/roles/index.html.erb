@@ -1,6 +1,7 @@
 <h1><%= t('controller.wobauth/roles') %></h1>
 
-<table id="dataTable" class="table table-bordered table-striped dataTable">
+<%= content_tag :table, id: :wobauth_roles, role: :wobauth_datatable,
+    class: "table table-bordered table-striped dataTable" do %>
 <thead>
   <tr>
     <th><%= t('attributes.name') %></th>
@@ -18,7 +19,7 @@
   <% end %>
 <% end %>
 </tbody>
-</table>
+<% end %>
 
 <br />
 

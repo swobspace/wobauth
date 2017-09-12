@@ -1,4 +1,5 @@
-<table id="dataTable" class="table table-bordered table-striped dataTable">
+<%= content_tag :table, id: :wobauth_role_authorities, role: :wobauth_datatable,
+    class: "table table-bordered table-striped dataTable" do %>
  <thead> 
   <tr>
     <th><%= t('attributes.user') %></th>
@@ -17,4 +18,4 @@
   <% end %>
 <% end %>
 </tbody>
-</table>
+<% end %>
