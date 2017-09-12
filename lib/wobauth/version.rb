@@ -1,4 +1,4 @@
 module Wobauth
-  VERSION = "2.1.0".freeze
-  RELEASEDATE = "2017-08-21".freeze
+  VERSION = "2.1.2".freeze
+  RELEASEDATE = "2017-09-12".freeze
 end
