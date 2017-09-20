@@ -14,8 +14,8 @@ de:
     authorized_for: Berechtigung auf
     authorized_for_type: Berechtigung auf/Typ
     auto: Auto
-    current_sign_in_at: Aktueller Login
-    current_sign_in_ip: Aktuelle Login-IP
+    current_sign_in_at: Login am
+    current_sign_in_ip: Login-IP
     email: E-Mail
     group: Gruppe
     gruppen: Gruppen (auto)
