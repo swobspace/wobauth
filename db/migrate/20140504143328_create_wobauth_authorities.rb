@@ -1,4 +1,4 @@
-class CreateWobauthAuthorities < ActiveRecord::Migration
+class CreateWobauthAuthorities < ActiveRecord::Migration[5.1]
   def change
     create_table :wobauth_authorities do |t|
       t.references :authorizable, index: true
