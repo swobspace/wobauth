@@ -1,4 +1,4 @@
-class CreateWobauthMemberships < ActiveRecord::Migration
+class CreateWobauthMemberships < ActiveRecord::Migration[5.1]
   def change
     create_table :wobauth_memberships do |t|
       t.references :user, index: true

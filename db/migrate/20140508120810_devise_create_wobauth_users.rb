@@ -1,4 +1,4 @@
-class DeviseCreateWobauthUsers < ActiveRecord::Migration
+class DeviseCreateWobauthUsers < ActiveRecord::Migration[5.1]
   def change
     create_table(:wobauth_users) do |t|
 

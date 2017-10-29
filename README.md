@@ -32,15 +32,12 @@ Dependencies
 
 Branch ''master'':
 
-* rails ~> 4.1
-* ruby >= 2.0
+* rails >= 5.0
+* ruby >= 2.2
 * wobapphelpers
 * bootstrap v3; must be included by by yourself (via gem, bower or manually)
 * simple_form >= 3.1
 * devise
-
-wobauth is not Rails5 ready, I am waiting until simple_form supports Rails5. Stay
-tuned.
 
 Installation
 ------------
