@@ -1,27 +1,25 @@
-<ul class="nav navbar-nav navbar-right">
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      <span class="glyphicon glyphicon-user"></span>
+<ul class="navbar-nav float-right">
+  <li class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" role="button" id="accountNavDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <% if user_signed_in? %>
 	Account
       <% else %>
 	Login
       <% end %>
-      <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-menu" aria-labelledby="accountNavDropdown">
       <% unless user_signed_in? %>
 	<% if Wobauth.remote_authentication? %>
-	  <li><%= link_to "Single-Sign-On", wobauth.login_path -%></li>
+	  <%= link_to "Single-Sign-On", wobauth.login_path, class: "dropdown-item" -%>
 	<% end %>
-	<li><%= link_to "Login-Formular", wobauth.new_user_session_path -%></li>
+	<%= link_to "Login-Formular", wobauth.new_user_session_path, class: "dropdown-item" -%>
       <% else %>
-        <li><%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete %></li>
+        <%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% if Wobauth::User.devise_modules.include?(:registerable) %>
-          <li class="divider"></li>
-          <li><%= link_to "Mein Profil", wobauth.edit_user_registration_path %></li>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Mein Profil", wobauth.edit_user_registration_path, class: "dropdown-item" %>
         <% end %>
       <% end %>
-    </ul>
+    </div>
   </li>
 </ul>
