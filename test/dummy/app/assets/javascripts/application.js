@@ -1,16 +1,15 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
+//= require jquery3
+//= require rails-ujs
+//= require jszip/dist/jszip
+//= require pdfmake/build/pdfmake
+//= require pdfmake/build/vfs_fonts
+//= require datatables.net/js/jquery.dataTables.js
+//= require datatables.net-bs4/js/dataTables.bootstrap4.js
+//= require datatables.net-buttons/js/dataTables.buttons.js
+//= require datatables.net-buttons-bs4/js/buttons.bootstrap4.js
+//= require datatables.net-buttons/js/buttons.html5.js
+//= require datatables.net-buttons/js/buttons.print.js
+//= require datatables.net-buttons/js/buttons.colVis.js
+//= require select2/dist/js/select2
+//= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
-//= require_tree .

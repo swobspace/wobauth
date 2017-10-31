@@ -17,16 +17,16 @@ gemspec
 
 group :development, :test do
   gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git', 
-                     branch: "master"
+                     branch: "develop"
   gem 'cancancan'
   gem 'simple_form'
   gem 'record_tag_helper', '~> 1.0'
-  gem 'font-awesome-sass'
   gem "guard"
   gem "guard-minitest"
   gem 'guard-rails'
   gem 'guard-livereload', require: false
   gem 'guard-bundler'
   gem 'puma'
+  gem 'font-awesome-sass'
 end
 
