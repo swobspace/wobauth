@@ -13,3 +13,4 @@
 //= require select2/dist/js/select2
 //= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
+//= require myapp
