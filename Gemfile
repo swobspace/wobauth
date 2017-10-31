@@ -14,10 +14,19 @@ gemspec
 # gem 'debugger'
 
 # specifying git is not possible in *gemrc
-gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git', 
-                     branch: "master"
 
-gem 'cancancan'
-gem 'simple_form'
-gem 'record_tag_helper', '~> 1.0'
+group :development, :test do
+  gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers.git', 
+                     branch: "develop"
+  gem 'cancancan'
+  gem 'simple_form'
+  gem 'record_tag_helper', '~> 1.0'
+  gem "guard"
+  gem "guard-minitest"
+  gem 'guard-rails'
+  gem 'guard-livereload', require: false
+  gem 'guard-bundler'
+  gem 'puma'
+  gem 'font-awesome-sass'
+end
 

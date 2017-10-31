@@ -11,8 +11,8 @@ module Wobauth
     should validate_uniqueness_of(:name)
 
     should "simple factory working" do
-      f = FactoryGirl.create(:group)
-      g = FactoryGirl.create(:group)
+      f = FactoryBot.create(:group)
+      g = FactoryBot.create(:group)
       assert g.valid?
       assert f.valid?
     end

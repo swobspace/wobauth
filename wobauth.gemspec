@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = "Rails engine providing MVCs for User, Group, Role, Membership and Authority"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 5.0"
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency "shoulda"
   s.add_development_dependency "devise"
-  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "factory_bot_rails"
   s.add_development_dependency 'simple_form'
   s.add_development_dependency 'rails-controller-testing'
 

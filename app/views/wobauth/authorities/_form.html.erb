@@ -1,32 +1,26 @@
+<div class="container">
 <%= simple_form_for(@authority,
-  html: { class: 'form-horizontal well' },
-  wrapper: :horizontal_form,
-  wrapper_mappings: {
-    check_boxes: :horizontal_radio_and_checkboxes,
-    radio_buttons: :horizontal_radio_and_checkboxes,
-    file: :horizontal_file_input,
-    boolean: :horizontal_boolean
-  }) do |f| %>
+  html: { class: 'form-horizontal card' }
+  ) do |f| %>
 
-  <fieldset>
+  <div class="card-header">
     <%= form_legend %>
+  </div>
 
-    <div class="form-inputs">
-      <%= polymorphic_selector(f, 'authorizable', Wobauth.authorizable_types) %>
-      <%= f.association :role %>
-      <%= polymorphic_selector(f, 'authorized_for', Wobauth.authorized_for_types) %>
+  <div class="card-body">
+    <%= polymorphic_selector(f, 'authorizable', Wobauth.authorizable_types) %>
+    <%= f.association :role %>
+    <%= polymorphic_selector(f, 'authorized_for', Wobauth.authorized_for_types) %>
 
-      <%= f.input :valid_from, as: :string, class: 'datepicker'
-       %>
-      <%= f.input :valid_until, as: :string, class: 'datepicker'
-       %>
-    </div>
+    <%= f.input :valid_from, as: :string, class: 'datepicker'
+     %>
+    <%= f.input :valid_until, as: :string, class: 'datepicker'
+     %>
 
-    <div class="form-actions col-sm-9 col-sm-offset-3">
-      <%= f.button :submit, class: 'btn btn-primary' %>
-      <%= cancel_button %>
-    </div>
-  </fieldset>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= cancel_button %>
+  </div>
 <% end %>
+</div>
 
 <%= javascript_include_tag "wobauth/authorities" %>

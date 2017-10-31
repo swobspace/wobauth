@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :authority, class: Wobauth::Authority do
     association :authorizable, factory: :user

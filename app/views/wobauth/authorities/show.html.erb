@@ -1,37 +1,45 @@
-<table class="table table-bordered table-hover autowidth">
-  <tr>
-    <th><%= t('attributes.authorizable')%>:</th>
-    <td><%= @authority.authorizable %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.authorizable_type')%>:</th>
-    <td><%= @authority.authorizable_type %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.role')%>:</th>
-    <td><%= @authority.role %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.authorized_for')%>:</th>
-    <td><%= @authority.authorized_for %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.authorized_for_type')%>:</th>
-    <td><%= @authority.authorized_for_type %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.valid_from')%>:</th>
-    <td><%= @authority.valid_from %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.valid_until')%>:</th>
-    <td><%= @authority.valid_until %></td>
-  </tr>
-</table>
-
-<div class="btn-toolbar" role="toolbar">
-  <%= back_link %>
-  <%= edit_link(@authority) %>
-  <%= delete_link(@authority) %>
-  <%= new_link Wobauth::Authority %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('activerecord.models.wobauth/authority') %></h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-hover autowidth">
+      <tr>
+	<th><%= t('attributes.authorizable')%>:</th>
+	<td><%= @authority.authorizable %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.authorizable_type')%>:</th>
+	<td><%= @authority.authorizable_type %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.role')%>:</th>
+	<td><%= @authority.role %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.authorized_for')%>:</th>
+	<td><%= @authority.authorized_for %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.authorized_for_type')%>:</th>
+	<td><%= @authority.authorized_for_type %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.valid_from')%>:</th>
+	<td><%= @authority.valid_from %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.valid_until')%>:</th>
+	<td><%= @authority.valid_until %></td>
+      </tr>
+    </table>
+    <div role="toolbar">
+      <%= back_link %>
+      <%= edit_link(@authority) %>
+      <%= delete_link(@authority) %>
+      <%= new_link Wobauth::Authority %>
+    </div>
+  </div>
 </div>
+
+

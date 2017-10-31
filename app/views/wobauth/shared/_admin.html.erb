@@ -1,15 +1,13 @@
 <% if Wobauth::AdminAbility.new(current_user).can? :navigate, Wobauth::User %>
-  <ul class="nav navbar-nav">
-    <li class="dropdown <%= admin_active_class %>">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        Admin<b class="caret"></b></a>
-      <ul class="dropdown-menu">
+  <ul class="navbar-nav float-left">
+    <li class="nav-item dropdown <%= admin_active_class %>">
+      <a href="#" class="nav-link dropdown-toggle" role="button" id="adminNavDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Admin</a>
+      <div class="dropdown-menu" aria-labelledby="adminNavDropdown">
         <% ['users', 'groups', 'memberships', 'roles', 'authorities'].each do |ctrlr| %>
-        <li>
-          <%=link_to t('controller.wobauth/' + ctrlr), wobauth.send("#{ctrlr}_path")%>
-        </li>
+          <%=link_to t('controller.wobauth/' + ctrlr), wobauth.send("#{ctrlr}_path"), class: "dropdown-item"%>
     <% end %>
-      </ul>
+      </div>
     </li>
   </ul>
 <% end %>
