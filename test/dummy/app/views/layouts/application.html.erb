@@ -24,9 +24,7 @@
   </nav>
 
   <main class="container-fluid" role="main">
-    <% unless controller.action_name =~ /(new|edit)/ %>
-      <%= render_breadcrumbs %>
-    <% end %>
+    <%= render_breadcrumbs %>
     <%= show_flash %>
     <%= yield %>
   </main>
