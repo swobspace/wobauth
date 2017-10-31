@@ -33,8 +33,8 @@ module Wobauth
     end
 
     test "should show assigned authorities" do
-      user = FactoryGirl.create(:user, sn: "Quark", givenname: "Guenter")
-      FactoryGirl.create(:authority, authorizable: user, role: @role)
+      user = FactoryBot.create(:user, sn: "Quark", givenname: "Guenter")
+      FactoryBot.create(:authority, authorizable: user, role: @role)
       get :show, params: { id: @role }
       assert_select "div#role_authorities" do
         assert_select "tbody tr[class=?]", "authority" do

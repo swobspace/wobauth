@@ -11,8 +11,8 @@ module Wobauth
     should validate_presence_of(:role_id)
 
     should "simple factory working" do
-      f = FactoryGirl.create(:authority)
-      g = FactoryGirl.create(:authority)
+      f = FactoryBot.create(:authority)
+      g = FactoryBot.create(:authority)
       assert g.valid?
       assert f.valid?
     end

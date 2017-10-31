@@ -23,7 +23,7 @@ module Wobauth
     end
 
     test "get new should preselected user" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       get :new, params: { user_id: user.to_param }
       assert_response :success
       assert_select "select#membership_user_id" do
@@ -32,7 +32,7 @@ module Wobauth
     end
 
     test "get new should preselected group" do
-      group = FactoryGirl.create(:group)
+      group = FactoryBot.create(:group)
       get :new, params: { group_id: group.to_param }
       assert_response :success
       assert_select "select#membership_group_id" do

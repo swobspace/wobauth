@@ -9,8 +9,8 @@ module Wobauth
     should validate_presence_of(:group_id)
 
     should "simple factory working" do
-      f = FactoryGirl.create(:membership)
-      g = FactoryGirl.create(:membership)
+      f = FactoryBot.create(:membership)
+      g = FactoryBot.create(:membership)
       assert g.valid?
       assert f.valid?
     end
