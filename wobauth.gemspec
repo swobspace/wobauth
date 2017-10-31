@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = "Rails engine providing MVCs for User, Group, Role, Membership and Authority"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 5.0"
