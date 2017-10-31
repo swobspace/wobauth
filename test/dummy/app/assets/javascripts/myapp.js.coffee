@@ -12,12 +12,13 @@ ready = ->
   # --- classic datatable ---
   table = $('table[role="datatable"], table[role="wobauth_datatable"]' ).DataTable(
     pagingType: "full_numbers"
-    dom: "<'row'<'col-md-3'l><'col-md-5 btn-group'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
+    dom: "<'row'<'col-md-3'l><'col-md-5'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
     stateSave: true
     lengthMenu: [ [10, 25, 100, 250, 1000], [10, 25, 100, 250, 1000] ]
     buttons: [
       {
         extend: 'copy',
+        className: 'btn-sm',
         exportOptions: {
           columns: ':visible',
           search: ':applied'
@@ -25,6 +26,7 @@ ready = ->
       },
       {
         extend: 'excel',
+        className: 'btn-sm',
         exportOptions: {
           columns: ':visible',
           search: ':applied'
@@ -32,6 +34,7 @@ ready = ->
       },
       {
         extend: 'pdf',
+        className: 'btn-sm',
         orientation: 'landscape',
         pageSize: 'A4',
         exportOptions: {
@@ -39,9 +42,13 @@ ready = ->
           search: ':applied'
         }
       },
-      'print',
+      {
+        extend: 'print',
+        className: 'btn-sm'
+      }
       {
         extend: 'colvis',
+        className: 'btn-sm',
         columns: ':gt(0)'
       }
     ],
@@ -76,12 +83,13 @@ ready = ->
       url: remotetableurl
       type: "POST"
     pagingType: "full_numbers"
-    dom: "<'row'<'col-md-3'l><'col-md-5 btn-group'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
+    dom: "<'row'<'col-md-3'l><'col-md-5'BC><'col-md-4'f>>t<'row'<'col-md-6'ir><'col-md-6'p>>"
     stateSave: true
     lengthMenu: [ [10, 25, 100, 250, 1000], [10, 25, 100, 250, 1000] ]
     buttons: [
       {
         extend: 'excel'
+        className: 'btn-sm',
         title: $('table[role="remotetable"]').data('title')
         exportOptions: {
           columns: ':visible',
@@ -90,6 +98,7 @@ ready = ->
       },
       {
         extend: 'pdf',
+        className: 'btn-sm',
         orientation: 'landscape',
         pageSize: 'A4',
         title: $('table[role="remotetable"]').data('title')
@@ -98,9 +107,13 @@ ready = ->
           search: ':applied'
         }
       },
-      'print',
+      {
+        extend: 'print',
+        className: 'btn-sm'
+      }
       {
         extend: 'colvis',
+        className: 'btn-sm',
         columns: ':gt(0)'
       }
     ],
