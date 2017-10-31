@@ -1,73 +1,91 @@
-<table class="table table-bordered table-hover autowidth">
-  <tr>
-    <th><%= t('attributes.username')%>:</th>
-    <td><%= @user.username %></td>
-    <th><%= t('attributes.userprincipalname')%>:</th>
-    <td><%= @user.userprincipalname %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.name')%>:</th>
-    <td><%= @user %></td>
-    <th><%= t('attributes.active_directory_guid')%>:</th>
-    <td><%= @user.active_directory_guid %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.sn')%>:</th>
-    <td><%= @user.sn %></td>
-    <th><%= t('attributes.current_sign_in_at')%>:</th>
-    <td><%= @user.current_sign_in_at %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.givenname')%>:</th>
-    <td><%= @user.givenname %></td>
-    <th><%= t('attributes.current_sign_in_ip')%>:</th>
-    <td><%= @user.current_sign_in_ip %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.displayname')%>:</th>
-    <td><%= @user.displayname %></td>
-    <th><%= t('attributes.last_sign_in_at')%>:</th>
-    <td><%= @user.last_sign_in_at %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.telephone')%>:</th>
-    <td><%= @user.telephone %></td>
-    <th><%= t('attributes.last_sign_in_ip')%>:</th>
-    <td><%= @user.last_sign_in_ip %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.email')%>:</th>
-    <td><%= @user.email %></td>
-    <th><%= t('attributes.sign_in_count')%>:</th>
-    <td><%= @user.sign_in_count %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.gruppen')%>:</th>
-    <td colspan="3"><%= @user.gruppen %></td>
-  </tr>
-</table>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('attributes.username') %>: <%= @user.username %></h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-hover autowidth">
+      <tr>
+	<th><%= t('attributes.username')%>:</th>
+	<td><%= @user.username %></td>
+	<th><%= t('attributes.userprincipalname')%>:</th>
+	<td><%= @user.userprincipalname %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.name')%>:</th>
+	<td><%= @user %></td>
+	<th><%= t('attributes.active_directory_guid')%>:</th>
+	<td><%= @user.active_directory_guid %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.sn')%>:</th>
+	<td><%= @user.sn %></td>
+	<th><%= t('attributes.current_sign_in_at')%>:</th>
+	<td><%= @user.current_sign_in_at %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.givenname')%>:</th>
+	<td><%= @user.givenname %></td>
+	<th><%= t('attributes.current_sign_in_ip')%>:</th>
+	<td><%= @user.current_sign_in_ip %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.displayname')%>:</th>
+	<td><%= @user.displayname %></td>
+	<th><%= t('attributes.last_sign_in_at')%>:</th>
+	<td><%= @user.last_sign_in_at %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.telephone')%>:</th>
+	<td><%= @user.telephone %></td>
+	<th><%= t('attributes.last_sign_in_ip')%>:</th>
+	<td><%= @user.last_sign_in_ip %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.email')%>:</th>
+	<td><%= @user.email %></td>
+	<th><%= t('attributes.sign_in_count')%>:</th>
+	<td><%= @user.sign_in_count %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.gruppen')%>:</th>
+	<td colspan="3"><%= @user.gruppen %></td>
+      </tr>
+    </table>
+    <div role="toolbar">
+      <%= back_link %>
+      <%= edit_link(@user) %>
+      <%= delete_link(@user) %>
+      <%= new_link Wobauth::User %>
+    </div>
 
-<div class="btn-toolbar" role="toolbar">
-  <%= back_link %>
-  <%= edit_link(@user) %>
-  <%= delete_link(@user) %>
-  <%= new_link Wobauth::User %>
+  </div>
 </div>
 
 <br/>
 
-<h3><%= t('controller.wobauth/authorities') %></h3>
-
-<div id="user_roles">
-  <%= render partial: 'user_roles', locals: {user: @user} %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('controller.wobauth/authorities') %></h4>
+  </div>
+  <div class="card-body">
+    <div id="user_roles">
+      <%= render partial: 'user_roles', locals: {user: @user} %>
+    </div>
+    <%= new_link(Wobauth::Authority, user_id: @user.to_param) %>
+  </div>
 </div>
 
-<%= new_link(Wobauth::Authority, user_id: @user.to_param) %>
+<br/>
 
-<h3><%= t('controller.wobauth/groups') %></h3>
-
-<div id="user_groups">
-  <%= render partial: 'user_groups', locals: {user: @user} %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('controller.wobauth/groups') %></h4>
+  </div>
+  <div class="card-body">
+    <div id="user_groups">
+      <%= render partial: 'user_groups', locals: {user: @user} %>
+    </div>
+    <%= new_link(Wobauth::Membership, user_id: @user.to_param) %>
+  </div>
 </div>
 
-<%= new_link(Wobauth::Membership, user_id: @user.to_param) %>
