@@ -26,18 +26,20 @@ Versions
 --------
 
 wobauth 1.x is for Rails 4, wobauth 2.x will support Rails 5.
+wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1 
+(may work with Rails 5.0, but not tested)
 
-Dependencies
+Requirements
 ------------
 
-Branch ''master'':
+| branch     | rails | ruby   | bootstrap | icons       | wobapphelpers |
+|------------|-------|--------|-----------|-------------|---------------|
+| master     |  5.1  | >= 2.3 |  v4       | fontawesome | master        |
+| 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons  | 2-0-stable    |
+| 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons  | 1-0-stable    |
 
-* rails >= 5.0
-* ruby >= 2.2
-* wobapphelpers
-* bootstrap v3; must be included by by yourself (via gem, bower or manually)
-* simple_form >= 3.1
-* devise
+
+* simple_form >= 3.3
 
 Installation
 ------------
@@ -45,6 +47,8 @@ Add wobauth to your Gemfile:
 
 ```ruby
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
 ```
 Run
 
