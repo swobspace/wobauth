@@ -1,21 +1,28 @@
-<table class="table table-bordered table-hover autowidth">
-  <tr>
-    <th><%= t('attributes.user')%>:</th>
-    <td><%= @membership.user %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.group')%>:</th>
-    <td><%= @membership.group %></td>
-  </tr>
-  <tr>
-    <th><%= t('attributes.auto')%>:</th>
-    <td><%= @membership.auto %></td>
-  </tr>
-</table>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('attributes.membership') %></h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-hover autowidth">
+      <tr>
+	<th><%= t('attributes.user')%>:</th>
+	<td><%= @membership.user %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.group')%>:</th>
+	<td><%= @membership.group %></td>
+      </tr>
+      <tr>
+	<th><%= t('attributes.auto')%>:</th>
+	<td><%= @membership.auto %></td>
+      </tr>
+    </table>
 
-<div role="toolbar">
-  <%= back_link %>
-  <%= edit_link(@membership) %>
-  <%= delete_link(@membership) %>
-  <%= new_link Wobauth::Membership %>
+    <div role="toolbar">
+      <%= back_link %>
+      <%= edit_link(@membership) %>
+      <%= delete_link(@membership) %>
+      <%= new_link Wobauth::Membership %>
+    </div>
+  </div>
 </div>

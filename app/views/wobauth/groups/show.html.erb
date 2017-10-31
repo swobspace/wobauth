@@ -1,26 +1,45 @@
-<h2><%= t('attributes.group')%>: <%= @group.name %></h2>
-<p><%= t('attributes.description')%>: <%= @group.description %></p>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('attributes.group')%>: <%= @group.name %></h4>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <%= t('attributes.description')%>: <%= @group.description %></p>
+    </div>
 
-<div role="toolbar">
-  <%= back_link %>
-  <%= edit_link(@group) %>
-  <%= delete_link(@group) %>
-  <%= new_link Wobauth::Group %>
+    <div role="toolbar">
+      <%= back_link %>
+      <%= edit_link(@group) %>
+      <%= delete_link(@group) %>
+      <%= new_link Wobauth::Group %>
+    </div>
+  </div>
 </div>
 
-<h3><%= t('controller.wobauth/authorities') %></h3>
+<br />
 
-<div id="group_roles">
-  <%= render partial: 'group_roles', locals: {group: @group} %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('controller.wobauth/authorities') %></h4>
+  </div>
+  <div class="card-body">
+    <div id="group_roles">
+      <%= render partial: 'group_roles', locals: {group: @group} %>
+    </div>
+    <%= new_link(Wobauth::Authority, group_id: @group.to_param) %>
+  </div>
 </div>
 
-<%= new_link(Wobauth::Authority, group_id: @group.to_param) %>
+<br />
 
-<h3><%= t('controller.wobauth/groups') %></h3>
-
-<div id="group_memberships">
-  <%= render partial: 'group_memberships', locals: {group: @group} %>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('controller.wobauth/groups') %></h4>
+  </div>
+  <div class="card-body">
+    <div id="group_memberships">
+      <%= render partial: 'group_memberships', locals: {group: @group} %>
+    </div>
+    <%= new_link(Wobauth::Membership, group_id: @group.to_param) %>
+  </div>
 </div>
-
-<%= new_link(Wobauth::Membership, group_id: @group.to_param) %>
-

@@ -1,12 +1,18 @@
-<h2><%= t('attributes.role')%>: <%= @role.name %></h2>
+<div class="card">
+  <div class="card-header">
+    <h4><%= t('attributes.role')%>: <%= @role.name %></h4>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"> <%= t('attributes.members')%> </h4>
 
-<h3> <%= t('controller.wobauth/authorities')%> </h3>
+    <div id="role_authorities">
+      <%= render :partial => 'role_authorities',
+		 :locals => {:authorities => @role.authorities} %>
+    </div>
 
-<div id="role_authorities">
-  <%= render :partial => 'role_authorities',
-             :locals => {:authorities => @role.authorities} %>
+    <div role="toolbar">
+      <%= back_link %>
+    </div>
+  </div>
 </div>
 
-<div role="toolbar">
-  <%= back_link %>
-</div>
