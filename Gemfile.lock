@@ -15,7 +15,7 @@ GIT
 PATH
   remote: .
   specs:
-    wobauth (3.0.0.pre.beta.1)
+    wobauth (3.0.1)
       cancancan
       coffee-rails
       devise
