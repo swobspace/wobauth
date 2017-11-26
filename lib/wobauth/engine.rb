@@ -15,7 +15,7 @@ module Wobauth
 
     initializer 'wobauth.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
-        helper Wobauth::ApplicationHelper
+        ::ActionController::Base.helper Wobauth::ApplicationHelper
       end
     end
 
