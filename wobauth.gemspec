@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "test/factories.rb", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 5.0"
+  s.add_dependency "rails", ">= 5.0", "< 5.2"
   s.add_dependency "wobapphelpers"
   s.add_dependency "simple_form"
   s.add_dependency "devise"
