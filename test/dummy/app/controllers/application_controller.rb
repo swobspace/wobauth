@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
   self.responder = Wobapphelpers::Responders
   respond_to :html, :json
 
-  # -- Wobauth helpers
-  helper Wobauth::ApplicationHelper
+  # -- Wobauth helpers will be included from engine
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
