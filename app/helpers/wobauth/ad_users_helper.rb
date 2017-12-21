@@ -21,7 +21,7 @@ module Wobauth
       return unless (aduser.present? && model.present?)
       if aduser.mail.blank?
 	"table-danger"
-      elsif model.exists?(mail: aduser.mail)
+      elsif model.exists?(email: aduser.mail)
 	"table-success"
       else
 	"table-primary"
@@ -38,7 +38,7 @@ module Wobauth
 	displayname: aduser.displayname,
 	cn: aduser.cn,
 	dn: aduser.dn,
-	mail: aduser.mail,
+	email: aduser.mail,
 	title: aduser.title,
 	telephone: aduser.telephonenumber,
 	telefax: aduser.facsimiletelephonenumber,
