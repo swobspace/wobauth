@@ -2,7 +2,7 @@ ready = ->
   $('table tfoot th').each  (idx) ->
     unless $(this).hasClass("nosearch")
       title = $('table thead th').eq( $(this).index() ).text()
-      $(this).html( '<input type="text" placeholder="search") %>" name="idx'+idx+'" />' )
+      $(this).html( '<input type="text" placeholder="search" name="idx'+idx+'" />' )
 
   # --- simple datatable ---
   xtable = $('table[role="xdatatable"]' ).DataTable(
