@@ -5,7 +5,8 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 # require 'capybara/rails'
 # require 'mocha/test_unit'
-require 'shoulda'
+require 'shoulda-context'
+require 'shoulda-matchers'
 require 'devise'
 require 'cancancan'
 require 'sass-rails'

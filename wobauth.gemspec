@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.0"
   s.add_dependency "wobapphelpers"
+  s.add_dependency "wobaduser"
+  s.add_dependency 'immutable-struct'
   s.add_dependency "simple_form"
   s.add_dependency "devise"
   s.add_dependency "cancancan"
@@ -32,10 +34,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'sass-rails'
-  s.add_development_dependency "shoulda"
+  s.add_development_dependency "shoulda-context"
+  s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "devise"
   s.add_development_dependency "factory_bot_rails"
   s.add_development_dependency 'simple_form'
   s.add_development_dependency 'rails-controller-testing'
-
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'dotenv'
 end
