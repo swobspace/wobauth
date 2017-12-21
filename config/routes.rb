@@ -4,6 +4,11 @@ Wobauth::Engine.routes.draw do
 	      controllers: {registrations: 'wobauth/registrations'} 
 
   resources :users
+  resources :ad_users, :only => [:index] do
+    collection do
+      post :index
+    end
+  end
   resources :authorities
   resources :memberships
   resources :groups

@@ -28,4 +28,28 @@ module Wobauth
     end
     @@remote_authentication
   end
+
+  # config file for ldap settings
+  #
+  mattr_writer :ldap_config
+  @@ldap_config = nil
+
+
+  def self.ldap_options
+    return {} if @@ldap_config.blank?
+    if File.readable? @@ldap_config
+      config = YAML.load_file(@@ldap_config)
+    end
+    config ||= Hash.new
+
+    if config['ldap_options'].present?
+      opts = config['ldap_options'].symbolize_keys
+      opts.each do |k,v|
+        opts[k] = opts[k].symbolize_keys if opts[k].kind_of? Hash
+      end
+    else
+      nil
+    end
+  end
+
 end

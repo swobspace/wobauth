@@ -1,0 +1,69 @@
+<div class="card col-sm-4 bg-light">
+<div class="card-body p-1 m-1">
+<%= form_tag( url_for(:action => 'index'),
+              :class => "") do -%>
+    <div class="form-group">
+      <label>Name, Vorname oder E-Mail-Adresse:</label>
+      <%= text_field_tag :query, '', class: 'form-control'-%>
+    </div>
+<% end -%>
+</div>
+</div>
+<br>
+
+<table id="adusers" class="table table-bordered table-striped dataTable" role="datatable">
+  <thead>
+    <tr>
+      <th><%= t('attributes.sn') %></th>
+      <th><%= t('attributes.givenname') %></th>
+      <th><%= t('attributes.ort') %></th>
+      <th><%= t('attributes.plz') %></th>
+      <th><%= t('attributes.streetaddress') %></th>
+      <th><%= t('attributes.department') %></th>
+      <th><%= t('attributes.company') %></th>
+      <th><%= t('attributes.mail') %></th>
+      <th><%= t('attributes.telephonenumber') %></th>
+      <th><%= t('attributes.facsimiletelephonenumber') %></th>
+      <th><%= t('attributes.mobile') %></th>
+      <th><%= t('attributes.username') %></th>
+      <th><%= t('daisy.action') %></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @ad_users.each do |ad_user| %>
+      <%= content_tag(:tr, class: aduser_class(User, ad_user)) do %>
+	<td><%= ad_user.sn %></td>
+	<td><%= ad_user.givenname %></td>
+	<td><%= ad_user.l %></td>
+	<td><%= ad_user.postalcode %></td>
+	<td><%= ad_user.streetaddress %></td>
+	<td><%= ad_user.department %></td>
+	<td><%= ad_user.company %></td>
+	<td><%= ad_user.mail %></td>
+	<td><%= ad_user.telephonenumber %></td>
+	<td><%= ad_user.facsimiletelephonenumber %></td>
+	<td><%= ad_user.mobile %></td>
+	<td><%= ad_user.username %></td>
+	<td><%= new_from_aduser_link(User, ad_user) %></td>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

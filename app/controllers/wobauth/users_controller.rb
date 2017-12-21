@@ -63,8 +63,8 @@ module Wobauth
       end
 
       def new_user_params
-        params.permit(:username, :gruppen, :sn, :givenname, 
-          :displayname, :telephone, :email, :password, :password_confirmation)
+        params.slice(:username, :gruppen, :sn, :givenname, 
+          :displayname, :telephone, :mail, :password, :password_confirmation).permit!
       end
   end
 end
