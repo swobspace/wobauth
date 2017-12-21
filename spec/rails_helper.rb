@@ -28,7 +28,7 @@ require 'wobauth'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 
-ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
+ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '..')
 Dir[File.join(ENGINE_RAILS_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
@@ -38,7 +38,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include Capybara::DSL
 
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{ENGINE_RAILS_ROOT}/test/fixtures/wobauth"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 
@@ -48,7 +48,7 @@ RSpec.configure do |config|
 
   # -- devise stuff
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.extend ControllerMacros, type: :controller
+  config.extend Wobauth::ControllerMacros, type: :controller
   config.include RequestMacros, type: :feature
 
   # config.before(:suite) do
