@@ -1,1 +1,1 @@
-spec/support/factories.rb
+../spec/support/factories.rb
