@@ -49,7 +49,7 @@
 
   <tbody>
     <% @ad_users.each do |ad_user| %>
-      <%= content_tag(:tr, class: aduser_class(User, ad_user)) do %>
+      <%= content_tag(:tr, class: aduser_class(Wobauth::User, ad_user)) do %>
 	<td><%= ad_user.sn %></td>
 	<td><%= ad_user.givenname %></td>
 	<td><%= ad_user.l %></td>
@@ -62,7 +62,7 @@
 	<td><%= ad_user.facsimiletelephonenumber %></td>
 	<td><%= ad_user.mobile %></td>
 	<td><%= ad_user.username %></td>
-	<td><%= new_from_aduser_link(User, ad_user) %></td>
+	<td><%= new_from_aduser_link(Wobauth::User, ad_user) %></td>
       <% end %>
     <% end %>
   </tbody>
