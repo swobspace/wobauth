@@ -4,8 +4,8 @@ Wobauth::Engine.routes.draw do
 	      controllers: {registrations: 'wobauth/registrations'} 
 
   resources :users do
-    resources :authorities #, module: :users
-    resources :memberships #, module: :users
+    resources :authorities, module: :users
+    resources :memberships, module: :users
   end
   resources :ad_users, :only => [:index] do
     collection do
@@ -15,8 +15,8 @@ Wobauth::Engine.routes.draw do
   resources :authorities
   resources :memberships
   resources :groups do
-    resources :authorities #, module: :groups
-    resources :memberships #, module: :groups
+    resources :authorities, module: :groups
+    resources :memberships, module: :groups
   end
   resources :roles
 

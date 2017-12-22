@@ -2,9 +2,11 @@ require_dependency "wobauth/application_controller"
 
 module Wobauth
   class AuthoritiesController < ApplicationController
+    skip_load_and_authorize_resource
+    load_and_authorize_resource class: Wobauth::Authority
+
     before_action :set_authority, only: [:show, :edit, :update, :destroy]
     before_action :add_breadcrumb_show, only: [:show]
-    before_action :set_authorizable
 
     # GET /authorities
     def index
@@ -70,14 +72,6 @@ module Wobauth
     #
     def location
       polymorphic_path((@authorizable || @authority), anchor: ('authorities' if @authorizable))
-    end
-
-    def set_authorizable
-      if params[:user_id]
-        @authorizable = User.find(params[:user_id])
-      elsif params[:group_id]
-        @authorizable = Group.find(params[:group_id])
-      end
     end
   end
 end
