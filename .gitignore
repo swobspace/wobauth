@@ -23,3 +23,4 @@ test/tmp
 /node_modules
 test/dummy/public/assets/
 .localenv
+test/dummy/.env
