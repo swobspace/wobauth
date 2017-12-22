@@ -26,7 +26,7 @@
     <div id="group_roles">
       <%= render partial: 'group_roles', locals: {group: @group} %>
     </div>
-    <%= new_link(Wobauth::Authority, group_id: @group.to_param) %>
+    <%= new_link([@group, Wobauth::Authority], group_id: @group.to_param) %>
   </div>
 </div>
 
@@ -40,6 +40,6 @@
     <div id="group_memberships">
       <%= render partial: 'group_memberships', locals: {group: @group} %>
     </div>
-    <%= new_link(Wobauth::Membership, group_id: @group.to_param) %>
+    <%= new_link([@group, Wobauth::Membership], group_id: @group.to_param) %>
   </div>
 </div>
