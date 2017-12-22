@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-module Wobauth
-  RSpec.describe UserController, type: :controller do
+RSpec.describe Wobauth::UsersController, type: :controller do
+  routes { Wobauth::Engine.routes }
 
-  end
+  fixtures :users, :roles
+  set_fixture_class users: Wobauth::User, roles: Wobauth::Role
+
 end
