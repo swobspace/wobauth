@@ -2,9 +2,9 @@ require 'rails_helper'
 
 module Wobauth
   RSpec.describe User, type: :model do
-    it { is_expected.to have_many(:authorities) }
+    it { is_expected.to have_many(:authorities).dependent(:destroy) }
     it { is_expected.to have_many(:roles).through(:authorities) }
-    it { is_expected.to have_many(:memberships) }
+    it { is_expected.to have_many(:memberships).dependent(:destroy) }
     it { is_expected.to have_many(:group_roles).through(:groups).source(:roles) }
     it { is_expected.to have_many(:groups).through(:memberships) }
 
