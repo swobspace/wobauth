@@ -1,4 +1,6 @@
 de:
+  wobauth:
+    new_user_from_ad: Benutzer mit Vorlage erstellen
   activerecord:
     models:
       wobauth/user: Benutzer
