@@ -13,7 +13,7 @@ module Wobauth
 	link_to icon_new, new_polymorphic_path(model, aduser_attributes(aduser)),
 		class: 'btn btn-primary'
       when "table-success"
-	show_link(model.where(mail: aduser.mail).first)
+	show_link(model.where(email: aduser.mail).first)
       end
     end
 
