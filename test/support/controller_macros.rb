@@ -1,5 +1,5 @@
 module Wobauth
-  module ControllerMacros
+  module TestControllerMacros
     def login_admin
       request.env["devise.mapping"] = Devise.mappings[:admin]
       @admin      ||= users(:admin)
