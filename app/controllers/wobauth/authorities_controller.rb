@@ -10,6 +10,7 @@ module Wobauth
 
     # GET /authorities
     def index
+      @authorities = Authority.accessible_by(current_ability, :read)
       respond_with(@authorities)
     end
 

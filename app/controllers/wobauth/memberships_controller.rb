@@ -10,6 +10,7 @@ module Wobauth
 
     # GET /memberships
     def index
+      @memberships = Membership.accessible_by(current_ability, :read)
       respond_with(@memberships)
     end
 
