@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "wobauth/roles/index", type: :view do
   before(:each) do
+    @ability = Object.new
+    @ability.extend(CanCan::Ability)
+    allow(controller).to receive(:current_ability) { @ability }
+    allow(controller).to receive(:controller_name) { "wobauth/roles" }
+    allow(controller).to receive(:action_name) { "index" }
+
     assign(:roles, [
       FactoryBot.create(:role, name: "XYZ"),
       FactoryBot.create(:role, name: "ABC"),
