@@ -11,7 +11,7 @@
  <tbody>
 <% authorities.valid(Date.today).each do |authority| %>
   <%= content_tag_for(:tr, authority) do %>
-    <td><%= link_to authority.authorizable, polymorphic_path(authority.authorizable) %></td>
+    <td><%= link_to authority.authorizable, polymorphic_path([wobauth, authority.authorizable]) %></td>
     <td><%= authority.authorizable_type %></td>
     <td><%= authorized_for_link(authority.authorized_for) %></td>
     <td><%= authority.authorized_for_type %></td>
