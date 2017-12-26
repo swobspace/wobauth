@@ -5,12 +5,13 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 # require 'capybara/rails'
 # require 'mocha/test_unit'
-require 'shoulda'
+require 'shoulda-context'
+require 'shoulda-matchers'
 require 'devise'
 require 'cancancan'
 require 'sass-rails'
 require 'coffee-rails'
-require 'factory_bot_rails'
+require 'factory_bot'
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
@@ -37,7 +38,7 @@ require "generators/wobauth/install_generator"
 
 class ActionController::TestCase
   include Devise::Test::ControllerHelpers
-  include Wobauth::ControllerMacros
+  include Wobauth::TestControllerMacros
 end
 
 class MiniTest::Unit::TestCase

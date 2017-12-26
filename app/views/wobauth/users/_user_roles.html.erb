@@ -14,8 +14,8 @@
     <td><%= authorized_for_link(authority.authorized_for) %></td>
     <td><%= authority.authorized_for_type %></td>
     <td class="nowrap"> 
-       <%= edit_link(authority, remote: false) %>
-       <%= delete_link(authority, remote: false) %>
+       <%= edit_link([wobauth, authority.authorizable, authority], remote: false) %>
+       <%= delete_link([wobauth, authority.authorizable, authority], remote: false) %>
     </td>
   <% end %>
 <% end %>

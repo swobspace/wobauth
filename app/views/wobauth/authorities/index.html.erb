@@ -26,9 +26,9 @@
     <td><%= authority.valid_from %></td>
     <td><%= authority.valid_until %></td>
     <td class="nowrap">
-      <%= show_link authority %>
-      <%= edit_link authority %>
-      <%= delete_link authority %>
+      <%= show_link [wobauth, authority] %>
+      <%= edit_link [wobauth, authority] %>
+      <%= delete_link [wobauth, authority] %>
     </td>
   <% end %>
 <% end %>
@@ -38,4 +38,4 @@
 <br />
 
 <%= back_link %>
-<%= new_link Wobauth::Authority %>
+<%= new_link [wobauth, Wobauth::Authority] %>

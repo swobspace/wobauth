@@ -35,9 +35,9 @@
     </table>
     <div role="toolbar">
       <%= back_link %>
-      <%= edit_link(@authority) %>
-      <%= delete_link(@authority) %>
-      <%= new_link Wobauth::Authority %>
+      <%= edit_link([wobauth, @authority]) %>
+      <%= delete_link([wobauth, @authority]) %>
+      <%= new_link [wobauth, Wobauth::Authority] %>
     </div>
   </div>
 </div>

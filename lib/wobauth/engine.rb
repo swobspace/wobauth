@@ -5,6 +5,8 @@ module Wobauth
 
     config.generators do |g|
       g.templates.unshift File::expand_path('../../templates', __FILE__)
+      g.test_framework :rspec, fixture: false
+      g.fixture_replacement :factory_bot, :dir => 'spec/factories'
     end
 
     config.eager_load_paths += Dir["#{config.root}/lib/concerns"]
@@ -23,8 +25,8 @@ module Wobauth
       Wobauth::ApplicationController.helper Rails.application.helpers
     end
 
-    initializer "wobauth.factories", :after => "factory_girl.set_factory_paths" do
-      FactoryGirl.definition_file_paths << File.expand_path('../../../test/factories', __FILE__) if defined?(FactoryGirl)
+    initializer "wobauth.factories", :after => "factory_bot.set_factory_paths" do
+      FactoryBot.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryBot)
     end
 
   end

@@ -1,0 +1,10 @@
+LDAP_PORT=3268
+LDAP_USER=ldapgast@eli
+LDAP_PASSWD=wob993
+USERPRINCIPALNAME2=wolfgang.barth@marienhaus.de
+USERPRINCIPALNAME3=w.barth@marienhaus.de
+USERPRINCIPALNAME=adminwob@eli.st-elisabeth.de
+LDAP_SEARCH_SN=Barth
+LDAP_SEARCH_GIVENNAME=Wolfgang
+LDAP_SEARCH_EMAIL=Wolfgang.Barth@marienhaus.de
+LDAP_CONFIG=/home/wob/.ldap.yml

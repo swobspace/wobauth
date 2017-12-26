@@ -2,12 +2,15 @@ require_dependency "wobauth/application_controller"
 
 module Wobauth
   class AuthoritiesController < ApplicationController
+    skip_load_and_authorize_resource
+    load_and_authorize_resource class: Wobauth::Authority
+
     before_action :set_authority, only: [:show, :edit, :update, :destroy]
     before_action :add_breadcrumb_show, only: [:show]
 
     # GET /authorities
     def index
-      @authorities = Authority.all
+      @authorities = Authority.accessible_by(current_ability, :read)
       respond_with(@authorities)
     end
 
@@ -18,7 +21,11 @@ module Wobauth
 
     # GET /authorities/new
     def new
-      @authority = Authority.new(new_authority_params)
+      if @authorizable.present?
+        @authority = @authorizable.authorities.new
+      else
+        @authority = Authority.new
+      end
       respond_with(@authority)
     end
 
@@ -28,22 +35,26 @@ module Wobauth
 
     # POST /authorities
     def create
-      @authority = Authority.new(authority_params)
+      if @authorizable.present?
+        @authority = @authorizable.authorities.new(authority_params)
+      else
+        @authority = Authority.new(authority_params)
+      end
 
       @authority.save
-      respond_with(@authority)
+      respond_with(@authority, location: location)
     end
 
     # PATCH/PUT /authorities/1
     def update
       @authority.update(authority_params)
-      respond_with(@authority)
+      respond_with(@authority, location: location)
     end
 
     # DELETE /authorities/1
     def destroy
       @authority.destroy
-      respond_with(@authority)
+      respond_with(@authority, location: location)
     end
 
     private
@@ -57,12 +68,11 @@ module Wobauth
         params.require(:authority).permit(:authorizable_id, :authorizable_type, :role_id, :authorized_for_id, :authorized_for_type, :valid_from, :valid_until)
       end
 
-      def new_authority_params
-        if params[:user_id]
-          { authorizable_type: 'Wobauth::User', authorizable_id: params[:user_id] }
-        elsif params[:group_id]
-          { authorizable_type: 'Wobauth::Group', authorizable_id: params[:group_id] }
-        end
-      end
+    # if @authorizable exist: authorizable/authorizable_id#authority
+    # else authority/authority_id
+    #
+    def location
+      polymorphic_path((@authorizable || @authority), anchor: ('authorities' if @authorizable))
+    end
   end
 end

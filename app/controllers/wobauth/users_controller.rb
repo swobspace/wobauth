@@ -18,7 +18,7 @@ module Wobauth
 
     # GET /users/new
     def new
-      @user = User.new
+      @user = User.new(new_user_params)
       respond_with(@user)
     end
 
@@ -60,6 +60,11 @@ module Wobauth
         end
         params.require(:user).permit(:username, :gruppen, :sn, :givenname, 
           :displayname, :telephone, :email, :password, :password_confirmation)
+      end
+
+      def new_user_params
+        params.slice(:username, :gruppen, :sn, :givenname, 
+          :displayname, :telephone, :email, :password, :password_confirmation).permit!
       end
   end
 end

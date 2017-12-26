@@ -1,7 +1,10 @@
 de:
+  wobauth:
+    new_user_from_ad: Benutzer mit Vorlage erstellen
   activerecord:
     models:
       wobauth/user: Benutzer
+      wobauth/ad_user: Active Directory User
       wobauth/authority: Berechtigung
       wobauth/group: Gruppe
       wobauth/membership: Mitgliedschaft
@@ -35,6 +38,7 @@ de:
 
   controller:
     wobauth/users: Benutzer
+    wobauth/ad_users: Active Directory User
     wobauth/authorities: Berechtigungen
     wobauth/groups: Gruppen
     wobauth/memberships: Mitgliedschaften
