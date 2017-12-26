@@ -9,9 +9,9 @@
 
     <div role="toolbar">
       <%= back_link %>
-      <%= edit_link(@group) %>
-      <%= delete_link(@group) %>
-      <%= new_link Wobauth::Group %>
+      <%= edit_link([wobauth, @group]) %>
+      <%= delete_link([wobauth, @group]) %>
+      <%= new_link [wobauth, Wobauth::Group] %>
     </div>
   </div>
 </div>
@@ -26,7 +26,7 @@
     <div id="group_roles">
       <%= render partial: 'group_roles', locals: {group: @group} %>
     </div>
-    <%= new_link([@group, Wobauth::Authority], group_id: @group.to_param) %>
+    <%= new_link([wobauth, @group, Wobauth::Authority], group_id: @group.to_param) %>
   </div>
 </div>
 
@@ -34,12 +34,12 @@
 
 <div class="card">
   <div class="card-header">
-    <h4><%= t('controller.wobauth/groups') %></h4>
+    <h4><%= t('controller.wobauth/users') %></h4>
   </div>
   <div class="card-body">
     <div id="group_memberships">
       <%= render partial: 'group_memberships', locals: {group: @group} %>
     </div>
-    <%= new_link([@group, Wobauth::Membership], group_id: @group.to_param) %>
+    <%= new_link([wobauth, @group, Wobauth::Membership], group_id: @group.to_param) %>
   </div>
 </div>

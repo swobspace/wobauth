@@ -16,9 +16,9 @@
     <td><%= group.name %></td>
     <td><%= group.description %></td>
     <td class="nowrap">
-      <%= show_link group %>
-      <%= edit_link group %>
-      <%= delete_link group %>
+      <%= show_link [wobauth, group] %>
+      <%= edit_link [wobauth, group] %>
+      <%= delete_link [wobauth, group] %>
     </td>
   <% end %>
 <% end %>
@@ -28,4 +28,4 @@
 <br />
 
 <%= back_link %>
-<%= new_link Wobauth::Group %>
+<%= new_link [wobauth, Wobauth::Group] %>
