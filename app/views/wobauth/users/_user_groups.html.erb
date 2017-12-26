@@ -12,8 +12,8 @@
     <td><%= membership.group %></td>
     <td><%= membership.auto %></td>
     <td class="nowrap"> 
-      <%= edit_link([membership.user, membership]) %>
-      <%= delete_link([membership.user, membership]) %>
+      <%= edit_link([wobauth, membership.user, membership]) %>
+      <%= delete_link([wobauth, membership.user, membership]) %>
     </td>
   <% end %>
 <% end %>

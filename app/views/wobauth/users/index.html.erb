@@ -24,9 +24,9 @@
     <td><%= user.current_sign_in_at.try(:to_date) %></td>
     <td><%= user.sign_in_count %></td>
     <td class="nowrap">
-      <%= show_link user %>
-      <%= edit_link user %>
-      <%= delete_link user %>
+      <%= show_link [wobauth, user] %>
+      <%= edit_link [wobauth, user] %>
+      <%= delete_link [wobauth, user] %>
     </td>
   <% end %>
 <% end %>
@@ -36,5 +36,5 @@
 <br />
 
 <%= back_link %>
-<%= new_link Wobauth::User %>
+<%= new_link [wobauth, Wobauth::User] %>
 <%= link_to t('wobauth.new_user_from_ad'), wobauth.ad_users_path, class: 'btn btn-secondary' %>
