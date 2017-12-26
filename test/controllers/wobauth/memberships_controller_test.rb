@@ -22,24 +22,6 @@ module Wobauth
       assert_response :success
     end
 
-    test "get new should preselected user" do
-      user = FactoryBot.create(:user)
-      get :new, params: { user_id: user.to_param }
-      assert_response :success
-      assert_select "select#membership_user_id" do
-        assert_select "option[selected=?][value=?]", "selected", user.to_param
-      end
-    end
-
-    test "get new should preselected group" do
-      group = FactoryBot.create(:group)
-      get :new, params: { group_id: group.to_param }
-      assert_response :success
-      assert_select "select#membership_group_id" do
-        assert_select "option[selected=?][value=?]", "selected", group.to_param
-      end
-    end
-
     test "should create membership" do
       assert_difference('Membership.count') do
         post :create, params: { membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id } }

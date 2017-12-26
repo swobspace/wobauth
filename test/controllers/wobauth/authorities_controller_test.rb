@@ -22,30 +22,6 @@ module Wobauth
       assert_response :success
     end
 
-    test "should get new with preselected user" do
-      user = FactoryBot.create(:user)
-      get :new, params: { user_id: user.to_param }
-      assert_response :success
-      assert_select "select#authority_authorizable_type" do
-        assert_select "option[selected=?][value=?]", "selected", 'Wobauth::User'
-      end
-      assert_select "select#authority_authorizable_id" do
-        assert_select "option[selected=?][value=?]", "selected", user.to_param
-      end
-    end
-
-    test "should get new with preselected group" do
-      group = FactoryBot.create(:group)
-      get :new, params: { group_id: group.to_param }
-      assert_response :success
-      assert_select "select#authority_authorizable_type" do
-        assert_select "option[selected=?][value=?]", "selected", 'Wobauth::Group'
-      end
-      assert_select "select#authority_authorizable_id" do
-        assert_select "option[selected=?][value=?]", "selected", group.to_param
-      end
-    end
-
     test "should create authority" do
       assert_difference('Authority.count') do
         post :create, params: { authority: { authorizable_id: @authority.authorizable_id, authorizable_type: @authority.authorizable_type, authorized_for_id: @authority.authorized_for_id, authorized_for_type: @authority.authorized_for_type, role_id: @authority.role_id, valid_from: @authority.valid_from, valid_until: @authority.valid_until } }
