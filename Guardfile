@@ -60,7 +60,7 @@ guard :rspec, cmd: "bundle exec rspec" do
 end
 
 
-guard 'rails', daemon: true, server: 'puma', root: './test/dummy', host: 'localhost' do
+guard 'rails', daemon: true, force_run: true, server: 'puma', root: './test/dummy', host: 'localhost' do
   watch('Gemfile')
   watch(%r{^(config|lib)/.*})
 end
