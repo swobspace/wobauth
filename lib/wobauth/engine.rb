@@ -5,6 +5,7 @@ module Wobauth
 
     config.generators do |g|
       g.templates.unshift File::expand_path('../../templates', __FILE__)
+      g.test_framework :rspec, fixture: false
     end
 
     config.eager_load_paths += Dir["#{config.root}/lib/concerns"]
