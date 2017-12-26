@@ -20,9 +20,9 @@
 
     <div role="toolbar">
       <%= back_link %>
-      <%= edit_link(@membership) %>
-      <%= delete_link(@membership) %>
-      <%= new_link Wobauth::Membership %>
+      <%= edit_link([wobauth, @membership]) %>
+      <%= delete_link([wobauth, @membership]) %>
+      <%= new_link [wobauth, Wobauth::Membership] %>
     </div>
   </div>
 </div>

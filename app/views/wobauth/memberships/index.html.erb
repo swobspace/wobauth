@@ -18,9 +18,9 @@
     <td><%= membership.group %></td>
     <td><%= membership.auto %></td>
     <td class="nowrap">
-      <%= show_link membership %>
-      <%= edit_link membership %>
-      <%= delete_link membership %>
+      <%= show_link [wobauth, membership] %>
+      <%= edit_link [wobauth, membership] %>
+      <%= delete_link [wobauth, membership] %>
     </td>
   <% end %>
 <% end %>
@@ -30,4 +30,4 @@
 <br />
 
 <%= back_link %>
-<%= new_link Wobauth::Membership %>
+<%= new_link [wobauth, Wobauth::Membership] %>
