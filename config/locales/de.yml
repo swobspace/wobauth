@@ -9,6 +9,11 @@ de:
       wobauth/group: Gruppe
       wobauth/membership: Mitgliedschaft
       wobauth/role: Rolle
+      wobauth/users/authority: Berechtigung
+      wobauth/users/membership: Mitgliedschaft
+      wobauth/groups/authority: Berechtigung
+      wobauth/groups/membership: Mitgliedschaft
+
 
   attributes:
     active_directory_guid: Active Directory GUID
