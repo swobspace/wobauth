@@ -41,4 +41,10 @@ Rails.application.configure do
   # -- rails 5.0
   config.public_file_server.enabled = true
 
+  # --- wob
+  config.action_view.raise_on_missing_translations = true
+  config.colorize_logging = false
+  # -- strong parameters
+  config.action_controller.action_on_unpermitted_parameters = :raise
+
 end
