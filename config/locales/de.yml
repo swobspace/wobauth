@@ -13,6 +13,8 @@ de:
       wobauth/users/membership: Mitgliedschaft
       wobauth/groups/authority: Berechtigung
       wobauth/groups/membership: Mitgliedschaft
+      wobauth/registration: Userprofil
+      wobauth/session: Login
 
 
   attributes:

@@ -1,24 +1,16 @@
-<h2>Login</h2>
 
-<div class="container">
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <fieldset class="container">
-  
-  <div class="row">
-  <div class="form-inputs col-sm-4">
-    <%= f.input :username, autofocus: true %>
-    <%= f.input :password, as: :password, autocomplete: "off" %>
-  </div>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+    html: { class: 'card'}) do |f| %>
+  <div class="card-header">
+    <h3>Login</h3>
   </div>
 
-  <div class="row">
-  <div class="form-actions col-sm-4">
-    <%= f.button :submit, class: 'btn btn-primary' %>
-    <%= cancel_button %>
+  <div class="card-body">
+    <%= f.input :username, required: true, autofocus: true %>
+    <%= f.input :password, required: true %>
+
+    <%= f.button :submit, "Log in" %>
   </div>
-  </div>
- </fieldset>
 <% end %>
-</div>
+
+<%= render "devise/shared/links" %>
