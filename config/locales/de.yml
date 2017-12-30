@@ -1,6 +1,15 @@
 de:
   wobauth:
+    action: Aktion
+    configuration: Konfiguration
+    change_columns: Spalten ändern
+    show_all: alles anzeigen
+    restore: zurücksetzen
+    search: Suche
+    sort_helper: Sortierhilfe
+    applied_filter: Angewandter Filter
     new_user_from_ad: Benutzer mit Vorlage erstellen
+
   activerecord:
     models:
       wobauth/user: Benutzer
@@ -24,19 +33,35 @@ de:
     authorized_for: Berechtigung auf
     authorized_for_type: Berechtigung auf/Typ
     auto: Auto
+    care_of: c/o
+    company: Organisation
     current_sign_in_at: Login am
     current_sign_in_ip: Login-IP
+    department: Abteilung
+    description: Beschreibung
+    displayname: Anzeigename
     email: E-Mail
+    facsimiletelephonenumber: Telefax
     group: Gruppe
     gruppen: Gruppen (auto)
     last_sign_in_at: Letzter Login
     last_sign_in_ip: Letzte Login-IP
+    location: Ort
+    mail: E-Mail
     members: Mitglieder
     membership: Mitgliedschaft
+    mobile: Mobil
     name: Name
+    ort: Ort
+    plz: PLZ
+    position: Position
+    postfach: Postfach
+    postfachplz: PLZ (Postfach)
     role: Rolle
     sign_in_count: Anzahl Logins
+    streetaddress: Straße, Nr.
     telephone: Telefon
+    telephonenumber: Telefon
     user: Benutzer
     username: Username
     userprincipalname: Principalname

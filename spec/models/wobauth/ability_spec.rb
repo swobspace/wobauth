@@ -19,6 +19,7 @@ module Wobauth
 	  role: roles(:admin))
       }
       it { is_expected.to be_able_to(:manage, :all) }
+      it { is_expected.to be_able_to(:navigate, Wobauth::User) }
     end
 
     context "with role UserAdmin" do
@@ -28,6 +29,7 @@ module Wobauth
 	  authorizable: user,
 	  role: roles(:user_admin))
       }
+      it { is_expected.to be_able_to(:navigate, Wobauth::User) }
       it { is_expected.to be_able_to(:manage, :all) }
     end
 
@@ -38,6 +40,7 @@ module Wobauth
 	  authorizable: user,
 	  role: roles(:orga_admin))
       }
+      it { is_expected.to be_able_to(:navigate, Wobauth::User) }
       it { is_expected.to be_able_to(:read, :all) }
 
       (auth_models).each do |model|

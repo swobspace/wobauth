@@ -4,16 +4,20 @@ module Wobauth
       return unless (aduser.present? && model.present?)
       case aduser_class(model, aduser)
       when "table-danger"
-	link_to icon_new, new_polymorphic_path(model, aduser_attributes(aduser)),
+        if can? :create, model
+	  link_to icon_new, new_polymorphic_path([wobauth, model], aduser_attributes(aduser)),
 		class: 'btn btn-danger',
 		data: {
 		  confirm: "Der Eintrag enthält keine E-Mail-Adresse. Wenn es einen ähnlichen Eintrag mit gepflegter E-Mail-Adresse gibt, ist dies hier womöglich der falsche Eintrag. Wollen Sie dennoch weitermachen? Sie können die Daten im folgenden Formular noch korrigieren."
 		}
+        end
       when "table-primary"
-	link_to icon_new, new_polymorphic_path(model, aduser_attributes(aduser)),
+        if can? :create, model
+	  link_to icon_new, new_polymorphic_path([wobauth, model], aduser_attributes(aduser)),
 		class: 'btn btn-primary'
+        end
       when "table-success"
-	show_link(model.where(email: aduser.mail).first)
+	show_link([wobauth, model.where(email: aduser.mail).first])
       end
     end
 

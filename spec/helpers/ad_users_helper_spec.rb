@@ -33,4 +33,50 @@ RSpec.describe Wobauth::AdUsersHelper, :type => :helper do
     end
   end
 
+  describe "#new_from_aduser_link" do
+    let(:mail) { 'tester@example.org' }
+    let(:model) { Wobauth::User }
+    let(:aduser) { double(Wobauth::AdUser) }
+
+    before(:each) do
+      [:username, :sn, :givenname, :cn, :dn, :mail, :title, :telephonenumber,
+       :facsimiletelephonenumber, :mobile, :description, :department, 
+       :company, :postalcode, :l, :streetaddress, :displayname
+      ].each do |attr|
+        allow(aduser).to receive(attr).and_return("dummy")
+      end
+    end
+
+    describe "with ability to create users" do
+      subject { Capybara.string(helper.new_from_aduser_link(model, aduser)) }
+
+      context "contact does not yet exist" do
+	before(:each) do
+	  expect(aduser).to receive(:mail).at_least(:once).and_return(mail)
+          expect(controller).to receive(:can?).and_return(true)
+	end
+	it { expect(subject.find("a")['href']).to match wobauth.new_user_path }
+	it { expect(subject.find("a")['class']).to eq "btn btn-primary" }
+      end
+
+      context "contact already exist" do
+        let!(:user) { FactoryBot.create(:user, email: mail) }
+	before(:each) do
+	  expect(aduser).to receive(:mail).at_least(:once).and_return(mail)
+	end
+	it { expect(subject.find("a")['href']).to match wobauth.user_path(user) }
+	it { expect(subject.find("a")['class']).to eq "btn btn-secondary" }
+      end
+
+      context "mail is empty" do
+	before(:each) do
+	  expect(aduser).to receive(:mail).at_least(:once).and_return("")
+          expect(controller).to receive(:can?).and_return(true)
+	end
+	it { expect(subject.find("a")['href']).to match wobauth.new_user_path }
+	it { expect(subject.find("a")['class']).to eq "btn btn-danger" }
+      end
+    end
+  end
+
 end
