@@ -8,3 +8,9 @@ two:
 
 admin:
   name: Admin
+
+orga_admin:
+  name: OrgaAdmin
+
+user_admin:
+  name: UserAdmin
