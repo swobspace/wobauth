@@ -12,6 +12,7 @@ module Wobauth
         can :manage, :all
       elsif roles.include?('OrgaAdmin')
         can :read, :all
+        can :navigate, Wobauth::User
       end
     end
   end
