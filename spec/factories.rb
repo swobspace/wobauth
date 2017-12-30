@@ -12,7 +12,6 @@ FactoryBot.define do
   factory :membership, class: Wobauth::Membership do
     user
     group
-    auto false
   end
 
   factory :role, class: Wobauth::Role do

@@ -24,7 +24,7 @@ module Wobauth
 
     test "should create membership" do
       assert_difference('Membership.count') do
-        post :create, params: { membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id } }
+        post :create, params: { membership: { group_id: @membership.group_id, user_id: @membership.user_id } }
       end
 
       assert_redirected_to membership_path(assigns(:membership))
@@ -41,7 +41,7 @@ module Wobauth
     end
 
     test "should update membership" do
-      patch :update, params: { id: @membership, membership: { auto: @membership.auto, group_id: @membership.group_id, user_id: @membership.user_id } }
+      patch :update, params: { id: @membership, membership: { group_id: @membership.group_id, user_id: @membership.user_id } }
       assert_redirected_to membership_path(assigns(:membership))
     end
 
