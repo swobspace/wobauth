@@ -38,6 +38,9 @@ Authority
            givenname:string displayname:string telephone:string \
            email:string --no-skip-test-unit
 
+   bin/rails g migration AdditionalFieldsToUser \
+	       title:string position:string department:string company:string
+
 Login
 
     bin/rails g controller Login login
