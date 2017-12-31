@@ -18,7 +18,7 @@ module Wobauth
   private
 
     def search_params
-      params.permit(:query, :utf8, :authenticity_token)
+      params.permit(:query, :utf8, :authenticity_token, :bci).slice(:query)
     end
   end
 end
