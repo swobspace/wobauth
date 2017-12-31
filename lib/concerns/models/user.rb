@@ -16,9 +16,11 @@ module Wobauth
 
       def to_s
         if sn.blank? and givenname.blank?
-	  "#{username}"
+          "#{username}" 
+        elsif title.blank?
+          "#{sn}, #{givenname} (#{username})"
         else
-          "#{sn}, #{givenname}"
+          "#{sn}, #{title} #{givenname} (#{username})"
         end
       end
   
