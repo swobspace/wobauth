@@ -74,16 +74,23 @@ module Wobauth
 
     describe "PUT #update" do
       context "with valid params" do
-        let(:new_attributes) {
-          {sn: "Mustermann", givenname: "Maxe"}
-        }
+        let(:new_attributes) {{
+          sn: "Mustermann", 
+          givenname: "Maxe",
+          displayname: "Mustermann, Maxe",
+          telephone: "0123 456-7890",
+          email: "m.mustermann@example.net",
+          title: "Dr.",
+          position: "CIO",
+          department: "Development",
+          company: "ACME Ltd.",
+        }}
 
         it "updates the requested user" do
           user = User.create! valid_attributes
           put :update, params: {id: user.to_param, user: new_attributes}, session: valid_session
           user.reload
-          expect(user.sn).to eq "Mustermann"
-          expect(user.givenname).to eq "Maxe"
+          expect(user.attributes.symbolize_keys).to include(new_attributes)
         end
 
         it "redirects to the user" do

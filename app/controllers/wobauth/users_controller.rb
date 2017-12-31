@@ -58,13 +58,19 @@ module Wobauth
           params[:user].delete(:password)
           params[:user].delete(:password_confirmation)
         end
-        params.require(:user).permit(:username, :gruppen, :sn, :givenname, 
-          :displayname, :telephone, :email, :password, :password_confirmation)
+        params.require(:user).permit(
+          :username, :gruppen, :sn, :givenname, :displayname, 
+          :telephone, :email, :password, :password_confirmation,
+          :title, :position, :department, :company
+         )
       end
 
       def new_user_params
-        params.slice(:username, :gruppen, :sn, :givenname, 
-          :displayname, :telephone, :email, :password, :password_confirmation).permit!
+        params.slice(
+          :username, :gruppen, :sn, :givenname, :displayname, 
+          :telephone, :email, :password, :password_confirmation,
+          :title, :position, :department, :company
+        ).permit!
       end
   end
 end

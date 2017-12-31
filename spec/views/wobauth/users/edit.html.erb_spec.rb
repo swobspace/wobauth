@@ -23,6 +23,10 @@ RSpec.describe "wobauth/users/edit", type: :view do
       assert_select "input[name=?]", "user[email]"
       assert_select "input[name=?]", "user[password]"
       assert_select "input[name=?]", "user[password_confirmation]"
+      assert_select "input[name=?]", "user[title]"
+      assert_select "input[name=?]", "user[position]"
+      assert_select "input[name=?]", "user[department]"
+      assert_select "input[name=?]", "user[company]"
     end
   end
 end
