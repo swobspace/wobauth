@@ -43,7 +43,7 @@ module Wobauth
 	cn: aduser.cn,
 	dn: aduser.dn,
 	email: aduser.mail,
-	title: aduser.title,
+	position: aduser.title,
 	telephone: aduser.telephonenumber,
 	telefax: aduser.facsimiletelephonenumber,
 	mobile: aduser.mobile,

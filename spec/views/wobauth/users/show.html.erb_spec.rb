@@ -16,7 +16,11 @@ RSpec.describe "wobauth/users/show", type: :view do
       :givenname => "Givenname",
       :displayname => "Displayname",
       :telephone => "Telephone",
-      :email => "test@example.com"
+      :email => "test@example.com",
+      :title => "Dr.",
+      :position => "CIO",
+      :department => "Software Development",
+      :company => "ACME Ltd."
     ))
   end
 
@@ -29,6 +33,10 @@ RSpec.describe "wobauth/users/show", type: :view do
       expect(rendered).to match(/Displayname/)
       expect(rendered).to match(/Telephone/)
       expect(rendered).to match(/test@example.com/)
+      expect(rendered).to match(/Dr./)
+      expect(rendered).to match(/CIO/)
+      expect(rendered).to match(/Software Development/)
+      expect(rendered).to match(/ACME Ltd./)
     end
   end
 
@@ -45,6 +53,10 @@ RSpec.describe "wobauth/users/show", type: :view do
       expect(rendered).to match(/Telephone/)
       expect(rendered).to match(/test@example.com/)
       expect(rendered).to match(/XYZ/)
+      expect(rendered).to match(/Dr./)
+      expect(rendered).to match(/CIO/)
+      expect(rendered).to match(/Software Development/)
+      expect(rendered).to match(/ACME Ltd./)
     end
   end
 
@@ -61,6 +73,10 @@ RSpec.describe "wobauth/users/show", type: :view do
       expect(rendered).to match(/Telephone/)
       expect(rendered).to match(/test@example.com/)
       expect(rendered).to match(/Bitclan/)
+      expect(rendered).to match(/Dr./)
+      expect(rendered).to match(/CIO/)
+      expect(rendered).to match(/Software Development/)
+      expect(rendered).to match(/ACME Ltd./)
     end
   end
 end

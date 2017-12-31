@@ -19,5 +19,36 @@ module Wobauth
       expect(g).to be_valid
     end
 
+    describe "#to_s" do
+      let(:user) { FactoryBot.build(:user,
+        sn: "Mustermann",
+        givenname: "Max",
+        username: "mustermax",
+       )}
+
+      context "without title" do
+        it "returns sn, givenname (username)" do
+          expect(user.to_s).to eq "Mustermann, Max (mustermax)"
+          expect(user.name).to eq "Mustermann, Max (mustermax)"
+        end
+      end
+
+      context "with title" do
+        it "returns sn, title givenname (username)" do
+          user.title = "Dr."
+          expect(user.to_s).to eq "Mustermann, Dr. Max (mustermax)"
+          expect(user.name).to eq "Mustermann, Dr. Max (mustermax)"
+        end
+      end
+
+      context "without sn and givenname" do
+        it "returns sn, givenname (username)" do
+          user.sn = ""; user.givenname = ""
+          expect(user.to_s).to eq "mustermax"
+          expect(user.name).to eq "mustermax"
+        end
+      end
+    end
+
   end
 end

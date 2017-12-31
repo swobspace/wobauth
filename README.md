@@ -61,7 +61,8 @@ to create an example configuration in ''config/initializers/wobauth.rb''
 rake wobauth:install:migrations
 ```
 copies wobauth migration files wobauth to your application. Do this before you
-create your own migration files if possible.
+create your own migration files if possible. If you upgrade from an older wobauth
+version rerun it. There might be new migration files added.
 
 Configuration
 -------------
@@ -158,7 +159,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2017  Wolfgang Barth
+wobauth Copyright (C) 2014-2018  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 

@@ -15,7 +15,11 @@ RSpec.describe "wobauth/users/index", type: :view do
         :givenname => "Max",
         :displayname => "Mustermann, Max",
         :telephone => "Telephone",
-        :email => "max@example.net"
+        :email => "max@example.net",
+        :title => "Dr.",
+        :position => "CIO",
+        :department => "Software Development",
+        :company => "ACME Ltd."
       ),
       Wobauth::User.create!(
         :username => "emma",
@@ -23,7 +27,11 @@ RSpec.describe "wobauth/users/index", type: :view do
         :givenname => "Emma",
         :displayname => "Mustermann, Emma",
         :telephone => "Telephone",
-        :email => "emma@example.net"
+        :email => "emma@example.net",
+        :title => "Dr.",
+        :position => "CIO",
+        :department => "Software Development",
+        :company => "ACME Ltd."
       )
     ])
   end
@@ -37,5 +45,9 @@ RSpec.describe "wobauth/users/index", type: :view do
     assert_select "tr>td", :text => "Telephone".to_s, :count => 2
     assert_select "tr>td", :text => "max@example.net".to_s, :count => 1
     assert_select "tr>td", :text => "emma@example.net".to_s, :count => 1
+    assert_select "tr>td", :text => "Dr.".to_s, :count => 2
+    assert_select "tr>td", :text => "CIO".to_s, :count => 2
+    assert_select "tr>td", :text => "Software Development".to_s, :count => 2
+    assert_select "tr>td", :text => "ACME Ltd.".to_s, :count => 2
   end
 end
