@@ -40,8 +40,8 @@ RSpec.describe "wobauth/users/index", type: :view do
     render
     assert_select "tr>td", :text => "max".to_s, :count => 1
     assert_select "tr>td", :text => "emma".to_s, :count => 1
-    assert_select "tr>td", :text => "Mustermann, Max".to_s, :count => 1
-    assert_select "tr>td", :text => "Mustermann, Emma".to_s, :count => 1
+    assert_select "tr>td", :text => "Mustermann, Dr. Max (max)".to_s, :count => 1
+    assert_select "tr>td", :text => "Mustermann, Dr. Emma (emma)".to_s, :count => 1
     assert_select "tr>td", :text => "Telephone".to_s, :count => 2
     assert_select "tr>td", :text => "max@example.net".to_s, :count => 1
     assert_select "tr>td", :text => "emma@example.net".to_s, :count => 1

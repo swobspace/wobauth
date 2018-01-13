@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "wobauth/memberships/index", type: :view do
-  let(:user1) { FactoryBot.create(:user, sn: "Mustermann", givenname: "Max") }
-  let(:user2) { FactoryBot.create(:user, sn: "Mustermann", givenname: "Heike") }
+  let(:user1) { FactoryBot.create(:user, sn: "Mustermann", givenname: "Max", username: 'mmax') }
+  let(:user2) { FactoryBot.create(:user, sn: "Mustermann", givenname: "Heike", username: 'mhei') }
   let(:group) { FactoryBot.create(:group, name: "XYZ" )}
   before(:each) do
     @ability = Object.new
@@ -27,8 +27,8 @@ RSpec.describe "wobauth/memberships/index", type: :view do
 
   it "renders a list of memberships" do
     render
-    assert_select "tr>td", :text => "Mustermann, Max".to_s, :count => 1
-    assert_select "tr>td", :text => "Mustermann, Heike".to_s, :count => 1
+    assert_select "tr>td", :text => "Mustermann, Max (mmax)".to_s, :count => 1
+    assert_select "tr>td", :text => "Mustermann, Heike (mhei)".to_s, :count => 1
     assert_select "tr>td", :text => "XYZ".to_s, :count => 2
   end
 end
