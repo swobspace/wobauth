@@ -6,6 +6,7 @@ module Wobauth
     it { is_expected.to have_many(:roles).through(:authorities) }
     it { is_expected.to have_many(:memberships).dependent(:destroy) }
     it { is_expected.to have_many(:group_roles).through(:groups).source(:roles) }
+    it { is_expected.to have_many(:group_authorities).through(:groups).source(:authorities) }
     it { is_expected.to have_many(:groups).through(:memberships) }
 
     it { is_expected.to validate_presence_of(:username) }

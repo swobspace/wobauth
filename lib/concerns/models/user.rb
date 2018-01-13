@@ -9,6 +9,7 @@ module Wobauth
 	has_many :memberships, dependent: :destroy
 	has_many :groups, -> { distinct }, through: :memberships
 	has_many :group_roles, through: :groups, source: :roles
+	has_many :group_authorities, through: :groups, source: :authorities
 
         validates :username, presence: true, uniqueness: true
       end
