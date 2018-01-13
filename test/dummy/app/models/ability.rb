@@ -1,3 +1,5 @@
+require 'wobauth_admin_ability'
+
 class Ability
   include CanCan::Ability
 
