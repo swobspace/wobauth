@@ -13,8 +13,10 @@ module Wobauth
   # in your application) and define abilities for 'UserAdmin' there:
   #
   # --- file your_application/app/models/wobauth_ability.rb
+  # require 'wobauth/admin_ability'
   # module Wobauth
   #   class AdminAbility
+  #     include CanCan::Ability
   #     def user_admin(rights_for)
   #       can :read, [Wobauth::User, Wobauth::Group, ...]
   #       can :whateverelse ....
@@ -22,6 +24,7 @@ module Wobauth
   #   end
   # end
   # ---
+  # at least: don't forget to load wobauth_ability.rb
 
   class AdminAbility
     include CanCan::Ability
