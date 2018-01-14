@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "wobauth/authorities/index", type: :view do
-  let(:user) { FactoryBot.create(:user, sn: "Muster", givenname: "Max" ) }
+  let(:user) { FactoryBot.create(:user, sn: "Muster", givenname: "Max", username: 'mmax' ) }
   let(:role) { FactoryBot.create(:role, name: "XYZ") }
   let(:cat)  { Category.new(name: "MyCat5") }
 
@@ -30,7 +30,7 @@ RSpec.describe "wobauth/authorities/index", type: :view do
 
   it "renders a list of authorities" do
     render
-    assert_select "tr>td", :text => "Muster, Max".to_s, :count => 2
+    assert_select "tr>td", :text => "Muster, Max (mmax)".to_s, :count => 2
     assert_select "tr>td", :text => "Wobauth::User".to_s, :count => 2
     assert_select "tr>td", :text => "XYZ".to_s, :count => 2
     assert_select "tr>td", :text => "MyCat5".to_s, :count => 2

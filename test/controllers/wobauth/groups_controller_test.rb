@@ -93,12 +93,12 @@ module Wobauth
     end
 
     test "should show assigned memberships" do
-      user = FactoryBot.create(:user, sn: "Berlin", givenname: "Mike")
+      user = FactoryBot.create(:user, sn: "Berlin", givenname: "Mike", username: 'myuser')
       FactoryBot.create(:membership, user: user, group: @group)
       get :show, params: { id: @group }
       assert_select "div#group_memberships" do
         assert_select "tbody tr[class=?]", "membership" do
-          assert_select "td", text: "Berlin, Mike"
+          assert_select "td", text: "Berlin, Mike (myuser)"
         end
       end
     end
