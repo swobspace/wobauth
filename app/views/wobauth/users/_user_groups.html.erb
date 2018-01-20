@@ -9,7 +9,8 @@
  <tbody>
 <% user.memberships.each do |membership| %>
   <%= content_tag_for(:tr, membership) do %>
-    <td><%= membership.group %></td>
+    <td><%= link_to membership.group, wobauth.group_path(membership.group) %></td>
+
     <td><%= membership.auto %></td>
     <td class="nowrap"> 
       <%= edit_link([wobauth, membership.user, membership]) %>
