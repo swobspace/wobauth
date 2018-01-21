@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "bootstrap": "4.0.0-beta.3",
+    "bootstrap": "4",
     "datatables.net-bs4": "^1.10.16",
     "datatables.net-buttons-bs4": "^1.4.2",
     "jquery": "3",
