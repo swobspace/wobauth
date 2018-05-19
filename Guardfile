@@ -1,15 +1,5 @@
 # More info at https://github.com/guard/guard#readme
 
-guard :minitest, bundler: true do
-  # watch(%r{^config/(.+)\.rb$})  { "test" }
-  # watch(%r{^app/(.+)\.rb$})  { "test" }
-  # watch(%r{^lib/(.+)\.rb$})  { "test" }
-  # watch(%r{^test/(.+)\.rb$}) { "test" }
-  watch(%r{^test/(.*)\/?test_(.*)\.rb$})
-  watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
-  watch(%r{^test/test_helper\.rb$})      { 'test' }
-end
-
 guard :rspec, cmd: "bundle exec rspec" do
 
   require "guard/rspec/dsl"
@@ -60,7 +50,7 @@ guard :rspec, cmd: "bundle exec rspec" do
 end
 
 
-guard 'rails', daemon: true, force_run: true, server: 'puma', root: './test/dummy', host: 'localhost' do
+guard 'rails', daemon: true, force_run: true, server: 'puma', root: './spec/dummy', host: 'localhost' do
   watch('Gemfile')
   watch(%r{^(config|lib)/.*})
 end
