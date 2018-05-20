@@ -32,11 +32,11 @@ wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1
 Requirements
 ------------
 
-| branch     | rails | ruby   | bootstrap | icons       | wobapphelpers |
-|------------|-------|--------|-----------|-------------|---------------|
-| master     |  5.1  | >= 2.3 |  v4       | fontawesome | master        |
-| 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons  | 2-0-stable    |
-| 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons  | 1-0-stable    |
+| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
+|------------|-------|--------|-----------|-----------------|---------------|
+| master     | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | master        |
+| 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons      | 2-0-stable    |
+| 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons      | 1-0-stable    |
 
 
 * simple_form >= 3.3
