@@ -8,15 +8,17 @@ module Wobauth
 
   # authorizable types
   #
-  mattr_reader :authorizable_types 
+  mattr_reader :authorizable_types, :authorizable_group_method
   @@authorizable_types = [ "Wobauth::User", "Wobauth::Group" ]
+  @@authorizable_group_method = :all
   
   # authorized_for types
   # Objects on which Wobauth should set authorization
   #
-  mattr_accessor :authorized_for_types 
+  mattr_accessor :authorized_for_types, :authorized_for_group_method
   @@authorized_for_types = [ ]
-  
+  @@authorized_for_group_method = :all
+
   # is remote authentication possible using REMOTE_USER?
   # default: check devise settings
   mattr_writer :remote_authentication

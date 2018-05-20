@@ -8,9 +8,15 @@
   </div>
 
   <div class="card-body">
-    <%= polymorphic_selector(f, 'authorizable', Wobauth.authorizable_types) %>
+    <%= polymorphic_selector(f,
+                             'authorizable',
+                              Wobauth.authorizable_types,
+                              Wobauth.authorizable_group_method) %>
     <%= f.association :role %>
-    <%= polymorphic_selector(f, 'authorized_for', Wobauth.authorized_for_types) %>
+    <%= polymorphic_selector(f,
+                             'authorized_for',
+                             Wobauth.authorized_for_types,
+                             Wobauth.authorized_for_group_method) %>
 
     <%= f.input :valid_from, as: :string, class: 'datepicker'
      %>
