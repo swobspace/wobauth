@@ -30,7 +30,7 @@ group :development, :test do
   gem 'guard-livereload', require: false
   gem 'guard-bundler'
   gem 'puma'
-  gem 'font-awesome-sass'
+  gem 'font-awesome-sass', '~> 4.7'
   gem 'capybara'
   gem 'poltergeist'
 end

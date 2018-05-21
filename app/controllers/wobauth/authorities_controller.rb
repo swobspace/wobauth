@@ -22,9 +22,9 @@ module Wobauth
     # GET /authorities/new
     def new
       if @authorizable.present?
-        @authority = @authorizable.authorities.new
+        @authority = @authorizable.authorities.new(authorized_for_params)
       else
-        @authority = Authority.new
+        @authority = Authority.new(authorized_for_params)
       end
       respond_with(@authority)
     end
@@ -35,10 +35,11 @@ module Wobauth
 
     # POST /authorities
     def create
+      myparams = authorized_for_params.merge(authority_params)
       if @authorizable.present?
-        @authority = @authorizable.authorities.new(authority_params)
+        @authority = @authorizable.authorities.new(myparams)
       else
-        @authority = Authority.new(authority_params)
+        @authority = Authority.new(myparams)
       end
 
       @authority.save
@@ -68,11 +69,20 @@ module Wobauth
         params.require(:authority).permit(:authorizable_id, :authorizable_type, :role_id, :authorized_for_id, :authorized_for_type, :valid_from, :valid_until)
       end
 
+      def authorized_for_params
+        { 
+          authorized_for_id: @authorized_for&.id, 
+          authorized_for_type: @authorized_for&.model_name
+        }
+      end
+
     # if @authorizable exist: authorizable/authorizable_id#authority
     # else authority/authority_id
     #
     def location
-      polymorphic_path((@authorizable || @authority), anchor: ('authorities' if @authorizable))
+      polymorphic_path(
+        (@authorizable || @authorized_for || @authority), 
+        anchor: ('authorities' if @authorizable || @authorized_for))
     end
   end
 end
