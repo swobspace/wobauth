@@ -34,7 +34,10 @@ module Wobauth
       end
 
       def role?(role)
-        !!self.roles.find_by_name(role.to_s.camelize)
+        (self.authorities.joins(:role)
+         .where("wobauth_roles.name = ?", role.to_s.camelize).present?) ||
+        (self.group_authorities.joins(:role)
+         .where("wobauth_roles.name = ?", role.to_s.camelize).present?)
       end
     end
   end

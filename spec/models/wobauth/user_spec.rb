@@ -51,5 +51,44 @@ module Wobauth
       end
     end
 
+    describe "#role?" do
+      let(:role)  { FactoryBot.create(:role, name: 'Meister') }
+      let(:user)  { FactoryBot.create(:user) }
+
+      context "with user assigned role" do
+        let!(:authority) { FactoryBot.create(:authority,
+                           authorizable: user, role: role) }
+        it { expect(user.role?('Meister')).to be_truthy }
+        it { expect(user.role?('Nonexistent')).to be_falsey }
+      end
+
+      context "with group assigned role" do
+        let(:group) { FactoryBot.create(:group, name: "Frischling") }
+        let!(:membership) { FactoryBot.create(:membership, user: user, group: group) }
+        let!(:authority) { FactoryBot.create(:authority,
+                           authorizable: group, role: role) }
+        it { expect(user.role?('Meister')).to be_truthy }
+        it { expect(user.role?('Nonexistent')).to be_falsey }
+      end
+    end
+
+    describe "#is_admin?" do
+      let(:role)  { Role.where(name: 'Admin').first }
+      let(:user)  { FactoryBot.create(:user) }
+
+      context "with user assigned role" do
+        let!(:authority) { FactoryBot.create(:authority,
+                           authorizable: user, role: role) }
+        it { expect(user.is_admin?).to be_truthy }
+      end
+
+      context "with group assigned role" do
+        let(:group) { FactoryBot.create(:group, name: "Frischling") }
+        let!(:membership) { FactoryBot.create(:membership, user: user, group: group) }
+        let!(:authority) { FactoryBot.create(:authority,
+                           authorizable: group, role: role) }
+        it { expect(user.is_admin?).to be_truthy }
+      end
+    end
   end
 end
