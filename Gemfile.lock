@@ -25,7 +25,7 @@ GIT
 PATH
   remote: .
   specs:
-    wobauth (3.3.2)
+    wobauth (3.4.1)
       cancancan
       coffee-rails
       devise
@@ -89,13 +89,13 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     cancancan (2.2.0)
-    capybara (3.1.0)
+    capybara (3.3.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
-      xpath (~> 3.0)
+      xpath (~> 3.1)
     cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -114,9 +114,9 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
-    dotenv (2.4.0)
-    dotenv-rails (2.4.0)
-      dotenv (= 2.4.0)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -124,9 +124,9 @@ GEM
     erubi (1.7.1)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    factory_bot (4.8.2)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     formatador (0.2.5)
@@ -190,13 +190,13 @@ GEM
     nenv (0.3.0)
     net-ldap (0.16.1)
     nio4r (2.3.1)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    poltergeist (1.18.0)
+    poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
@@ -285,7 +285,7 @@ GEM
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -308,7 +308,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (3.0.0)
+    xpath (3.1.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
