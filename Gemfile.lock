@@ -14,7 +14,7 @@ GIT
 PATH
   remote: .
   specs:
-    wobauth (2.1.5)
+    wobauth (2.1.7)
       cancancan
       coffee-rails
       devise
@@ -209,4 +209,4 @@ DEPENDENCIES
   wobauth!
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
