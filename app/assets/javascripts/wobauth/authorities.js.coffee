@@ -1,14 +1,31 @@
-$('#authority_authorizable_id optgroup').find('option').andSelf().hide()
+#
+# authorizable
+#
+
+# - start with given values
+auth_types = $('#authority_authorizable_type').find("option:selected").val()
+$('#authority_authorizable_id optgroup').find('option').addBack().hide()
+$("#authority_authorizable_id optgroup[label=\"#{auth_types}\"]").find('option').addBack().show()
+
+# - redisplay on change
 $(document).on('click', '#authority_authorizable_type', ->
   type = $(this).find("option:selected").val()
-  # alert(type)
-  $('#authority_authorizable_id optgroup').find('option').andSelf().hide()
-  $("#authority_authorizable_id optgroup[label=\"#{type}\"]").find('option').andSelf().show()
+  $('#authority_authorizable_id optgroup').find('option').addBack().hide()
+  $("#authority_authorizable_id optgroup[label=\"#{type}\"]").find('option').addBack().show()
 )
-$('#authority_authorized_for_id optgroup').find('option').andSelf().hide()
+
+#
+# authorized_for
+#
+
+# - start with given values
+authfor_type = $('#authority_authorized_for_type').find("option:selected").val()
+$('#authority_authorized_for_id optgroup').find('option').addBack().hide()
+$("#authority_authorized_for_id optgroup[label=\"#{authfor_type}\"]").find('option').addBack().show()
+
+# - redisplay on change
 $(document).on('click', '#authority_authorized_for_type', ->
   type = $(this).find("option:selected").val()
-  # alert(type)
-  $('#authority_authorized_for_id optgroup').find('option').andSelf().hide()
-  $("#authority_authorized_for_id optgroup[label=\"#{type}\"]").find('option').andSelf().show()
+  $('#authority_authorized_for_id optgroup').find('option').addBack().hide()
+  $("#authority_authorized_for_id optgroup[label=\"#{type}\"]").find('option').addBack().show()
 )
