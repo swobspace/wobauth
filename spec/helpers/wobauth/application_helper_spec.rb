@@ -19,8 +19,7 @@ RSpec.describe Wobauth::ApplicationHelper, :type => :helper do
     context "with existing class method data_url" do
       let(:url) { "/wobauth/anywhere/anypath" }
       before(:each) do
-        expect(Wobauth::User).to receive(:respond_to?).with(:data_url).and_return(true)
-        expect(Wobauth::User).to receive(:data_url).with("Wobauth::User").and_return(url)
+        expect(Wobauth::User).to receive(:data_url).and_return(url)
       end
 
       it { expect(helper.data_url("Wobauth::User")).to eq(url) }

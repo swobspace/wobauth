@@ -39,8 +39,8 @@ module Wobauth
     end
 
     def data_url(t)
-      if String(t).constantize.respond_to?(:data_url)
-        String(t).constantize.data_url
+      if String(t)&.constantize.respond_to?(:data_url)
+        String(t)&.constantize.data_url
       else
 	raise RuntimeError, <<-EOF
   Please implement #{t}.data_url (new since wobauth 4.0)
