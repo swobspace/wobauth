@@ -16,6 +16,9 @@ module Wobauth
       expect(f).to be_valid
       expect(g).to be_valid
     end
+    describe "::data_url" do
+      it { expect(Wobauth::Group.data_url).to eq(Wobauth::Engine.routes.url_helpers.groups_path(format: :json)) }
+    end
 
   end
 end

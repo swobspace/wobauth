@@ -90,5 +90,9 @@ module Wobauth
         it { expect(user.is_admin?).to be_truthy }
       end
     end
+
+    describe "::data_url" do
+      it { expect(Wobauth::User.data_url).to eq(Wobauth::Engine.routes.url_helpers.users_path(format: :json)) }
+    end
   end
 end

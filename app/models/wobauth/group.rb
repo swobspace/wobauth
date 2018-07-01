@@ -10,6 +10,9 @@ module Wobauth
     # -- validations and callbacks
     validates :name, :presence => true, :uniqueness => true
 
+    def self.data_url
+      Wobauth::Engine.routes.url_helpers.groups_path(format: :json)
+    end
 
     def to_s
       name

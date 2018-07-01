@@ -12,8 +12,11 @@ module Wobauth
 	has_many :group_authorities, through: :groups, source: :authorities
 
         validates :username, presence: true, uniqueness: true
-      end
 
+        def self.data_url
+          Wobauth::Engine.routes.url_helpers.users_path(format: :json)
+        end
+      end
 
       def to_s
         if sn.blank? and givenname.blank?
