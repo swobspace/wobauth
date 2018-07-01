@@ -43,7 +43,7 @@ module Wobauth
         String(t)&.constantize.data_url
       else
 	raise RuntimeError, <<-EOF
-  Please implement #{t}.data_url (new since wobauth 4.0)
+  Please implement class method ::data_url for #{t} (new since wobauth 4.0)
   See https://github.com/swobspace/wobauth for more information
   EOF
       end
