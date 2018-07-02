@@ -10,8 +10,10 @@ de:
   attributes:
     active_directory_guid: Active Directory GUID
     authorizable: Authorisierbar
+    authorizable_id: Authorisierbar
     authorizable_type: Authorisierbar/Typ
     authorized_for: Berechtigung auf
+    authorized_for_id: Berechtigung auf
     authorized_for_type: Berechtigung auf/Typ
     auto: Auto
     current_sign_in_at: Login am
