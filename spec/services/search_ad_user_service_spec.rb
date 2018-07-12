@@ -21,6 +21,17 @@ RSpec.describe Wobauth::SearchAdUserService do
     it { expect(call.respond_to? :ad_users).to be_truthy }
   end
 
+  describe "without ldap_options" do
+    before(:each) do
+      Wobauth.ldap_config = '/dummy/nonexistent.yml'
+    end
+    it "raise a RuntimeError" do
+      expect {
+        Wobauth::SearchAdUserService.new(q)
+      }.to raise_error RuntimeError
+    end
+  end
+
   describe "with real environment" do
     subject { Wobauth::SearchAdUserService.new(q) }
     let(:call) { subject.call }
