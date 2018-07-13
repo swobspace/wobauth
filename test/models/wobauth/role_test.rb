@@ -10,8 +10,8 @@ module Wobauth
     should validate_uniqueness_of(:name)
 
     should "simple factory working" do
-      f = FactoryGirl.create(:role)
-      g = FactoryGirl.create(:role)
+      f = FactoryBot.create(:role)
+      g = FactoryBot.create(:role)
       assert g.valid?
       assert f.valid?
     end

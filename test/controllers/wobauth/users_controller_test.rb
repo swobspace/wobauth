@@ -73,8 +73,8 @@ module Wobauth
     end
 
     test "should show user authorities" do
-      role = FactoryGirl.create(:role, name: "Testrole")
-      FactoryGirl.create(:authority, authorizable: @user, role: role)
+      role = FactoryBot.create(:role, name: "Testrole")
+      FactoryBot.create(:authority, authorizable: @user, role: role)
       get :show, params: { id: @user }
       assert_select "div#user_roles" do
         assert_select "tbody tr[class=?]", "authority" do
@@ -84,8 +84,8 @@ module Wobauth
     end
 
     test "should show assigned memberships" do
-      group = FactoryGirl.create(:group, name: "Vereinsmeierei")
-      FactoryGirl.create(:membership, user: @user, group: group)
+      group = FactoryBot.create(:group, name: "Vereinsmeierei")
+      FactoryBot.create(:membership, user: @user, group: group)
       get :show, params: { id: @user }
       assert_select "div#user_groups" do
         assert_select "tbody tr[class=?]", "membership" do

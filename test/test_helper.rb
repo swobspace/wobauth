@@ -10,7 +10,7 @@ require 'devise'
 require 'cancancan'
 require 'sass-rails'
 require 'coffee-rails'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
@@ -41,5 +41,5 @@ class ActionController::TestCase
 end
 
 class MiniTest::Unit::TestCase
-  include FactoryGirl::Syntax::Methods
+  include FactoryBot::Syntax::Methods
 end
