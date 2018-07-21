@@ -24,3 +24,5 @@ test/tmp
 test/dummy/public/assets/
 .localenv
 test/dummy/.env
+test
+*.gem
