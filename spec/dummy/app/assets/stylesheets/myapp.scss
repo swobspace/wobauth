@@ -1,6 +1,7 @@
 //fontawesome
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "v4-shims.min";
 
 $icon-font-path: "bootstrap/assets/fonts/bootstrap/";
 @import "bootstrap/dist/css/bootstrap";
