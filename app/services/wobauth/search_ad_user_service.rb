@@ -1,6 +1,7 @@
+require 'immutable-struct'
 module Wobauth
   class SearchAdUserService
-    Result = ImmutableStruct.new( :success?, :error_messages, :ad_users )
+    Result = ::ImmutableStruct.new( :success?, :error_messages, :ad_users )
 
     def initialize(options = {})
       @options = options.symbolize_keys
