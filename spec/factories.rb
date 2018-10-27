@@ -21,8 +21,8 @@ FactoryBot.define do
   factory :user, class: Wobauth::User do
     sequence(:username)    { |n| "user#{n}" }
     sequence(:email, 1000) { |n| "user#{n}@example.net" }
-    password "test99"
-    password_confirmation "test99"
+    password { "test99" }
+    password_confirmation { "test99" }
   end
 
 end
