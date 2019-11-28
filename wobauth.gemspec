@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
   s.add_runtime_dependency "rails", "~> 5.0"
-  s.add_runtime_dependency "wobapphelpers", "~> 3.0"
+  s.add_runtime_dependency "wobapphelpers", "~> 4.0"
   s.add_runtime_dependency "wobaduser", "~> 1.0"
   s.add_runtime_dependency 'immutable-struct'
   s.add_runtime_dependency "simple_form"
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'record_tag_helper', '~> 1.0'
   s.add_runtime_dependency 'font-awesome-sass', '>=4.7', '<= 6'
 
-  s.add_development_dependency "wobapphelpers", "~> 3.0"
+  s.add_development_dependency "wobapphelpers", "~> 4.0"
   s.add_development_dependency "wobaduser", "~> 1.0"
   s.add_development_dependency "cancancan"
   s.add_development_dependency 'immutable-struct'

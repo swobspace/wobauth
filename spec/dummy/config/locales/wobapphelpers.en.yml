@@ -3,8 +3,12 @@ en:
     helpers:
       back: Back
       cancel: Cancel
-    controller:
-      new:  "create %{name}"
-      create:  "create %{name}"
-      edit:  "update %{name}"
-      update:  "update %{name}"
+    actions:
+      new:  "create %{model}"
+      create: "create %{model}"
+      show: "show %{model}"
+      edit: "update %{model}"
+      update: "update %{model}"
+      copy: "copy %{model}"
+      destroy: "destroy %{model}"
+      destroy_confirm: "record would be finally destroyed, no recovery possible!"
