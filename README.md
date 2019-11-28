@@ -28,13 +28,15 @@ Versions
 wobauth 1.x is for Rails 4, wobauth 2.x will support Rails 5.
 wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1 
 (may work with Rails 5.0, but not tested)
+wobauth 4.x works with sprockets v4.
 
 Requirements
 ------------
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master     | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | master        |
+| master(4.x)| >=5.1 | >= 2.3 |  v4       | fontawesome 5.x | master (4.x)  |
+| 3-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | 3-0-stable    |
 | 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons      | 2-0-stable    |
 | 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons      | 1-0-stable    |
 
@@ -46,12 +48,16 @@ Installation
 Add wobauth to your Gemfile:
 
 ```ruby
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
+gem 'wobauth', '~> 4.0.0'
+gem 'wobauth', '~> 3.4.8'
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '3-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
-```
-Run
 
+```
+Starting with v3.4 gems are published to rubygems.org. 
+
+Run
 ```ruby
 rails g wobauth:install
 ```
@@ -63,6 +69,12 @@ rake wobauth:install:migrations
 copies wobauth migration files wobauth to your application. Do this before you
 create your own migration files if possible. If you upgrade from an older wobauth
 version rerun it. There might be new migration files added.
+
+
+Upgrade
+-------
+
+For Upgrade from 3.x to 4.x you have to upgrade wobapphelpers
 
 Configuration
 -------------
@@ -159,7 +171,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2018  Wolfgang Barth
+wobauth Copyright (C) 2014-2019  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 
