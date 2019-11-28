@@ -34,7 +34,7 @@ Requirements
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master     | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | master        |
+| 3-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | master        |
 | 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons      | 2-0-stable    |
 | 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons      | 1-0-stable    |
 
@@ -46,6 +46,7 @@ Installation
 Add wobauth to your Gemfile:
 
 ```ruby
+gem 'wobauth', '~> 3.4.8'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
@@ -159,7 +160,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2018  Wolfgang Barth
+wobauth Copyright (C) 2014-2019  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 
