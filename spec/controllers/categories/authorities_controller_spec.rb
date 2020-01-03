@@ -26,7 +26,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
     it "returns a success response" do
       authority = Wobauth::Authority.create! valid_attributes
       get :index, params: {category_id: category.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
                                                authorized_for_type: "Category"
                                              )
       get :show, params: {category_id: category.to_param, id: authority.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns(:authority).authorizable).to eq(user)
       expect(assigns(:authority).authorized_for).to eq(category)
     end
@@ -46,7 +46,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: {category_id: category.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns(:authority).authorized_for).to eq(category)
     end
   end
@@ -58,7 +58,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
                                                authorized_for_type: "Category"
                                              )
       get :edit, params: {category_id: category.to_param, id: authority.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns(:authority).authorizable).to eq(user)
       expect(assigns(:authority).authorized_for).to eq(category)
     end
@@ -83,7 +83,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
 	post :create, params: {category_id: category.to_param,authority: invalid_attributes}, session: valid_session
-	expect(response).to be_success
+	expect(response).to be_successful
       end
     end
   end
@@ -113,7 +113,7 @@ RSpec.describe Categories::AuthoritiesController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
 	authority = Wobauth::Authority.create! valid_attributes
 	put :update, params: {category_id: category.to_param, id: authority.to_param, authority: invalid_attributes}, session: valid_session
-	expect(response).to be_success
+	expect(response).to be_successful
       end
     end
   end

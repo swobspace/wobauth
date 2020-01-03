@@ -50,7 +50,7 @@ module Wobauth
       it "returns a success response" do
         role = Role.create! valid_attributes
         get :index, params: {}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -58,7 +58,7 @@ module Wobauth
       it "returns a success response" do
         role = Role.create! valid_attributes
         get :show, params: {id: role.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
