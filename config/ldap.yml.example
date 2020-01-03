@@ -1,0 +1,9 @@
+ldap_options:
+  host: 1.2.3.4
+  port: 3268
+  base: dc=example,dc=com
+  auth:
+    method: :simple
+    username: myusername
+    password: mysecretpassword
+
