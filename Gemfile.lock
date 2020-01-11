@@ -153,7 +153,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     http_parser.rb (0.6.0)
-    i18n (1.7.0)
+    i18n (1.8.1)
       concurrent-ruby (~> 1.0)
     immutable-struct (2.4.1)
     jquery-rails (4.3.5)
@@ -166,7 +166,7 @@ GEM
     loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.13)
+    lumberjack (1.1.1)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -193,10 +193,10 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (4.0.2)
+    public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.0.8)
+    rack (2.1.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.2.1)
@@ -270,7 +270,7 @@ GEM
       tilt
     shellany (0.0.1)
     shoulda-context (1.2.2)
-    shoulda-matchers (4.1.2)
+    shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
     simple_form (5.0.1)
       actionpack (>= 5.0)
@@ -336,7 +336,7 @@ DEPENDENCIES
   puma
   rails-controller-testing
   record_tag_helper (~> 1.0)
-  rspec-rails
+  rspec-rails (>= 4.0.0.0.beta3)
   sassc-rails
   shoulda-context
   shoulda-matchers
