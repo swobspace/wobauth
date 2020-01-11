@@ -1,7 +1,8 @@
+require_dependency 'wobauth/concerns/models/user_concerns'
 module Wobauth
   class User < ActiveRecord::Base
     # dependencies within wobauth models
-    include Wobauth::Concerns::Models::User
+    include UserConcerns
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable

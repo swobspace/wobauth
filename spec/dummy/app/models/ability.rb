@@ -1,4 +1,4 @@
-require 'wobauth_admin_ability'
+require_dependency 'wobauth/admin_ability'
 
 class Ability
   include CanCan::Ability
