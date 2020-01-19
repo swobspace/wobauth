@@ -94,7 +94,7 @@
       <%= edit_link([wobauth, @user]) %>
       <%= delete_link([wobauth, @user]) %>
       <%= new_link [wobauth, Wobauth::User] %>
-      <%= link_to t('wobauth.new_user_from_ad'), wobauth.ad_users_path, class: 'btn btn-secondary' %>
+      <%= link_to(t('wobauth.new_user_from_ad'), wobauth.ad_users_path, class: 'btn btn-secondary') if can? :create, Wobauth::User %>
     </div>
 
   </div>

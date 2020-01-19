@@ -9,6 +9,7 @@ module Wobauth
 
     let(:user) { FactoryBot.create(:user) }
     let(:group) { FactoryBot.create(:group) }
+    let(:group2) { FactoryBot.create(:group) }
 
     login_admin
 
@@ -26,7 +27,7 @@ module Wobauth
       it "returns a success response" do
         membership = Membership.create! valid_attributes
         get :index, params: {group_id: group.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -34,14 +35,14 @@ module Wobauth
       it "returns a success response" do
         membership = Membership.create! valid_attributes
         get :show, params: {group_id: group.to_param, id: membership.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
     describe "GET #new" do
       it "returns a success response" do
         get :new, params: {group_id: group.to_param, }, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -49,7 +50,7 @@ module Wobauth
       it "returns a success response" do
         membership = Membership.create! valid_attributes
         get :edit, params: {group_id: group.to_param, id: membership.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -70,7 +71,7 @@ module Wobauth
       context "with invalid params" do
         it "returns a success response (i.e. to display the 'new' template)" do
           post :create, params: {group_id: group.to_param, membership: invalid_attributes}, session: valid_session
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end
@@ -78,14 +79,14 @@ module Wobauth
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          {group_id: 234}
+          {group_id: group2.id}
         }
 
         it "updates the requested membership" do
           membership = Membership.create! valid_attributes
           put :update, params: {group_id: group.to_param, id: membership.to_param, membership: new_attributes}, session: valid_session
           membership.reload
-          expect(membership.group_id).to eq(234)
+          expect(membership.group_id).to eq(group2.id)
         end
 
         it "redirects to the membership" do
@@ -99,7 +100,7 @@ module Wobauth
         it "returns a success response (i.e. to display the 'edit' template)" do
           membership = Membership.create! valid_attributes
           put :update, params: {group_id: group.to_param, id: membership.to_param, membership: invalid_attributes}, session: valid_session
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end

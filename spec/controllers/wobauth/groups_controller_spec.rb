@@ -23,7 +23,7 @@ module Wobauth
       it "returns a success response" do
         group = Group.create! valid_attributes
         get :index, params: {}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -31,14 +31,14 @@ module Wobauth
       it "returns a success response" do
         group = Group.create! valid_attributes
         get :show, params: {id: group.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
     describe "GET #new" do
       it "returns a success response" do
         get :new, params: {}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -46,7 +46,7 @@ module Wobauth
       it "returns a success response" do
         group = Group.create! valid_attributes
         get :edit, params: {id: group.to_param}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -67,7 +67,7 @@ module Wobauth
       context "with invalid params" do
         it "returns a success response (i.e. to display the 'new' template)" do
           post :create, params: {group: invalid_attributes}, session: valid_session
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end
@@ -96,7 +96,7 @@ module Wobauth
         it "returns a success response (i.e. to display the 'edit' template)" do
           group = Group.create! valid_attributes
           put :update, params: {id: group.to_param, group: invalid_attributes}, session: valid_session
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end

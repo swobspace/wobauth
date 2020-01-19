@@ -4,7 +4,7 @@ module Wobauth
   RSpec.describe Authority, type: :model do
     it { is_expected.to belong_to(:authorizable) }
     it { is_expected.to belong_to(:role) }
-    it { is_expected.to belong_to(:authorized_for) }
+    it { is_expected.to belong_to(:authorized_for).optional }
 
     it { is_expected.to validate_presence_of(:authorizable_id) }
     it { is_expected.to validate_presence_of(:authorizable_type) }

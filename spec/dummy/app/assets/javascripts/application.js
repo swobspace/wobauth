@@ -1,4 +1,4 @@
-//= require jquery3
+//= require jquery
 //= require rails-ujs
 //= require jszip/dist/jszip
 //= require pdfmake/build/pdfmake
