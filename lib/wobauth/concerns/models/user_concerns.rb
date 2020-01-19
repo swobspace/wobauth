@@ -9,7 +9,7 @@ module UserConcerns
     has_many :group_roles, through: :groups, source: :roles
     has_many :group_authorities, through: :groups, source: :authorities
 
-    validates :username, presence: true, uniqueness: true
+    validates :username, presence: true, uniqueness: { case_sensitive: false }
   end
 
 
