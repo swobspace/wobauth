@@ -9,6 +9,7 @@ module Wobauth
 
     let(:user) { FactoryBot.create(:user) }
     let(:group) { FactoryBot.create(:group) }
+    let(:group2) { FactoryBot.create(:group) }
 
     login_admin
 
@@ -78,14 +79,14 @@ module Wobauth
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          {group_id: 234}
+          {group_id: group2.id}
         }
 
         it "updates the requested membership" do
           membership = Membership.create! valid_attributes
           put :update, params: {id: membership.to_param, membership: new_attributes}, session: valid_session
           membership.reload
-          expect(membership.group_id).to eq(234)
+          expect(membership.group_id).to eq(group2.id)
         end
 
         it "redirects to the membership" do
