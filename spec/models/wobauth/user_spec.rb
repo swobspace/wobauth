@@ -15,7 +15,7 @@ module Wobauth
     it "simple factory working" do
       f = FactoryBot.create(:user)
       g = FactoryBot.create(:user)
-      expect(f).to validate_uniqueness_of(:username)
+      expect(f).to validate_uniqueness_of(:username).case_insensitive
       expect(f).to be_valid
       expect(g).to be_valid
     end
