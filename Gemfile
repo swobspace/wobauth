@@ -17,6 +17,6 @@ gemspec
 
 group :development, :test do
   gem 'guard-livereload', require: false
-  gem 'rspec-rails', '>= 4.0.0.0.beta3'
+  gem 'rspec-rails', '>= 4.0.0.0'
 end
 
