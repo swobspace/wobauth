@@ -11,12 +11,16 @@
     <%= polymorphic_selector(f,
                              'authorizable',
                               Wobauth.authorizable_types,
-                              Wobauth.authorizable_group_method) %>
+                              Wobauth.authorizable_group_method,
+                              {class: 'select2'}) 
+     %>
     <%= f.association :role %>
     <%= polymorphic_selector(f,
                              'authorized_for',
                              Wobauth.authorized_for_types,
-                             Wobauth.authorized_for_group_method) %>
+                             Wobauth.authorized_for_group_method,
+                              {class: 'select2'}) 
+     %>
 
     <%= f.input :valid_from, as: :string, class: 'datepicker'
      %>

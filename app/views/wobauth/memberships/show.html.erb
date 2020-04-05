@@ -3,17 +3,17 @@
     <h4><%= t('attributes.membership') %></h4>
   </div>
   <div class="card-body">
-    <table class="table table-bordered table-hover autowidth">
+    <table class="table table-sm table-borderless ">
       <tr>
-	<th><%= t('attributes.user')%>:</th>
+	<th class="w-25 text-right"><%= t('attributes.user')%>:</th>
 	<td><%= @membership.user %></td>
       </tr>
       <tr>
-	<th><%= t('attributes.group')%>:</th>
+	<th class="w-25 text-right"><%= t('attributes.group')%>:</th>
 	<td><%= @membership.group %></td>
       </tr>
       <tr>
-	<th><%= t('attributes.auto')%>:</th>
+	<th class="w-25 text-right"><%= t('attributes.auto')%>:</th>
 	<td><%= @membership.auto %></td>
       </tr>
     </table>
