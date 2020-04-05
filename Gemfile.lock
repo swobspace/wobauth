@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wobauth (5.0.1)
+    wobauth (5.0.2)
       cancancan
       coffee-rails
       devise
