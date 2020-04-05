@@ -140,6 +140,8 @@ ready = ->
   # --- end remote datatable ---
 
   $('.select2').select2
-    width: 'element'
+    theme: 'bootstrap'
+    width: '100%'
+    allowClear: true
 
 $(document).ready(ready)
