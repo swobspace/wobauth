@@ -45,13 +45,18 @@ module Wobauth
     config ||= Hash.new
 
     if config['ldap_options'].present?
-      opts = config['ldap_options'].symbolize_keys
-      opts.each do |k,v|
-        opts[k] = opts[k].symbolize_keys if opts[k].kind_of? Hash
+      ldapopts = config['ldap_options']
+      if ldapopts.kind_of? Hash
+        ldapopts = [ldapopts]
+      end
+      ldapopts.each do |opts|
+        opts.symbolize_keys!
+        opts.each do |k,v|
+          opts[k] = opts[k].symbolize_keys if opts[k].kind_of? Hash
+        end
       end
     else
       nil
     end
   end
-
 end

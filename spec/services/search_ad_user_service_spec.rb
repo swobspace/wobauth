@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Wobauth::SearchAdUserService do
   let(:q) {{ query: ENV['LDAP_SEARCH_SN'] }}
-  let(:ldap_options) { Wobauth.ldap_options }
+  let(:ldap_options) { Wobauth.ldap_options.first }
 
   before(:each) do
     Wobauth.ldap_config = ENV['LDAP_CONFIG']

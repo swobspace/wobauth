@@ -1,3 +1,4 @@
+# simple 
 ldap_options:
   host: 1.2.3.4
   port: 3268
@@ -6,4 +7,35 @@ ldap_options:
     method: :simple
     username: myusername
     password: mysecretpassword
+
+# redundant: 1 directory with 2 redundant servers
+ldap_options:
+  hosts: 
+    - [1.2.3.4, 3269]
+    - [5.6.7.8, 3269]
+  encryption: :simple_tls
+  base: dc=example,dc=com
+  auth:
+    method: :simple
+    username: myusername
+    password: mysecretpassword
+
+# multiple directories
+ldap_options:
+  - host: 1.2.3.4
+    port: 3268
+    base: dc=example,dc=com
+    auth:
+      method: :simple
+      username: myusername
+      password: mysecretpassword
+  - host: 5.6.7.8
+    port: 3269
+    base: dc=example,dc=com
+    encryption: :simple_tls
+    auth:
+      method: :simple
+      username: myusername
+      password: mysecretpassword
+
 
