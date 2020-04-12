@@ -17,17 +17,27 @@ module Wobauth
 	return Result.new(success: false, error_messages: ["no query given"], ad_users: [])
       end
 
-      ldap = Wobaduser::LDAP.new(ldap_options: ldap_options)
-      if ldap.errors.any?
-	return Result.new(success: false, error_messages: ldap.errors, ad_users: [])
+      errors = []
+      ad_users = []
+      ldap_options.each do |ldapopts|
+        ldap = Wobaduser::LDAP.new(ldap_options: ldapopts)
+        if ldap.errors.any?
+          errors += ldap.errors
+          next
+        end
+        search = Wobaduser::User.search(ldap: ldap, filter: user_filter(query))
+        if search.success?
+          ad_users += search.entries
+        else
+          errors += search.errors
+        end
       end
 
-      search = Wobaduser::User.search(ldap: ldap, filter: user_filter(query))
-      if search.success?
-	result = Result.new(success: true, error_messages: [], ad_users: search.entries)
+      if errors.any?
+        return Result.new(success: false, error_messages: errors, ad_users: ad_users)
       else
-	result = Result.new(success: false, error_messages: search.errors, ad_users: [])
-       end
+        result = Result.new(success: true, error_messages: errors, ad_users: ad_users)
+      end
     end
 
   private
@@ -50,5 +60,13 @@ module Wobauth
       filter += ")"
       filter = Net::LDAP::Filter.construct(filter)
     end
+
+    def ldap_options
+      if @ldap_options.kind_of? Hash
+        [@ldap_options]
+      else
+        @ldap_options
+      end
+    end
   end
-end
+ end

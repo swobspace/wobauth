@@ -1,0 +1,8 @@
+ldap_options:
+  host: 192.0.2.71
+  port: 3268
+  base: dc=example,dc=com
+  auth:
+    method: :simple
+    username: myldapuser
+    password: myldappassword
