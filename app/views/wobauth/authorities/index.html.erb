@@ -1,40 +1,45 @@
 <h1><%= t('controller.wobauth/authorities') %></h1>
 
-<%= content_tag :table, id: :wobauth_authorities, role: :wobauth_datatable,
-    class: "table table-bordered table-striped dataTable" do %>
-<thead>
-  <tr>
-    <th><%= t('attributes.authorizable') %></th>
-    <th><%= t('attributes.authorizable_type') %></th>
-    <th><%= t('attributes.role') %></th>
-    <th><%= t('attributes.authorized_for') %></th>
-    <th><%= t('attributes.authorized_for_type') %></th>
-    <th><%= t('attributes.valid_from') %></th>
-    <th><%= t('attributes.valid_until') %></th>
-    <th><%= t('wobauth.action') %></th>
-  </tr>
-</thead>
-<tbody>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :wobauth_authorities, role: :wobauth_datatable,
+      class: "table table-bordered table-striped",
+      data: {
+        target: 'datatables.datatable',
+      } do %>
 
-<% @authorities.each do |authority| %>
-  <%= content_tag_for(:tr, authority) do %>
-    <td><%= authority.authorizable %></td>
-    <td><%= authority.authorizable_type %></td>
-    <td><%= authority.role %></td>
-    <td><%= authority.authorized_for %></td>
-    <td><%= authority.authorized_for_type %></td>
-    <td><%= authority.valid_from %></td>
-    <td><%= authority.valid_until %></td>
-    <td class="nowrap">
-      <%= show_link [wobauth, authority] %>
-      <%= edit_link [wobauth, authority] %>
-      <%= delete_link [wobauth, authority] %>
-    </td>
+  <thead>
+    <tr>
+      <th><%= t('attributes.authorizable') %></th>
+      <th><%= t('attributes.authorizable_type') %></th>
+      <th><%= t('attributes.role') %></th>
+      <th><%= t('attributes.authorized_for') %></th>
+      <th><%= t('attributes.authorized_for_type') %></th>
+      <th><%= t('attributes.valid_from') %></th>
+      <th><%= t('attributes.valid_until') %></th>
+      <th><%= t('wobauth.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @authorities.each do |authority| %>
+    <%= content_tag_for(:tr, authority) do %>
+      <td><%= authority.authorizable %></td>
+      <td><%= authority.authorizable_type %></td>
+      <td><%= authority.role %></td>
+      <td><%= authority.authorized_for %></td>
+      <td><%= authority.authorized_for_type %></td>
+      <td><%= authority.valid_from %></td>
+      <td><%= authority.valid_until %></td>
+      <td class="nowrap">
+        <%= show_link [wobauth, authority] %>
+        <%= edit_link [wobauth, authority] %>
+        <%= delete_link [wobauth, authority] %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-<% end %>
-
+  </tbody>
+  <% end %>
+</div>
 <br />
 
 <%= back_link %>

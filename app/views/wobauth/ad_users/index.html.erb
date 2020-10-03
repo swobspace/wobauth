@@ -11,59 +11,65 @@
 </div>
 <br>
 
-<table id="adusers" class="table table-bordered table-striped dataTable" role="datatable">
-  <thead>
-    <tr>
-      <th><%= t('attributes.sn') %></th>
-      <th><%= t('attributes.givenname') %></th>
-      <th><%= t('attributes.ort') %></th>
-      <th><%= t('attributes.plz') %></th>
-      <th><%= t('attributes.streetaddress') %></th>
-      <th><%= t('attributes.department') %></th>
-      <th><%= t('attributes.company') %></th>
-      <th><%= t('attributes.mail') %></th>
-      <th><%= t('attributes.telephonenumber') %></th>
-      <th><%= t('attributes.facsimiletelephonenumber') %></th>
-      <th><%= t('attributes.mobile') %></th>
-      <th><%= t('attributes.username') %></th>
-      <th><%= t('wobauth.action') %></th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </tfoot>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :adusers, role: :woauth_datatable,
+    class: "table table-bordered table-striped",
+    data: { 
+      target: 'datatables.datatable', 
+    } do %>
+    <thead>
+      <tr>
+        <th><%= t('attributes.sn') %></th>
+        <th><%= t('attributes.givenname') %></th>
+        <th><%= t('attributes.ort') %></th>
+        <th><%= t('attributes.plz') %></th>
+        <th><%= t('attributes.streetaddress') %></th>
+        <th><%= t('attributes.department') %></th>
+        <th><%= t('attributes.company') %></th>
+        <th><%= t('attributes.mail') %></th>
+        <th><%= t('attributes.telephonenumber') %></th>
+        <th><%= t('attributes.facsimiletelephonenumber') %></th>
+        <th><%= t('attributes.mobile') %></th>
+        <th><%= t('attributes.username') %></th>
+        <th><%= t('wobauth.action') %></th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </tfoot>
 
-  <tbody>
-    <% @ad_users.each do |ad_user| %>
-      <%= content_tag(:tr, class: aduser_class(Wobauth::User, ad_user)) do %>
-	<td><%= ad_user.sn %></td>
-	<td><%= ad_user.givenname %></td>
-	<td><%= ad_user.l %></td>
-	<td><%= ad_user.postalcode %></td>
-	<td><%= ad_user.streetaddress %></td>
-	<td><%= ad_user.department %></td>
-	<td><%= ad_user.company %></td>
-	<td><%= ad_user.mail %></td>
-	<td><%= ad_user.telephonenumber %></td>
-	<td><%= ad_user.facsimiletelephonenumber %></td>
-	<td><%= ad_user.mobile %></td>
-	<td><%= ad_user.username %></td>
-	<td><%= new_from_aduser_link(Wobauth::User, ad_user) %></td>
+    <tbody>
+      <% @ad_users.each do |ad_user| %>
+        <%= content_tag(:tr, class: aduser_class(Wobauth::User, ad_user)) do %>
+          <td><%= ad_user.sn %></td>
+          <td><%= ad_user.givenname %></td>
+          <td><%= ad_user.l %></td>
+          <td><%= ad_user.postalcode %></td>
+          <td><%= ad_user.streetaddress %></td>
+          <td><%= ad_user.department %></td>
+          <td><%= ad_user.company %></td>
+          <td><%= ad_user.mail %></td>
+          <td><%= ad_user.telephonenumber %></td>
+          <td><%= ad_user.facsimiletelephonenumber %></td>
+          <td><%= ad_user.mobile %></td>
+          <td><%= ad_user.username %></td>
+          <td><%= new_from_aduser_link(Wobauth::User, ad_user) %></td>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  <% end %>
+</div>

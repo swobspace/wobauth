@@ -1,21 +1,27 @@
-<%= content_tag :table, id: :wobauth_role_authorities, role: :wobauth_datatable,
-    class: "table table-sm table-bordered dataTable" do %>
- <thead> 
-  <tr>
-    <th><%= t('attributes.user') %></th>
-    <th><%= t('attributes.authorizable_type') %></th>
-    <th><%= t('attributes.authorized_for') %></th>
-    <th><%= t('attributes.authorized_for_type') %></th>
-  </tr>
- </thead>
- <tbody>
-<% authorities.valid(Date.today).each do |authority| %>
-  <%= content_tag_for(:tr, authority) do %>
-    <td><%= link_to authority.authorizable, polymorphic_path([wobauth, authority.authorizable]) %></td>
-    <td><%= authority.authorizable_type %></td>
-    <td><%= authorized_for_link(authority.authorized_for) %></td>
-    <td><%= authority.authorized_for_type %></td>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :wobauth_role_authorities, role: :wobauth_datatable,
+      class: "table table-sm table-bordered",
+      data: {
+        target: 'datatables.datatable',
+      } do %>
+
+   <thead> 
+    <tr>
+      <th><%= t('attributes.user') %></th>
+      <th><%= t('attributes.authorizable_type') %></th>
+      <th><%= t('attributes.authorized_for') %></th>
+      <th><%= t('attributes.authorized_for_type') %></th>
+    </tr>
+   </thead>
+   <tbody>
+  <% authorities.valid(Date.today).each do |authority| %>
+    <%= content_tag_for(:tr, authority) do %>
+      <td><%= link_to authority.authorizable, polymorphic_path([wobauth, authority.authorizable]) %></td>
+      <td><%= authority.authorizable_type %></td>
+      <td><%= authorized_for_link(authority.authorized_for) %></td>
+      <td><%= authority.authorized_for_type %></td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-<% end %>
+  </tbody>
+  <% end %>
+</div>
