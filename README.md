@@ -34,11 +34,17 @@ wobauth 5.x works with rails 6.x and is designed for autoloading via zeitwerk.
 Requirements
 ------------
 
+### Rails >= 6.0; autoload = :zeitwerk; webpacker; stimulusjs
+
+| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
+|------------|-------|--------|-----------|-----------------|---------------|
+| master(6.x)| >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
+
 ### Rails >= 6.0, autoload = :zeitwerk
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master(5.x)| >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
+| 5-stable   | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
 
 ### Rails <= 5.2, autoload = :classic
 
@@ -181,7 +187,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2020  Wolfgang Barth
+wobauth Copyright (C) 2014-2021  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 

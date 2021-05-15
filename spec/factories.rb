@@ -1,12 +1,28 @@
 FactoryBot.define do
 
+  sequence :email, 10000 do |n|
+    "person#{n}@example.net"
+  end
+
+  sequence :group do |n|
+    "group_#{n}"
+  end
+
+  sequence :username do |n|
+    "user_#{n}"
+  end
+
+  sequence :name do |n|
+    "name_#{n}"
+  end
+
   factory :authority, class: Wobauth::Authority do
     association :authorizable, factory: :user
     role
   end
 
   factory :group, class: Wobauth::Group do
-    sequence(:name) { |n| "name_#{n}" }
+    name { generate(:name) }
   end
 
   factory :membership, class: Wobauth::Membership do
@@ -15,12 +31,12 @@ FactoryBot.define do
   end
 
   factory :role, class: Wobauth::Role do
-    sequence(:name) { |n| "name_#{n}" }
+    name { generate(:name) }
   end
 
   factory :user, class: Wobauth::User do
-    sequence(:username)    { |n| "user#{n}" }
-    sequence(:email, 1000) { |n| "user#{n}@example.net" }
+    username { generate(:username) }
+    email { generate(:email) }
     password { "test99" }
     password_confirmation { "test99" }
   end

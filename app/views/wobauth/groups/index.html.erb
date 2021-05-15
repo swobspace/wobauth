@@ -1,29 +1,35 @@
 <h1><%= t('controller.wobauth/groups') %></h1>
 
-<%= content_tag :table, id: :wobauth_groups, role: :wobauth_datatable,
-    class: "table table-bordered table-striped dataTable" do %>
-<thead>
-  <tr>
-    <th><%= t('attributes.name') %></th>
-    <th><%= t('attributes.description') %></th>
-    <th><%= t('wobauth.action') %></th>
-  </tr>
-</thead>
-<tbody>
 
-<% @groups.each do |group| %>
-  <%= content_tag_for(:tr, group) do %>
-    <td><%= group.name %></td>
-    <td><%= group.description %></td>
-    <td class="nowrap">
-      <%= show_link [wobauth, group] %>
-      <%= edit_link [wobauth, group] %>
-      <%= delete_link [wobauth, group] %>
-    </td>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :wobauth_groups, role: :wobauth_datatable,
+      class: "table table-bordered table-striped",
+      data: {
+        target: 'datatables.datatable',
+      } do %>
+  <thead>
+    <tr>
+      <th><%= t('attributes.name') %></th>
+      <th><%= t('attributes.description') %></th>
+      <th><%= t('wobauth.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @groups.each do |group| %>
+    <%= content_tag_for(:tr, group) do %>
+      <td><%= group.name %></td>
+      <td><%= group.description %></td>
+      <td class="nowrap">
+        <%= show_link [wobauth, group] %>
+        <%= edit_link [wobauth, group] %>
+        <%= delete_link [wobauth, group] %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-<% end %>
+  </tbody>
+  <% end %>
+</div>
 
 <br />
 

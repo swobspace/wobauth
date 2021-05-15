@@ -1,25 +1,31 @@
 <h1><%= t('controller.wobauth/roles') %></h1>
 
-<%= content_tag :table, id: :wobauth_roles, role: :wobauth_datatable,
-    class: "table table-bordered table-striped dataTable" do %>
-<thead>
-  <tr>
-    <th><%= t('attributes.name') %></th>
-    <th><%= t('wobauth.action') %></th>
-  </tr>
-</thead>
-<tbody>
 
-<% @roles.each do |role| %>
-  <%= content_tag_for(:tr, role) do %>
-    <td><%= role.name %></td>
-    <td class="nowrap">
-      <%= show_link [wobauth, role] %>
-    </td>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :wobauth_roles, role: :wobauth_datatable,
+      class: "table table-bordered table-striped",
+      data: {
+        target: 'datatables.datatable',
+      } do %>
+  <thead>
+    <tr>
+      <th><%= t('attributes.name') %></th>
+      <th><%= t('wobauth.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @roles.each do |role| %>
+    <%= content_tag_for(:tr, role) do %>
+      <td><%= role.name %></td>
+      <td class="nowrap">
+        <%= show_link [wobauth, role] %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-<% end %>
+  </tbody>
+  <% end %>
+</div>
 
 <br />
 

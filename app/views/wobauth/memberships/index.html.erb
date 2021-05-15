@@ -1,31 +1,36 @@
 <h1><%= t('controller.wobauth/memberships') %></h1>
 
-<%= content_tag :table, id: :wobauth_memberships, role: :wobauth_datatable,
-    class: "table table-bordered table-striped dataTable" do %>
-<thead>
-  <tr>
-    <th><%= t('attributes.user') %></th>
-    <th><%= t('attributes.group') %></th>
-    <th><%= t('attributes.auto') %></th>
-    <th><%= t('wobauth.action') %></th>
-  </tr>
-</thead>
-<tbody>
+<div data-controller="datatables">
+  <%= content_tag :table, id: :wobauth_memberships, role: :wobauth_datatable,
+      class: "table table-bordered table-striped dataTable",
+      data: {
+        target: 'datatables.datatable',
+      } do %>
+  <thead>
+    <tr>
+      <th><%= t('attributes.user') %></th>
+      <th><%= t('attributes.group') %></th>
+      <th><%= t('attributes.auto') %></th>
+      <th><%= t('wobauth.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
 
-<% @memberships.each do |membership| %>
-  <%= content_tag_for(:tr, membership) do %>
-    <td><%= membership.user %></td>
-    <td><%= membership.group %></td>
-    <td><%= membership.auto %></td>
-    <td class="nowrap">
-      <%= show_link [wobauth, membership] %>
-      <%= edit_link [wobauth, membership] %>
-      <%= delete_link [wobauth, membership] %>
-    </td>
+  <% @memberships.each do |membership| %>
+    <%= content_tag_for(:tr, membership) do %>
+      <td><%= membership.user %></td>
+      <td><%= membership.group %></td>
+      <td><%= membership.auto %></td>
+      <td class="nowrap">
+        <%= show_link [wobauth, membership] %>
+        <%= edit_link [wobauth, membership] %>
+        <%= delete_link [wobauth, membership] %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-<% end %>
+  </tbody>
+  <% end %>
+</div>
 
 <br />
 
