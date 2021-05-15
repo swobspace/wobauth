@@ -140,7 +140,7 @@ ready = ->
   # --- end remote datatable ---
 
   $('.select2').select2
-    theme: 'bootstrap'
+    theme: 'bootstrap-5'
     width: '100%'
     allowClear: true
 

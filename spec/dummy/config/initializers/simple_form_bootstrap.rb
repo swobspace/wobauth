@@ -5,7 +5,7 @@ SimpleForm.setup do |config|
   config.boolean_label_class = 'form-check-label'
 
   # Helpers
-  wrapper_options = {class: 'form-group'}
+  wrapper_options = {class: 'mb-3'}
   input_options = {error_class: 'is-invalid'}
   label_class = 'col-form-label'
 
@@ -14,7 +14,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: {tag: 'small', class: 'form-text text-muted'}
   end
 
-  config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :vertical_form, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -28,7 +28,7 @@ SimpleForm.setup do |config|
     error_and_hint.call(b)
   end
 
-  config.wrappers :vertical_file_input, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :vertical_file_input, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -40,7 +40,7 @@ SimpleForm.setup do |config|
     error_and_hint.call(b)
   end
 
-  config.wrappers :vertical_boolean, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :vertical_boolean, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.optional :readonly
 
@@ -51,7 +51,7 @@ SimpleForm.setup do |config|
     error_and_hint.call(b)
   end
 
-  config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.optional :readonly
     b.use :label, class: 'control-label'
@@ -59,7 +59,7 @@ SimpleForm.setup do |config|
     error_and_hint.call(b)
   end
 
-  config.wrappers :horizontal_form, tag: 'div', class: 'form-group row', error_class: 'has-invalid' do |b|
+  config.wrappers :horizontal_form, tag: 'div', class: 'mb-3 row', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -75,7 +75,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_file_input, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :horizontal_file_input, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -89,7 +89,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_boolean, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :horizontal_boolean, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.optional :readonly
     b.use :label, class: 'col-sm-3 col-md-2 col-form-label'
@@ -102,7 +102,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.optional :readonly
 
@@ -114,7 +114,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :inline_form, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :inline_form, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -128,7 +128,7 @@ SimpleForm.setup do |config|
     error_and_hint.call(b)
   end
 
-  config.wrappers :multi_select, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+  config.wrappers :multi_select, tag: 'div', class: 'mb-3', error_class: 'has-invalid' do |b|
     b.use :html5
     b.optional :readonly
     b.use :label, class: 'control-label'
