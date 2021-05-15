@@ -30,27 +30,29 @@ wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1
 (may work with Rails 5.0, but not tested)
 wobauth 4.x works with sprockets v4.
 wobauth 5.x works with rails 6.x and is designed for autoloading via zeitwerk.
+wobauth 6.x works with rails >= 6.1 and uses bootstrap v5.
 
 Requirements
 ------------
 
 ### Rails >= 6.0; autoload = :zeitwerk; webpacker; stimulusjs
 
-| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
+| version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master(6.x)| >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
+| master(6.x)| >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (5.x)  |
+| 5.1        | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
 
 ### Rails >= 6.0, autoload = :zeitwerk
 
-| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
+| version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| 5-stable   | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
+| 5.0        | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
 
 ### Rails <= 5.2, autoload = :classic
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| 4-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 5.x | master (4.x)  |
+| 4-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 5.x | 4-stable      |
 | 3-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | 3-0-stable    |
 | 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons      | 2-0-stable    |
 | 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons      | 1-0-stable    |
@@ -63,13 +65,13 @@ Installation
 Add wobauth to your Gemfile:
 
 ```ruby
+gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
 gem 'wobauth', '~> 5.0.0'
 gem 'wobauth', '~> 4.0.0'
 gem 'wobauth', '~> 3.4.8'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '3-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
-
 ```
 Starting with v3.4 gems are published to rubygems.org. 
 
