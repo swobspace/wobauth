@@ -8,7 +8,7 @@
  </thead>
  <tbody>
 <% user.memberships.each do |membership| %>
-  <%= content_tag_for(:tr, membership) do %>
+  <%= content_tag(:tr, id: dom_id(membership), class: dom_class(membership)) do %>
     <td><%= link_to membership.group, wobauth.group_path(membership.group) %></td>
 
     <td><%= membership.auto %></td>

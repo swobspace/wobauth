@@ -17,7 +17,7 @@
   <tbody>
 
   <% @groups.each do |group| %>
-    <%= content_tag_for(:tr, group) do %>
+    <%= content_tag(:tr, id: dom_id(group), class: dom_class(group)) do %>
       <td><%= group.name %></td>
       <td><%= group.description %></td>
       <td class="nowrap">

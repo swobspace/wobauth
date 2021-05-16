@@ -16,7 +16,7 @@
   <tbody>
 
   <% @roles.each do |role| %>
-    <%= content_tag_for(:tr, role) do %>
+    <%= content_tag(:tr, id: dom_id(role), class: dom_id(role)) do %>
       <td><%= role.name %></td>
       <td class="nowrap">
         <%= show_link [wobauth, role] %>

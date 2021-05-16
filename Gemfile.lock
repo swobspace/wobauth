@@ -23,7 +23,6 @@ PATH
       immutable-struct
       jquery-rails
       rails (>= 6.1)
-      record_tag_helper (~> 1.0)
       sassc-rails
       simple_form
       wobaduser (~> 1.0)
@@ -352,7 +351,6 @@ DEPENDENCIES
   poltergeist
   puma
   rails-controller-testing
-  record_tag_helper (~> 1.0)
   rspec-rails (>= 4.0.0.0)
   sassc-rails
   shoulda-context
