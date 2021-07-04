@@ -40,13 +40,13 @@ Requirements
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
 | master(6.x)| >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (5.x)  |
-| 5.1        | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
+| 5-1-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
 
 ### Rails >= 6.0, autoload = :zeitwerk
 
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| 5.0        | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
+| 5-stable   | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
 
 ### Rails <= 5.2, autoload = :classic
 
