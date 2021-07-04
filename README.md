@@ -38,7 +38,7 @@ Requirements
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master(6.x)| >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
+| 5-1-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
 
 ### Rails >= 6.0, autoload = :zeitwerk
 
