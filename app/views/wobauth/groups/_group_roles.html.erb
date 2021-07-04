@@ -9,7 +9,7 @@
  </thead>
  <tbody>
 <% group.authorities.each do |authority| %>
-  <%= content_tag_for(:tr, authority) do %>
+  <%= content_tag(:tr, dom_id(authority)) do %>
     <td><%= link_to authority.role, wobauth.role_path(authority.role) %></td>
     <td><%= authorized_for_link(authority.authorized_for) %></td>
     <td><%= authority.authorized_for_type %></td>

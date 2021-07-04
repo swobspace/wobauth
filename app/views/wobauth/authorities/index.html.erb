@@ -22,7 +22,7 @@
   <tbody>
 
   <% @authorities.each do |authority| %>
-    <%= content_tag_for(:tr, authority) do %>
+    <%= content_tag(:tr, dom_id(authority)) do %>
       <td><%= authority.authorizable %></td>
       <td><%= authority.authorizable_type %></td>
       <td><%= authority.role %></td>

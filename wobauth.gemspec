@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sassc-rails'
   s.add_runtime_dependency 'coffee-rails'
   s.add_runtime_dependency 'jquery-rails'
-  s.add_runtime_dependency 'record_tag_helper', '~> 1.0'
   s.add_runtime_dependency 'font-awesome-sass', '>=4.7', '<= 6'
 
   s.add_development_dependency "wobapphelpers", "~> 4.0"
@@ -42,7 +41,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "devise"
   s.add_development_dependency "factory_bot"
   s.add_development_dependency 'simple_form'
-  s.add_development_dependency 'record_tag_helper', '~> 1.0'
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'dotenv-rails'
