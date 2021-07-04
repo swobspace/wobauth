@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_runtime_dependency "rails", ">= 5.0"
-  s.add_runtime_dependency "wobapphelpers", "~> 4.1"
+  s.add_runtime_dependency "rails", ">= 6.1"
+  s.add_runtime_dependency "wobapphelpers", "> 4.99"
   s.add_runtime_dependency "wobaduser", "~> 1.0"
   s.add_runtime_dependency 'immutable-struct'
   s.add_runtime_dependency "simple_form"
@@ -27,10 +27,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sassc-rails'
   s.add_runtime_dependency 'coffee-rails'
   s.add_runtime_dependency 'jquery-rails'
-  s.add_runtime_dependency 'record_tag_helper', '~> 1.0'
   s.add_runtime_dependency 'font-awesome-sass', '>=4.7', '<= 6'
 
-  s.add_development_dependency "wobapphelpers", "~> 4.0"
+  s.add_development_dependency "wobapphelpers", "> 4.99"
   s.add_development_dependency "wobaduser", "~> 1.0"
   s.add_development_dependency "cancancan"
   s.add_development_dependency 'immutable-struct'
@@ -42,7 +41,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "devise"
   s.add_development_dependency "factory_bot"
   s.add_development_dependency 'simple_form'
-  s.add_development_dependency 'record_tag_helper', '~> 1.0'
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'dotenv-rails'
@@ -56,5 +54,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'puma'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'webpacker', '~> 4.0'
+  s.add_development_dependency 'webpacker', '~> 5.0'
 end

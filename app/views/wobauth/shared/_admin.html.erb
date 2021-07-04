@@ -1,7 +1,7 @@
 <% if Wobauth::AdminAbility.new(current_user).can? :navigate, Wobauth::User %>
-  <ul class="navbar-nav float-left">
+  <ul class="navbar-nav">
     <li class="nav-item dropdown <%= admin_active_class %>">
-      <a href="#" class="nav-link dropdown-toggle" role="button" id="adminNavDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="#" class="nav-link dropdown-toggle" role="button" id="adminNavDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Admin</a>
       <div class="dropdown-menu" aria-labelledby="adminNavDropdown">
         <% ['users', 'groups', 'memberships', 'roles', 'authorities'].each do |ctrlr| %>

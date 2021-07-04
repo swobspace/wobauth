@@ -5,7 +5,7 @@
   <%= content_tag :table, id: :wobauth_groups, role: :wobauth_datatable,
       class: "table table-bordered table-striped",
       data: {
-        target: 'datatables.datatable',
+        "datatables-target": 'datatable',
       } do %>
   <thead>
     <tr>
@@ -17,7 +17,7 @@
   <tbody>
 
   <% @groups.each do |group| %>
-    <%= content_tag_for(:tr, group) do %>
+    <%= content_tag(:tr, id: dom_id(group), class: dom_class(group)) do %>
       <td><%= group.name %></td>
       <td><%= group.description %></td>
       <td class="nowrap">

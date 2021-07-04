@@ -4,7 +4,7 @@
   <%= content_tag :table, id: :wobauth_authorities, role: :wobauth_datatable,
       class: "table table-bordered table-striped",
       data: {
-        target: 'datatables.datatable',
+        "datatables-target": 'datatable',
       } do %>
 
   <thead>
@@ -22,7 +22,7 @@
   <tbody>
 
   <% @authorities.each do |authority| %>
-    <%= content_tag_for(:tr, authority) do %>
+    <%= content_tag(:tr, id: dom_id(authority), class: dom_class(authority)) do %>
       <td><%= authority.authorizable %></td>
       <td><%= authority.authorizable_type %></td>
       <td><%= authority.role %></td>
