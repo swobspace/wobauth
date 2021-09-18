@@ -1,6 +1,6 @@
 <div class="container">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-    html: { class: 'form-horizontal card'}) do |f| %>
+    html: { class: 'form-horizontal card', 'data-turbo': false }) do |f| %>
   <div class="card-header">
     <h3>Login</h3>
   </div>
@@ -9,7 +9,7 @@
     <%= f.input :username, required: true, autofocus: true %>
     <%= f.input :password, required: true %>
 
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", data: { turbo: false } %>
   </div>
 <% end %>
 
