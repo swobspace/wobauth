@@ -12,7 +12,7 @@
 <tbody>
 
 <% @posts.each do |post| %>
-  <%= content_tag_for(:tr, post) do %>
+  <%= content_tag(:tr, id: dom_id(post), class: dom_class(post)) do %>
     <td><%= post.subject %></td>
     <td><%= post.message %></td>
     <td><%= post.category %></td>
