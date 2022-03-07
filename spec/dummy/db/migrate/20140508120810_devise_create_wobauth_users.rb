@@ -1,4 +1,3 @@
-# This migration comes from wobauth (originally 20140508120810)
 class DeviseCreateWobauthUsers < ActiveRecord::Migration[5.1]
   def change
     create_table(:wobauth_users) do |t|
