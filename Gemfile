@@ -16,9 +16,9 @@ gemspec
 # specifying git is not possible in *gemrc
 
 group :development, :test do
-  gem 'guard-livereload', require: false
-  gem 'rspec-rails', '>= 4.0.0.0'
+  # gem 'guard-livereload', require: false
+  # gem 'rspec-rails', '>= 4.0.0.0'
 end
 
-gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'develop'
+gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'master'
 
