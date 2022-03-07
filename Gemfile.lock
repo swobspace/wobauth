@@ -338,6 +338,7 @@ DEPENDENCIES
   sqlite3
   turbo-rails
   web-console
+  wobaduser
   wobapphelpers!
   wobauth!
 

@@ -16,8 +16,11 @@ gemspec
 # specifying git is not possible in *gemrc
 
 group :development, :test do
-  # gem 'guard-livereload', require: false
-  # gem 'rspec-rails', '>= 4.0.0.0'
+  # otherwise bundle exec rake db:migrate RAILS_ENV=test won't work
+  gem 'simple_form'
+  gem 'devise'
+  gem 'cancancan'
+  gem 'wobaduser'
 end
 
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'master'
