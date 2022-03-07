@@ -315,6 +315,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancancan
   capybara
   cssbundling-rails
   devise

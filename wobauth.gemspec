@@ -17,15 +17,16 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_runtime_dependency "rails", ">= 6.1"
-  s.add_runtime_dependency "wobapphelpers", ">= 6.00"
-  s.add_runtime_dependency "wobaduser", "~> 1.0"
-  s.add_runtime_dependency 'immutable-struct'
-  s.add_runtime_dependency "simple_form"
-  s.add_runtime_dependency "devise"
-  s.add_runtime_dependency "cancancan"
-  s.add_runtime_dependency "responders"
+  s.add_dependency "rails", ">= 6.1"
+  s.add_dependency "wobapphelpers", ">= 6.00"
+  s.add_dependency "wobaduser", "~> 1.0"
+  s.add_dependency 'immutable-struct'
+  s.add_dependency "simple_form"
+  s.add_dependency "devise"
+  s.add_dependency "cancancan"
+  s.add_dependency "responders"
 
+  s.add_development_dependency "cancancan"
   s.add_development_dependency 'immutable-struct'
   # s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
