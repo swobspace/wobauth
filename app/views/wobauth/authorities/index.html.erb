@@ -1,12 +1,8 @@
 <h1><%= t('controller.wobauth/authorities') %></h1>
 
 <div data-controller="datatables">
-  <%= content_tag :table, id: :wobauth_authorities, role: :wobauth_datatable,
-      class: "table table-bordered table-striped",
-      data: {
-        "datatables-target": 'datatable',
-      } do %>
-
+  <%= content_tag :table, id: :wobauth_authorities,
+      class: "table table-bordered table-striped" do %>
   <thead>
     <tr>
       <th><%= t('attributes.authorizable') %></th>
@@ -16,9 +12,21 @@
       <th><%= t('attributes.authorized_for_type') %></th>
       <th><%= t('attributes.valid_from') %></th>
       <th><%= t('attributes.valid_until') %></th>
-      <th><%= t('wobauth.action') %></th>
+      <th class="nosort"><%= t('wobauth.action') %></th>
     </tr>
   </thead>
+  <tfoot class="search">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th class="nosearch"></th>
+    </tr>
+  </tfoot>
   <tbody>
 
   <% @authorities.each do |authority| %>

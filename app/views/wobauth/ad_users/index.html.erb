@@ -12,11 +12,8 @@
 <br>
 
 <div data-controller="datatables">
-  <%= content_tag :table, id: :adusers, role: :woauth_datatable,
-    class: "table table-bordered table-striped",
-    data: { 
-      "datatables-target": 'datatable', 
-    } do %>
+  <%= content_tag :table, id: :adusers,
+                   class: "table table-bordered table-striped" do %>
     <thead>
       <tr>
         <th><%= t('attributes.sn') %></th>
@@ -31,10 +28,10 @@
         <th><%= t('attributes.facsimiletelephonenumber') %></th>
         <th><%= t('attributes.mobile') %></th>
         <th><%= t('attributes.username') %></th>
-        <th><%= t('wobauth.action') %></th>
+        <th class="nosort"><%= t('wobauth.action') %></th>
       </tr>
     </thead>
-    <tfoot>
+    <tfoot class="search">
       <tr>
         <th></th>
         <th></th>
@@ -48,7 +45,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
+        <th class="nosearch"></th>
       </tr>
     </tfoot>
 

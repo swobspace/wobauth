@@ -1,22 +1,24 @@
-<table class="table table-bordered table-sm autowidth">
- <thead> 
-  <tr>
-    <th><%= t('attributes.group') %> </th>
-    <th><%= t('attributes.auto') %> </th>
-    <th></th>
-  </tr>
- </thead>
- <tbody>
-<% user.memberships.each do |membership| %>
-  <%= content_tag(:tr, id: dom_id(membership), class: dom_class(membership)) do %>
-    <td><%= link_to membership.group, wobauth.group_path(membership.group) %></td>
+<div data-controller="datatables">
+  <table class="table table-bordered table-sm">
+   <thead> 
+    <tr>
+      <th><%= t('attributes.group') %> </th>
+      <th><%= t('attributes.auto') %> </th>
+      <th></th>
+    </tr>
+   </thead>
+   <tbody>
+  <% user.memberships.each do |membership| %>
+    <%= content_tag(:tr, id: dom_id(membership), class: dom_class(membership)) do %>
+      <td><%= link_to membership.group, wobauth.group_path(membership.group) %></td>
 
-    <td><%= membership.auto %></td>
-    <td class="nowrap"> 
-      <%= edit_link([wobauth, membership.user, membership]) %>
-      <%= delete_link([wobauth, membership.user, membership]) %>
-    </td>
+      <td><%= membership.auto %></td>
+      <td class="nowrap"> 
+        <%= edit_link([wobauth, membership.user, membership]) %>
+        <%= delete_link([wobauth, membership.user, membership]) %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
- </tbody>
-</table>
+   </tbody>
+  </table>
+</div>

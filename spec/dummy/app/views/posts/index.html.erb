@@ -1,30 +1,32 @@
 <h1><%= t('controller.posts') %></h1>
 
-<table id="posts_table" class="table table-bordered table-striped table-responsive-lg" role="datatable">
-<thead>
-  <tr>
-    <th><%= t('attributes.subject') %></th>
-    <th><%= t('attributes.message') %></th>
-    <th><%= t('attributes.category') %></th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
+<div data-controller="datatables">
+  <table id="posts_table" class="table table-bordered table-striped table-responsive-lg" >
+  <thead>
+    <tr>
+      <th><%= t('attributes.subject') %></th>
+      <th><%= t('attributes.message') %></th>
+      <th><%= t('attributes.category') %></th>
+      <th class="nosort"></th>
+    </tr>
+  </thead>
+  <tbody>
 
-<% @posts.each do |post| %>
-  <%= content_tag(:tr, id: dom_id(post), class: dom_class(post)) do %>
-    <td><%= post.subject %></td>
-    <td><%= post.message %></td>
-    <td><%= post.category %></td>
-    <td class="nowrap">
-      <%= show_link post %>
-      <%= edit_link post %>
-      <%= delete_link post %>
-    </td>
+  <% @posts.each do |post| %>
+    <%= content_tag(:tr, id: dom_id(post), class: dom_class(post)) do %>
+      <td><%= post.subject %></td>
+      <td><%= post.message %></td>
+      <td><%= post.category %></td>
+      <td class="nowrap">
+        <%= show_link post %>
+        <%= edit_link post %>
+        <%= delete_link post %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-</table>
+  </tbody>
+  </table>
+</div>
 
 <br />
 

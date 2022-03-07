@@ -1,11 +1,8 @@
 <h1><%= t('controller.wobauth/users') %></h1>
 
 <div data-controller="datatables">
-  <%= content_tag :table, id: :wobauth_users, role: :wobauth_datatable, 
-      class: "table table-bordered table-striped",
-    data: {
-      "datatables-target": 'datatable',
-    } do %>
+  <%= content_tag :table, id: :wobauth_users,
+      class: "table table-bordered table-striped" do %>
   <thead>
     <tr>
       <th><%= t('attributes.name') %></th>
@@ -20,9 +17,26 @@
       <th class="notvisible"><%= t('attributes.company') %></th>
       <th><%= t('attributes.current_sign_in_at') %></th>
       <th class="notvisible"><%= t('attributes.sign_in_count') %></th>
-      <th><%= t('wobauth.action')%></th>
+      <th class="nosort"><%= t('wobauth.action')%></th>
     </tr>
   </thead>
+  <tfoot class="search">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th class="nosearch"></th>
+    </tr>
+  </tfoot>
   <tbody>
 
   <% @users.each do |user| %>

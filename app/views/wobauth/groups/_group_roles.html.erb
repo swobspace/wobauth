@@ -1,23 +1,25 @@
-<table class="table table-bordered table-sm autowidth">
- <thead> 
-  <tr>
-    <th><%= t('attributes.role') %></th>
-    <th><%= t('attributes.authorized_for') %></th>
-    <th><%= t('attributes.authorized_for_type') %></th>
-    <th></th>
-  </tr>
- </thead>
- <tbody>
-<% group.authorities.each do |authority| %>
-  <%= content_tag(:tr, id: dom_id(authority), class: dom_id(authority)) do %>
-    <td><%= link_to authority.role, wobauth.role_path(authority.role) %></td>
-    <td><%= authorized_for_link(authority.authorized_for) %></td>
-    <td><%= authority.authorized_for_type %></td>
-    <td class="nowrap"> 
-       <%= edit_link([wobauth, authority.authorizable, authority]) %>
-       <%= delete_link([wobauth, authority.authorizable, authority]) %>
-    </td>
+<div data-controller="datatables">
+  <table class="table table-bordered table-sm">
+   <thead> 
+    <tr>
+      <th><%= t('attributes.role') %></th>
+      <th><%= t('attributes.authorized_for') %></th>
+      <th><%= t('attributes.authorized_for_type') %></th>
+      <th></th>
+    </tr>
+   </thead>
+   <tbody>
+  <% group.authorities.each do |authority| %>
+    <%= content_tag(:tr, id: dom_id(authority), class: dom_id(authority)) do %>
+      <td><%= link_to authority.role, wobauth.role_path(authority.role) %></td>
+      <td><%= authorized_for_link(authority.authorized_for) %></td>
+      <td><%= authority.authorized_for_type %></td>
+      <td class="nowrap"> 
+         <%= edit_link([wobauth, authority.authorizable, authority]) %>
+         <%= delete_link([wobauth, authority.authorizable, authority]) %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
- </tbody>
-</table>
+   </tbody>
+  </table>
+</div>

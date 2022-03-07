@@ -1,28 +1,30 @@
 <h1><%= t('controller.categories') %></h1>
 
-<table id="categories_table" class="table table-bordered table-striped table-responsive-lg" role="datatable">
-<thead>
-  <tr>
-    <th><%= t('attributes.name') %></th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
+<div data-controller="datatables" data-datatables-simple-value="true">
+  <table id="categories_table" class="table table-bordered table-striped table-responsive-lg" >
+  <thead>
+    <tr>
+      <th><%= t('attributes.name') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 
-<% @categories.each do |category| %>
-  <%= content_tag(:tr, id: dom_id(category), class: dom_class(category)) do %>
-    <td><%= category.name %></td>
-    <td class="nowrap">
-      <%= show_link category %>
-      <%= edit_link category %>
-      <%= delete_link category %>
-    </td>
+  <% @categories.each do |category| %>
+    <%= content_tag(:tr, id: dom_id(category), class: dom_class(category)) do %>
+      <td><%= category.name %></td>
+      <td class="nowrap">
+        <%= show_link category %>
+        <%= edit_link category %>
+        <%= delete_link category %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
-</tbody>
-</table>
+  </tbody>
+  </table>
+<div>
 
-<br />
+  <br />
 
-<%= back_link %>
-<%= new_link Category %>
+  <%= back_link %>
+  <%= new_link Category %>

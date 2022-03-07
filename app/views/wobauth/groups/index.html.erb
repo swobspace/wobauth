@@ -2,18 +2,22 @@
 
 
 <div data-controller="datatables">
-  <%= content_tag :table, id: :wobauth_groups, role: :wobauth_datatable,
-      class: "table table-bordered table-striped",
-      data: {
-        "datatables-target": 'datatable',
-      } do %>
+  <%= content_tag :table, id: :wobauth_groups,
+      class: "table table-bordered table-striped" do %>
   <thead>
     <tr>
       <th><%= t('attributes.name') %></th>
       <th><%= t('attributes.description') %></th>
-      <th><%= t('wobauth.action') %></th>
+      <th class="nosort"><%= t('wobauth.action') %></th>
     </tr>
   </thead>
+  <tfoot class="search">
+    <tr>
+      <th></th>
+      <th></th>
+      <th class="nosearch"></th>
+    </tr>
+  </tfoot>
   <tbody>
 
   <% @groups.each do |group| %>
