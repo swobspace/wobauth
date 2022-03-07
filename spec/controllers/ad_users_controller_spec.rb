@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Wobauth::AdUsersController, type: :controller do
+RSpec.describe Wobauth::AdUsersController, type: :controller, unless: ENV['NOLDAP'].present? do
   routes { Wobauth::Engine.routes }
 
   fixtures :users, :roles

@@ -1,7 +1,7 @@
 require "rails_helper"
 require "cancan/matchers"
 
-RSpec.describe Wobauth::AdUsersHelper, :type => :helper do
+RSpec.describe Wobauth::AdUsersHelper, :type => :helper, unless: ENV['NOLDAP'].present? do
   include Devise::Test::ControllerHelpers
 
   describe "#aduser_class" do

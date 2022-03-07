@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Wobauth::SearchAdUserService do
+RSpec.describe Wobauth::SearchAdUserService, unless: ENV['NOLDAP'].present? do
   let(:q) {{ query: ENV['LDAP_SEARCH_SN'] }}
   let(:ldap_options) { Wobauth.ldap_options.first }
 
