@@ -12,7 +12,7 @@ module Wobauth
     config.eager_load_paths += Dir["#{config.root}/lib/concerns"]
 
     initializer "wobauth.assets.precompile" do |app|
-      app.config.assets.precompile += %w(wobauth/authorities.js)
+      # app.config.assets.precompile += %w(wobauth/authorities.js)
     end
 
     initializer 'wobauth.action_controller' do |app|
