@@ -1,48 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dummy App</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-   <div class="container-fluid">
-    <a class="navbar-brand" href="<%= (main_app||self).root_path %>">Dummy</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<html>
+  <head>
+    <title>Dummy App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">  
-      <%= render partial: 'shared/navi' %>
-      <%= render partial: 'wobauth/shared/admin' %>
-      <%= render partial: 'wobauth/shared/accounting' %>
-    </div>
-   </div>
-  </nav>
-
-  <main class="container-fluid" role="main">
-    <%= render_breadcrumbs %>
-    <%= show_flash %>
-    <%= yield %>
-  </main>
-
-  <div id="footer" class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 col-md-8">
-        <%= render :partial => 'shared/footer' %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" role="navigation">
+     <div class="container-fluid">
+      <a class="navbar-brand" href="<%= (main_app||self).root_path %>">Dummy</a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+        <%= render partial: 'shared/navi' %>
+        <%= render partial: 'wobauth/shared/admin' %>
+        <%= render partial: 'wobauth/shared/accounting' %>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <%= render :partial => 'shared/version' %>
+     </div>
+    </nav>
+
+    <main class="container-fluid" role="main">
+      <%= render_breadcrumbs %>
+      <%= show_flash %>
+      <%= yield %>
+    </main>
+
+    <div id="footer" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 col-md-8">
+          <%= render :partial => 'shared/footer' %>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <%= render :partial => 'shared/version' %>
+        </div>
       </div>
     </div>
-  </div>
 
-</body>
+  </body>
 </html>
