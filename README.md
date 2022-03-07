@@ -5,7 +5,7 @@ Rails engine providing MVCs for Users, Roles, Groups, Authorities and Membership
 to support authorization of the main application.
 
 The User model is mostly coupled with your application, so Wobauth::User is open classed.
-You should overwrite it depending on your needs. See 
+You should overwrite it depending on your needs. See
 test/dummy/app/models/wobauth/user.rb for an example.
 
 You have to build your own concrete authorization logic with cancancan or
@@ -22,24 +22,20 @@ members of group. Memberships are separate model here (not only an plain
 many-to-many association) to allow both manual memberships and
 automatically created memberships during the login process.
 
-Versions
---------
+Versions & Requirements
+------------------------
 
-wobauth 1.x is for Rails 4, wobauth 2.x will support Rails 5.
-wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1 
-(may work with Rails 5.0, but not tested)
-wobauth 4.x works with sprockets v4.
-wobauth 5.x works with rails 6.x and is designed for autoloading via zeitwerk.
-wobauth 6.x works with rails >= 6.1 and uses bootstrap v5.
+### Rails >= 6.1; needs @hotwired/turbo-rails; no support for rails-ujs
 
-Requirements
-------------
+| version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
+|------------|-------|--------|-----------|-----------------|---------------|
+| master (v7) | >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (v6)      |
 
 ### Rails >= 6.0; autoload = :zeitwerk; webpacker; stimulusjs
 
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master(6.x)| >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (5.x)  |
+| 6-stable   | >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | 5-stable      |
 | 5-1-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
 
 ### Rails >= 6.0, autoload = :zeitwerk
@@ -66,6 +62,7 @@ Add wobauth to your Gemfile:
 
 ```ruby
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
+gem 'wobauth', '~> 6.0.0'
 gem 'wobauth', '~> 5.0.0'
 gem 'wobauth', '~> 4.0.0'
 gem 'wobauth', '~> 3.4.8'
@@ -73,7 +70,7 @@ gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '3-0-sta
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
 ```
-Starting with v3.4 gems are published to rubygems.org. 
+Starting with v3.4 gems are published to rubygems.org.
 
 Run
 ```ruby
@@ -115,7 +112,7 @@ class Wobauth::User < ActiveRecord::Base
 end
 ```
 **DO NOT USE :validatable**, since wobauth uses :username as authentication key
-(devise default :email, will be required if you use :validatable). 
+(devise default :email, will be required if you use :validatable).
 
 ### Views
 
@@ -126,8 +123,8 @@ Helpers for bootstrap navbar:
 
 ### Authorized_for types
 
-If you have objects for which wobauth should provide authority configuration, 
-set your models in the initializer (created by ```rails g wobauth:install```). 
+If you have objects for which wobauth should provide authority configuration,
+set your models in the initializer (created by ```rails g wobauth:install```).
 In this example we will use Category from your main application:
 
 ```ruby
@@ -142,9 +139,9 @@ Wobauth.setup do |config|
   # 2. Object: Authorized_for
   # depends on your application ...
   # default: []
-   
+
   config.authorized_for_types = [ "Category" ]
-   
+
 end
 ```
 
@@ -169,19 +166,12 @@ use always a suburl for mount like `/auth`. Don't use `/`.
 Using datatables
 --------------------------
 
-Wobauth comes with support for datatables. To select the tables, use the
-following jQuery selector:
-
-```ruby
-$('table[role="wobauth_datatable"]')
-```
-
-`$('dataTable')` may be removed in a future release.
+Wobauth comes with support for datatables. You need a stimulus datatables controller like something used in https://swobspace.github.io/rails-playground/playbook/datatables/datatables-js.html
 
 Applications using wobauth
 --------------------------
 If you are looking for examples using wobauth, have a look at
-[boskop](https://github.com/swobspace/boskop). 
+[boskop](https://github.com/swobspace/boskop), [titracka](https://github.com/swobspace/titracka) or [mirco](https://github.com/swobspace/mirco).
 
 Another simple example is the [test/dummy](test/dummy) application
 included in this rails engine.
@@ -189,7 +179,6 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2021  Wolfgang Barth
+wobauth Copyright (C) 2014-2022  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
-
