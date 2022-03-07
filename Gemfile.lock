@@ -17,6 +17,7 @@ PATH
       rails (>= 6.1)
       responders
       simple_form
+      stimulus-rails
       wobaduser (~> 1.0)
       wobapphelpers (>= 6.00)
 
@@ -285,6 +286,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    stimulus-rails (1.0.4)
+      railties (>= 6.0.0)
     strscan (3.0.1)
     thor (1.2.1)
     timeout (0.2.0)

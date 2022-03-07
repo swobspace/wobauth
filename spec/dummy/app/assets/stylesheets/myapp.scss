@@ -12,16 +12,39 @@ div#footer{
   border-top: 1px solid #eee;
 }
 
-tfoot { 
-  display: table-header-group;
-  input {
-    width: 100%;
-    padding: 3px;
-    box-sizing: border-box;
-  }
-}
-
 .turbolinks-progress-bar {
   height: 5px;
   background-color: white;
+}
+
+// -- datatables column search: place search fields below header row
+//    use <tfoot class="search">
+.table {
+  tfoot.search {
+    display: table-header-group;
+    th {
+      padding: 0.25rem;
+      input[type="text"] {
+        width: 100%;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        border: 1px solid #ced4da;
+      }
+    }
+  }
+}
+
+// -- datatables: set class nowrap via columnDefs, but
+//    avoid collapsing cell if there is no search input (class "nosearch")
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  &.nosearch {
+    display: table-cell;
+  }
+}
+
+form.button_to {
+  display: inline-block;
 }

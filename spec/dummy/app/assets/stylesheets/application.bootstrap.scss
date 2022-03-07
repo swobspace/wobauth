@@ -11,6 +11,9 @@ $primary: #137970;
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+@import 'datatables.net-bs5/css/dataTables.bootstrap5';
+@import 'datatables.net-buttons-bs5/css/buttons.bootstrap5';
+
 @import "breadcrumbs";
 
-@import 'myapp'
+@import 'myapp';
