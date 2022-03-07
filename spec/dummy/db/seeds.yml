@@ -2,3 +2,8 @@ roles:
   - name: Admin
   - name: Manager
   - name: Reader
+
+groups:
+  - name: first group
+  - name: second group
+  - name: always last
