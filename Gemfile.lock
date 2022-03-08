@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/swobspace/wobapphelpers
-  revision: 1f61affb0b22c315bb70d34d6c9698d6964e6532
+  revision: b96d41aad069d38e06962927a63963c7a17b47c0
   branch: master
   specs:
     wobapphelpers (6.0.0)
@@ -263,7 +263,7 @@ GEM
     rspec-mocks (3.11.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
-    rspec-rails (5.1.0)
+    rspec-rails (5.1.1)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       railties (>= 5.2)
