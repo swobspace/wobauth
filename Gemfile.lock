@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/heartcombo/responders
+  revision: 56d00ac8894b38de9eff177cb50dda110ff79440
+  branch: main
+  specs:
+    responders (3.0.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
+
+GIT
   remote: https://github.com/swobspace/wobapphelpers
   revision: 1f61affb0b22c315bb70d34d6c9698d6964e6532
   branch: master
@@ -241,9 +250,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.1)
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
     rexml (3.2.5)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
@@ -332,6 +338,7 @@ DEPENDENCIES
   jsbundling-rails (~> 1.0)
   puma
   rails-controller-testing
+  responders!
   rspec-rails
   selenium-webdriver
   shoulda-context

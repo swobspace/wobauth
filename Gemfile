@@ -24,4 +24,4 @@ group :development, :test do
 end
 
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'master'
-
+gem 'responders', git: 'https://github.com/heartcombo/responders', branch: 'main'
