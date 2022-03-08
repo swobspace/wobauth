@@ -67,7 +67,7 @@ module Wobauth
       context "with invalid params" do
         it "returns a success response (i.e. to display the 'new' template)" do
           post :create, params: {user: invalid_attributes}, session: valid_session
-          expect(response).to be_successful
+          expect(response.status).to be 422
         end
       end
     end
@@ -104,7 +104,7 @@ module Wobauth
         it "returns a success response (i.e. to display the 'edit' template)" do
           user = User.create! valid_attributes
           put :update, params: {id: user.to_param, user: invalid_attributes}, session: valid_session
-          expect(response).to be_successful
+          expect(response.status).to be 422
         end
       end
     end

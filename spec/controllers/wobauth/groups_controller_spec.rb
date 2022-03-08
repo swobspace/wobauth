@@ -67,7 +67,7 @@ module Wobauth
       context "with invalid params" do
         it "returns a success response (i.e. to display the 'new' template)" do
           post :create, params: {group: invalid_attributes}, session: valid_session
-          expect(response).to be_successful
+          expect(response.status).to be 422
         end
       end
     end
@@ -96,7 +96,7 @@ module Wobauth
         it "returns a success response (i.e. to display the 'edit' template)" do
           group = Group.create! valid_attributes
           put :update, params: {id: group.to_param, group: invalid_attributes}, session: valid_session
-          expect(response).to be_successful
+          expect(response.status).to be 422
         end
       end
     end
