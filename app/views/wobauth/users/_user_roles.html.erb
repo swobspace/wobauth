@@ -16,7 +16,7 @@
       <td><%= authority.authorized_for_type %></td>
       <td class="nowrap"> 
          <%= edit_link([wobauth, authority.authorizable, authority], remote: false) %>
-         <%= delete_link([wobauth, authority.authorizable, authority], remote: false) %>
+         <%= delete_button([wobauth, authority.authorizable, authority], remote: false) %>
       </td>
     <% end %>
   <% end %>
