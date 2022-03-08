@@ -27,5 +27,13 @@ module Wobauth
       response_options[:status] ||= :see_other unless request.get?
       super url_options, response_options
     end
+
+    # redirect to root_path on authorization errors
+    rescue_from CanCan::AccessDenied do |exception|
+      respond_to do |format|
+        format.json { head :forbidden }
+        format.html { redirect_to main_app.root_path, alert: exception.message }
+      end
+    end
   end
 end

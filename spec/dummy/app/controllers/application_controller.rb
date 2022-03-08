@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
     response_options[:status] ||= :see_other unless request.get?
     super url_options, response_options
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to root_path, alert: exception.message }
+    end
+  end
 end
