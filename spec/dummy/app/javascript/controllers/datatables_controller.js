@@ -77,7 +77,7 @@ export default class extends Controller {
 
 
   buttonOptions(options) {
-    options.dom = "<'row'<'col'l><'col'B><'col'f>>" +
+    options.dom = "<'row'<'col'l><'col d-none d-lg-block'B><'col'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col'i><'col'p>>"
     options.buttons = [
