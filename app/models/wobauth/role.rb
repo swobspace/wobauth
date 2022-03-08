@@ -1,7 +1,7 @@
 module Wobauth
   class Role < ActiveRecord::Base
     # -- associations
-    has_many :authorities
+    has_many :authorities, dependent: :restrict_with_errors
     has_many :users,  through:     :authorities,
                       source:      :authorizable,
                       source_type: 'Wobauth::User'
