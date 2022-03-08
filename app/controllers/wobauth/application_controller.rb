@@ -21,5 +21,11 @@ module Wobauth
     def current_ability
       @current_ability ||= Wobauth::AdminAbility.new(current_user)
     end
+
+    # ensure 303 redirect on non get requests
+    def redirect_to(url_options = {}, response_options = {})
+      response_options[:status] ||= :see_other unless request.get?
+      super url_options, response_options
+    end
   end
 end
