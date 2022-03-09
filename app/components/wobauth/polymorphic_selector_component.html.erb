@@ -1,0 +1,23 @@
+<div data-controller="polymorphic-select"
+                    data-polymorphic-select-selected-value="<%= fobjtype %>">
+
+  <%= form.input poly_type,
+                 collection: collection,
+                 input_html: { 
+                   data: { 
+                     'polymorphic-select-target': 'primary',
+                     'action': 'change->polymorphic-select#change' 
+                   }
+                 }
+   %>
+
+  <%= form.input poly_id,
+                 collection: [],
+                 input_html: { 
+                   data: { 
+                     'polymorphic-select-target': 'secondary',
+                   }
+                 }
+   %>
+
+</div>

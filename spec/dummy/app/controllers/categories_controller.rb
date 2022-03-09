@@ -7,7 +7,9 @@ class CategoriesController < ApplicationController
   # GET /categories
   def index
     @categories = Category.all
-    respond_with(@categories)
+    respond_with(@categories) do |format|
+      format.turbo_stream
+    end
   end
 
   # GET /categories/1
