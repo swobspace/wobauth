@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "cancancan"
   s.add_runtime_dependency "responders"
   s.add_dependency "stimulus-rails"
-  s.add_dependency "view_component"
+  s.add_runtime_dependency "view_component"
+  s.add_development_dependency "view_component"
 
   s.add_development_dependency "wobapphelpers", ">= 6.00"
   s.add_development_dependency "simple_form"

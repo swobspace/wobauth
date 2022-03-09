@@ -351,6 +351,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3
   turbo-rails
+  view_component
   web-console
   wobaduser
   wobapphelpers!
