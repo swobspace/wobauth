@@ -1,7 +1,8 @@
 module Wobauth
   module ApplicationHelper
     include Wobapphelpers::Helpers::All
-    include Wobapphelpers::Helpers::PolymorphicHelper
+    # use temporary copy for develop
+    # include Wobapphelpers::Helpers::PolymorphicHelper
 
     def navigation_admin_links
       render partial: 'wobauth/shared/admin'

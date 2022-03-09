@@ -8,7 +8,9 @@ module Wobauth
     # GET /users
     def index
       @users = User.all
-      respond_with(@users)
+      respond_with(@users) do |format|
+        format.turbo_stream
+      end
     end
 
     # GET /users/1
