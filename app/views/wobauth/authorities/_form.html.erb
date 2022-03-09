@@ -22,9 +22,10 @@
                               {class: 'select2'}) 
      %>
 
-    <%= f.input :valid_from, as: :string, class: 'datepicker'
+    <%= f.input :valid_from, html5: true,
+                input_html: { class: 'col-sm-4' }
      %>
-    <%= f.input :valid_until, as: :string, class: 'datepicker'
+    <%= f.input :valid_until, html5: true
      %>
 
     <%= f.button :submit, class: 'btn btn-primary' %>
