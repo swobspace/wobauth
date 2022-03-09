@@ -6,3 +6,11 @@ import { application } from "./application"
 
 import DatatablesController from "./datatables_controller.js"
 application.register("datatables", DatatablesController)
+
+// import SelectController from "./select_controller.js"
+// application.register("select", SelectController)
+
+import PolymorphicSelectController from "./polymorphic_select_controller.js"
+application.register("polymorphic-select", PolymorphicSelectController)
+
+

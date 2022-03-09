@@ -10,11 +10,12 @@
     "bootstrap-icons": "^1.8.1",
     "datatables.net-bs5": "^1.11.4",
     "datatables.net-buttons-bs5": "^2.2.2",
+    "esbuild": "^0.14.25",
     "jquery": "3",
     "jszip": "^3.7.1",
     "pdfmake": "^0.2.4",
-    "esbuild": "^0.14.25",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "slim-select": "^1.27.1"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
