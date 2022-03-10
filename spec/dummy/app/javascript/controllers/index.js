@@ -10,7 +10,7 @@ application.register("datatables", DatatablesController)
 // import SelectController from "./select_controller.js"
 // application.register("select", SelectController)
 
-import PolymorphicSelectController from "./polymorphic_select_controller.js"
+import PolymorphicSelectController from "@swobspace/stimulus-polymorphic-select"
 application.register("polymorphic-select", PolymorphicSelectController)
 
 
