@@ -8,6 +8,11 @@ module Wobauth
     # GET /users
     def index
       @users = User.all
+      respond_with(@users)
+    end
+
+    def tokens
+      @users = User.all
       respond_with(@users) do |format|
         format.turbo_stream
       end

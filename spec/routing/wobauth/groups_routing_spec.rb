@@ -10,6 +10,10 @@ module Wobauth
 	expect(:get => "/groups").to route_to(controller: "wobauth/groups", action: "index")
       end
 
+      it "routes to #tokens" do
+	expect(:get => "/groups/tokens").to route_to(controller: "wobauth/groups", action: "tokens")
+      end
+
       it "routes to #new" do
 	expect(:get => "/groups/new").to route_to(controller: "wobauth/groups", action: "new")
       end

@@ -1,5 +1,5 @@
 <div data-controller="polymorphic-select"
-                    data-polymorphic-select-selected-value="<%= fobjtype %>">
+                    data-polymorphic-select-selected-value="<%= form.object.send(poly_id) %>">
 
   <%= form.input poly_type,
                  collection: collection,

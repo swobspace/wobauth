@@ -6,6 +6,9 @@ Wobauth::Engine.routes.draw do
   resources :users do
     resources :authorities, module: :users
     resources :memberships, module: :users
+    collection do
+      get :tokens
+    end
   end
   resources :ad_users, :only => [:index] do
     collection do
@@ -17,6 +20,9 @@ Wobauth::Engine.routes.draw do
   resources :groups do
     resources :authorities, module: :groups
     resources :memberships, module: :groups
+    collection do
+      get :tokens
+    end
   end
   resources :roles
 

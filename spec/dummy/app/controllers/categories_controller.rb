@@ -7,6 +7,11 @@ class CategoriesController < ApplicationController
   # GET /categories
   def index
     @categories = Category.all
+    respond_with(@categories)
+  end
+
+  def tokens
+    @categories = Category.all
     respond_with(@categories) do |format|
       format.turbo_stream
     end

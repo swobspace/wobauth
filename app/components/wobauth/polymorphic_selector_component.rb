@@ -11,11 +11,11 @@ class Wobauth::PolymorphicSelectorComponent < ViewComponent::Base
   attr_reader :form, :poly, :models
 
   def poly_type
-    "#{poly}_type"
+    "#{poly}_type".to_sym
   end
 
   def poly_id
-    "#{poly}_id"
+    "#{poly}_id".to_sym
   end
 
   def fobjtype
@@ -34,9 +34,9 @@ class Wobauth::PolymorphicSelectorComponent < ViewComponent::Base
 
   def myurl(model)
     if model =~ /\AWobauth::/
-      Wobauth::Engine.routes.url_helpers.polymorphic_path(model.constantize)
+      Wobauth::Engine.routes.url_helpers.polymorphic_path([:tokens, model.constantize])
     else
-      Rails.application.routes.url_helpers.polymorphic_path(model.constantize)
+      Rails.application.routes.url_helpers.polymorphic_path([:tokens, model.constantize])
     end
   end
 

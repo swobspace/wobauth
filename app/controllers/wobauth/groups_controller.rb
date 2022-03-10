@@ -8,6 +8,11 @@ module Wobauth
     # GET /groups
     def index
       @groups = Group.all
+      respond_with(@groups)
+    end
+
+    def tokens
+      @groups = Group.all
       respond_with(@groups) do |format|
         format.turbo_stream
       end
