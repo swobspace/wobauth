@@ -3,6 +3,8 @@
 
   <%= form.input poly_type,
                  collection: collection,
+                 include_blank: true,
+                 disabled: disabled,
                  input_html: { 
                    data: { 
                      'polymorphic-select-target': 'primary',
@@ -13,6 +15,7 @@
 
   <%= form.input poly_id,
                  collection: [],
+                 disabled: disabled,
                  input_html: { 
                    data: { 
                      'polymorphic-select-target': 'secondary',

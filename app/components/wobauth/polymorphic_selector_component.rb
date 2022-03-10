@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class Wobauth::PolymorphicSelectorComponent < ViewComponent::Base
-  def initialize(form:, poly:, models:)
+  def initialize(form:, poly:, models:, disabled: false)
     @form = form
     @poly = poly
     @models = models
+    @disabled = disabled
   end
 
-  private
-  attr_reader :form, :poly, :models
+  def render?
+    models.count > 0
+  end
+
+private
+  attr_reader :form, :poly, :models, :disabled
 
   def poly_type
     "#{poly}_type".to_sym

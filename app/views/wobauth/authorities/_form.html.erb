@@ -11,7 +11,8 @@
     <%= render Wobauth::PolymorphicSelectorComponent.new(
                  form: form,
                  poly: 'authorizable',
-                 models: Wobauth.authorizable_types 
+                 models: Wobauth.authorizable_types,
+                 disabled: @authorizable.present?
                )
      %>
 
