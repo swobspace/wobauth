@@ -18,8 +18,8 @@ class Wobauth::PolymorphicSelectorComponent < ViewComponent::Base
     "#{poly}_id".to_sym
   end
 
-  def fobjtype
-    form.object.send("#{poly}_type")
+  def fobjpoly
+    form.object.send(poly)
   end
 
   def collection
