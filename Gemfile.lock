@@ -166,6 +166,8 @@ GEM
     io-wait (0.2.1)
     jsbundling-rails (1.0.2)
       railties (>= 6.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -340,6 +342,7 @@ DEPENDENCIES
   guard-rspec
   immutable-struct
   jsbundling-rails (~> 1.0)
+  launchy
   puma
   rails-controller-testing
   responders!
