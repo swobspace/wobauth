@@ -33,7 +33,7 @@ module Wobauth
         end
         sleep 1
         expect(Authority.count).to eq(11)
-        save_and_open_page
+        # save_and_open_page
         expect(page).to have_css("table#wobauth_authorities")
         within 'div[data-controller="datatables"]' do
           expect(page).to have_content "Showing 1 to 10 of 11 entries"
@@ -41,17 +41,16 @@ module Wobauth
       end
 
       it "edit an existing authority" do
-        skip
         find('a[title="Berechtigung bearbeiten"]').click
-        sleep 1
-        within "#modal-body" do
-          find("trix-editor#authority").set("a description for t2 authority")
+        within "form#edit_authority_#{auth.id}" do
+          select "RoleOne", from: "Rolle"
+          select "", from: "Berechtigung auf/Typ"
         end
+        # save_and_open_screenshot
         click_button("Berechtigung aktualisieren")
         sleep 1
-        within "#ts_show_authority" do
-          expect(page).to have_content("a description for t2 authority")
-        end
+        expect(page).to have_content("Berechtigung erfolgreich aktualisiert")
+        expect(page).to have_content("RoleOne")
         # save_and_open_screenshot()
       end
     end
