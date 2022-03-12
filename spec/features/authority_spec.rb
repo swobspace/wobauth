@@ -21,22 +21,20 @@ module Wobauth
       end
 
       it "delete an existing authority" do
-        # save_and_open_screenshot
         expect(page).to have_content "one"
         expect(page).to have_content "Wobauth::User"
         expect(page).to have_content "RoleTwo"
         expect(page).to have_content "lastCategory"
         expect(page).to have_content "Category"
-        expect(Authority.count).to eq(12)
-        accept_confirm do
-          find('button[title="Berechtigung löschen"]').click
-        end
-        sleep 1
-        expect(Authority.count).to eq(11)
-        # save_and_open_page
+        expect {
+          accept_confirm do
+            find('button[title="Berechtigung löschen"]').click
+          end
+          sleep 1
+        }.to change(Authority, :count).by(-1)
         expect(page).to have_css("table#wobauth_authorities")
         within 'div[data-controller="datatables"]' do
-          expect(page).to have_content "Showing 1 to 10 of 11 entries"
+          expect(page).to have_content /Showing .* of #{Authority.count} entries/
         end
       end
 
@@ -46,12 +44,10 @@ module Wobauth
           select "RoleOne", from: "Rolle"
           select "", from: "Berechtigung auf/Typ"
         end
-        # save_and_open_screenshot
         click_button("Berechtigung aktualisieren")
         sleep 1
         expect(page).to have_content("Berechtigung erfolgreich aktualisiert")
         expect(page).to have_content("RoleOne")
-        # save_and_open_screenshot()
       end
     end
   end

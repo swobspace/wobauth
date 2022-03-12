@@ -65,7 +65,7 @@ RSpec.describe Wobauth::AdUsersHelper, :type => :helper, unless: ENV['NOLDAP'].p
 	  expect(aduser).to receive(:mail).at_least(:once).and_return(mail)
 	end
 	it { expect(subject.find("a")['href']).to match wobauth.user_path(user) }
-	it { expect(subject.find("a")['class']).to eq "btn btn-secondary" }
+	it { expect(subject.find("a")['class']).to eq "btn btn-secondary me-1" }
       end
 
       context "mail is empty" do

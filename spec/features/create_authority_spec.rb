@@ -5,7 +5,7 @@ module Wobauth
     fixtures :users, :roles
     set_fixture_class users: Wobauth::User, roles: Wobauth::Role
 
-    let(:cat) { Category.create(name: 'lastCategory') }
+    let!(:cat) { Category.create(name: 'lastCategory') }
 
     describe "visit authority_path" do
       before(:each) do
@@ -26,17 +26,14 @@ module Wobauth
           select "RoleOne", from: "Rolle"
           select "Kategorie", from: "Berechtigung auf/Typ"
           sleep 0.5
-          save_and_open_screenshot()
           select "lastCategory", from: "authority_authorized_for_id"
         end
-        # save_and_open_screenshot
         click_button("Berechtigung erstellen")
         sleep 0.5
         expect(page).to have_content("Berechtigung erfolgreich erstellt")
         expect(page).to have_content("one")
         expect(page).to have_content("RoleOne")
         expect(page).to have_content("lastCategory")
-        save_and_open_screenshot()
       end
     end
   end
