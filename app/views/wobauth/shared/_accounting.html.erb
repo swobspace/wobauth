@@ -12,12 +12,23 @@
 	<% if Wobauth.remote_authentication? %>
 	  <%= link_to "Single-Sign-On", wobauth.login_path, class: "dropdown-item" -%>
 	<% end %>
-	<%= link_to "Login-Formular", wobauth.new_user_session_path, class: "dropdown-item" -%>
+	<%= link_to(wobauth.new_user_session_path, class: "dropdown-item") do -%>
+          <i class="fas fa-sign-in-alt"></i> Login-Formular
+        <% end %>
       <% else %>
-        <%= link_to "Ausloggen", wobauth.destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= button_to(wobauth.destroy_user_session_path,
+                      method: :delete,
+                      target: '_top',
+                      class: 'dropdown-item'
+
+            ) do %>
+          <i class="fas fa-sign-out-alt"></i> Logout
+        <% end %>
         <% if Wobauth::User.devise_modules.include?(:registerable) %>
           <div class="dropdown-divider"></div>
-          <%= link_to "Mein Profil", wobauth.edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to(wobauth.edit_user_registration_path, class: "dropdown-item") do %>
+            <i class="fas fa-user"></i> My Profile
+          <% end %>
         <% end %>
       <% end %>
     </div>
