@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "factory_bot"
   s.add_development_dependency 'rails-controller-testing'
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-rails', '>= 6.0.0.rc1'
   s.add_development_dependency 'dotenv-rails'
   s.add_development_dependency 'web-console'
   s.add_development_dependency "guard"
