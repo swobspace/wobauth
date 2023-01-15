@@ -179,6 +179,6 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2022  Wolfgang Barth
+wobauth Copyright (C) 2014-2023  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
