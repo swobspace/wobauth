@@ -30,6 +30,9 @@ wobauth 3.x uses bootstrap v4 and font-awesome, starting with Rails 5.1
 (may work with Rails 5.0, but not tested)
 wobauth 4.x works with sprockets v4.
 wobauth 5.x works with rails 6.x and is designed for autoloading via zeitwerk.
+wobauth 5.2 works with @hotwire/turbo but has data-turbo: false in forms enabled; 
+the main purpose is for backwards compatibility with bootstrap v4 application during
+upgrade process. For bootstrap v5 and @hotwire/turbo please use wobauth v7.
 
 Requirements
 ------------
@@ -38,6 +41,7 @@ Requirements
 
 | branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
+| 5-2-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
 | 5-1-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | master (4.x)  |
 
 ### Rails >= 6.0, autoload = :zeitwerk
@@ -187,7 +191,7 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2021  Wolfgang Barth
+wobauth Copyright (C) 2014-2023  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
 
