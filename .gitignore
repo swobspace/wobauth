@@ -27,3 +27,6 @@ test/dummy/public/assets/
 test/dummy/.env
 test
 *.gem
+
+# ignore stuff from newer version
+spec/dummy/app/assets/builds/

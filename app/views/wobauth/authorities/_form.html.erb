@@ -1,6 +1,7 @@
 <div class="container">
 <%= simple_form_for([wobauth, @authorizable, @authority],
-  html: { class: 'form-horizontal card' }
+  html: { data: { turbo: false },
+          class: 'form-horizontal card' }
   ) do |f| %>
 
   <div class="card-header">
