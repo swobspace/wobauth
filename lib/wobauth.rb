@@ -59,4 +59,10 @@ module Wobauth
       nil
     end
   end
+
+  # is remote authentication possible using REMOTE_USER?
+  # default: check devise settings
+  mattr_accessor :custom_stream_actions
+  @@custom_stream_actions = false
+
 end

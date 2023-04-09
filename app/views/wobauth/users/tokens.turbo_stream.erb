@@ -3,4 +3,6 @@
     selected: params[:selected] %>
 <% end %>
 
-<%= turbo_stream_action_tag "update_select", id: params[:select], message: "select options updated" %>
+<% if Wobauth.custom_stream_actions %>
+  <%= turbo_stream_action_tag "update_select", id: params[:select], message: "select options updated" %>
+<% end %>
