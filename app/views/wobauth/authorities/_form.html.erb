@@ -8,6 +8,7 @@
   </div>
 
   <div class="card-body">
+    <% if @authorizable.nil? %>
     <%= render Wobauth::PolymorphicSelectorComponent.new(
                  form: form,
                  poly: 'authorizable',
@@ -15,6 +16,7 @@
                  disabled: @authorizable.present?
                )
      %>
+    <% end %>
 
     <%= form.association :role %>
 
