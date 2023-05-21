@@ -41,11 +41,16 @@ private
     if model =~ /\AWobauth::/
       Wobauth::Engine.routes.url_helpers.polymorphic_path(
         [:tokens, model.constantize], 
-        script_name: Rails.application.routes.relative_url_root
+        script_name: scriptname
       )
     else
       Rails.application.routes.url_helpers.polymorphic_path([:tokens, model.constantize])
     end
   end
 
+  def scriptname
+    [ Rails.application.config.relative_url_root, 
+      Wobauth::Engine.routes.find_script_name({})
+    ].join("")
+  end
 end
