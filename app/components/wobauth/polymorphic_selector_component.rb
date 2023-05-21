@@ -39,7 +39,10 @@ private
 
   def myurl(model)
     if model =~ /\AWobauth::/
-      Wobauth::Engine.routes.url_helpers.polymorphic_path([:tokens, model.constantize])
+      Wobauth::Engine.routes.url_helpers.polymorphic_path(
+        [:tokens, model.constantize], 
+        script_name: Rails.application.routes.relative_url_root
+      )
     else
       Rails.application.routes.url_helpers.polymorphic_path([:tokens, model.constantize])
     end
