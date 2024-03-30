@@ -15,11 +15,11 @@ module Wobauth
     # initializer "wobauth.assets.precompile" do |app|
     # end
 
-    # initializer 'wobauth.action_controller' do |app|
-    #   ActiveSupport.on_load(:action_controller) do
-    #     # ::ActionController::Base.helper Wobauth::ApplicationHelper
-    #   end
-    # end
+    initializer 'wobauth.action_controller' do |app|
+      ActiveSupport.on_load(:action_controller_base) do
+        helper Wobauth::ApplicationHelper
+      end
+    end
 
     config.to_prepare do
       Wobauth::ApplicationController.helper Rails.application.helpers
