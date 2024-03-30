@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "factory_bot"
   s.add_development_dependency 'rails-controller-testing'
-  s.add_development_dependency 'rspec-rails', '>= 6.0.0.rc1'
+  s.add_development_dependency 'rspec-rails', '>= 6.0.0'
   s.add_development_dependency 'dotenv-rails'
   s.add_development_dependency 'web-console'
   s.add_development_dependency "guard"
@@ -54,7 +54,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sprockets-rails'
   s.add_development_dependency "selenium-webdriver"
   s.add_development_dependency 'turbo-rails'
-  s.add_development_dependency 'jsbundling-rails', "~> 1.0"
+  s.add_development_dependency 'jsbundling-rails'
   s.add_development_dependency 'cssbundling-rails'
 
 end
