@@ -2,7 +2,7 @@ require_dependency "wobauth/application_controller"
 
 module Wobauth
   class RolesController < ApplicationController
-    before_action :set_role, only: [:show, :edit, :update, :destroy]
+    before_action :set_role, only: [:show]
     before_action :add_breadcrumb_show, only: [:show]
 
     # GET /roles

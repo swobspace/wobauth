@@ -24,7 +24,7 @@ Wobauth::Engine.routes.draw do
       get :tokens
     end
   end
-  resources :roles
+  resources :roles, only: [:index, :show]
 
   get 'login' => 'login#login', as: :login
 end
