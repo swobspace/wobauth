@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "cancancan"
   s.add_development_dependency 'immutable-struct'
   # s.add_development_dependency "minitest"
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3", '~> 1.7'
   s.add_development_dependency "shoulda-context"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "factory_bot"
