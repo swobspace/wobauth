@@ -10,6 +10,7 @@ module UserConcerns
     has_many :group_authorities, through: :groups, source: :authorities
 
     validates :username, presence: true, uniqueness: { case_sensitive: false }
+    before_save { self.username.downcase! }
   end
 
 

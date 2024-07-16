@@ -8,18 +8,18 @@ module Devise
         return fail('LDAP disabled') unless Wobauth.enable_ldap_authenticatable
 
         if params['user']
-          return fail('Local user') unless params['user']['username']&.match(/@/)
+          return fail('Local user') unless username&.match(/@/)
 
-          user = Wobauth::User.where(username: params['user']['username']).first
+          user = Wobauth::User.where(username: username).first
           unless user.present?
             return fail!(:invalid_login)
           end
 
           Wobauth.ldap_options.each do |ldap_opts|
-            ldap_opts[:auth].merge!(username: params['user']['username'], 
-                                   password: params['user']['password'])
+            ldap_opts[:auth].merge!(username: username,
+                                   password: password)
             ldap = Wobaduser::LDAP.new(ldap_options: ldap_opts, bind: true)
-        
+
             if ldap.errors.empty?
               return success!(user)
             end
@@ -27,9 +27,9 @@ module Devise
           return fail(:invalid_login)
         end
       end
-      
-      def email
-        params['user']['email']
+
+      def username
+        params['user']['username']&.downcase
       end
 
       def password
