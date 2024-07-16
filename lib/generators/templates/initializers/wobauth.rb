@@ -17,4 +17,9 @@ Wobauth.setup do |config|
   # or for ancestry trees:
   # config.authorized_for_group_method = :arrange_as_array
   #
+  # use ldap authentication strategy first
+  # config.enable_ldap_authenticatable = true
+  #
+  # turbo streams custom actions
+  # config.custom_stream_actions = true
 end

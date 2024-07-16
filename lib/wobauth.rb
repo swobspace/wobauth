@@ -60,9 +60,14 @@ module Wobauth
     end
   end
 
-  # is remote authentication possible using REMOTE_USER?
-  # default: check devise settings
+  # some turbe streams stuff
+  # default: false
   mattr_accessor :custom_stream_actions
   @@custom_stream_actions = false
+
+  # use ldap_authenticatable strategy?
+  # default: false
+  mattr_accessor :enable_ldap_authenticatable
+  @@enable_ldap_authenticatable = false
 
 end

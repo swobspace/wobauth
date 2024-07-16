@@ -241,6 +241,9 @@ Devise.setup do |config|
   # end
 
   config.warden do |manager|
+    if Wobauth.enable_ldap_authenticatable
+      manager.default_strategies(:scope => :user).unshift :ldap_authenticatable
+    end
     manager.failure_app = Wobauth::FailureApp
   end
 
