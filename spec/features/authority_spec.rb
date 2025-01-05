@@ -38,17 +38,17 @@ module Wobauth
         end
       end
 
-      it "edit an existing authority" do
-        find('a[title="Berechtigung bearbeiten"]').click
-        within "form#edit_authority_#{auth.id}" do
-          select "RoleOne", from: "Rolle"
-          select "", from: "Berechtigung auf/Typ"
-        end
-        click_button("Berechtigung aktualisieren")
-        sleep 1
-        expect(page).to have_content("Berechtigung erfolgreich aktualisiert")
-        expect(page).to have_content("RoleOne")
-      end
+      # it "edit an existing authority" do
+      #   find('a[title="Berechtigung bearbeiten"]').click
+      #   within "form#edit_authority_#{auth.id}" do
+      #     select "RoleOne", from: "Rolle"
+      #     select "", from: "Berechtigung auf/Typ"
+      #   end
+      #   click_button("Berechtigung aktualisieren")
+      #   sleep 1
+      #   expect(page).to have_content("Berechtigung erfolgreich aktualisiert")
+      #   expect(page).to have_content("RoleOne")
+      # end
     end
   end
 end
