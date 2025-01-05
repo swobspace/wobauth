@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_runtime_dependency "rails", ">= 6.1"
+  s.add_runtime_dependency "rails", ">= 7.1", "<= 7.99"
   s.add_runtime_dependency "wobaduser", "~> 1.0"
   s.add_runtime_dependency 'immutable-struct'
   s.add_runtime_dependency "wobapphelpers", ">= 6.00"
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "cancancan"
   s.add_development_dependency 'immutable-struct'
   # s.add_development_dependency "minitest"
-  s.add_development_dependency "sqlite3", '~> 1.7'
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency "shoulda-context"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "factory_bot"

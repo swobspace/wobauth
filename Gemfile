@@ -21,8 +21,6 @@ group :development, :test do
   gem 'devise'
   gem 'cancancan'
   gem 'wobaduser'
-  # gem 'mail', '< 2.8.0'
 end
 
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'master'
-# gem 'responders', git: 'https://github.com/heartcombo/responders', branch: 'main'
