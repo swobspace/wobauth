@@ -25,36 +25,18 @@ automatically created memberships during the login process.
 Versions & Requirements
 ------------------------
 
-### Rails >= 6.1; needs @hotwired/turbo-rails; no support for rails-ujs
+### Rails >= 7.1
 
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master (v7) | >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (v6)      |
+| master (7.1) | >=7.1 | >= 3.2 |  v5     | fontawesome 5.x | master (v6)   |
 
-### Rails >= 6.0; autoload = :zeitwerk; webpacker; stimulusjs
-
-| version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
-|------------|-------|--------|-----------|-----------------|---------------|
-| 6-stable   | >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | 5-stable      |
-| 5-1-stable | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
-
-### Rails >= 6.0, autoload = :zeitwerk
+### Rails >= 6.1, < 7.1; needs @hotwired/turbo-rails; no support for rails-ujs
 
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| 5-stable   | >=6.0 | >= 2.6 |  v4       | fontawesome 5.x | 4-stable      |
+| 7-0-stable | >=6.1, <7.1 | >= 3.0 |  v5       | fontawesome 5.x | master (v6)      |
 
-### Rails <= 5.2, autoload = :classic
-
-| branch     | rails | ruby   | bootstrap | icons           | wobapphelpers |
-|------------|-------|--------|-----------|-----------------|---------------|
-| 4-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 5.x | 4-stable      |
-| 3-0-stable | >=5.1 | >= 2.3 |  v4       | fontawesome 4.7 | 3-0-stable    |
-| 2-0-stable |  5.0  | >= 2.2 |  v3       | glyphicons      | 2-0-stable    |
-| 1-0-stable |  4.2  | >= 2.0 |  v3       | glyphicons      | 1-0-stable    |
-
-
-* simple_form >= 3.3
 
 Installation
 ------------
@@ -62,15 +44,7 @@ Add wobauth to your Gemfile:
 
 ```ruby
 gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: 'master'
-gem 'wobauth', '~> 6.0.0'
-gem 'wobauth', '~> 5.0.0'
-gem 'wobauth', '~> 4.0.0'
-gem 'wobauth', '~> 3.4.8'
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '3-0-stable'
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '2-0-stable'
-gem 'wobauth', git: 'https://github.com/swobspace/wobauth.git', branch: '1-0-stable'
 ```
-Starting with v3.4 gems are published to rubygems.org.
 
 Run
 ```ruby
@@ -179,6 +153,6 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2023  Wolfgang Barth
+wobauth Copyright (C) 2014-2025 Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
