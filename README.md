@@ -25,11 +25,17 @@ automatically created memberships during the login process.
 Versions & Requirements
 ------------------------
 
-### Rails >= 6.1; needs @hotwired/turbo-rails; no support for rails-ujs
+### Rails >= 7.1
 
 | version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
 |------------|-------|--------|-----------|-----------------|---------------|
-| master (v7) | >=6.1 | >= 2.7 |  v5       | fontawesome 5.x | master (v6)      |
+| master (7.1) | >=7.1 | >= 3.2 |  v5     | fontawesome 5.x | master (v6)   |
+
+### Rails >= 6.1, < 7.1; needs @hotwired/turbo-rails; no support for rails-ujs
+
+| version    | rails | ruby   | bootstrap | icons           | wobapphelpers |
+|------------|-------|--------|-----------|-----------------|---------------|
+| master (v7) |>=6.1, < 7.1 |>= 3.0 |  v5  | fontawesome 5.x | master (v6)  |
 
 ### Rails >= 6.0; autoload = :zeitwerk; webpacker; stimulusjs
 
@@ -179,6 +185,6 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2023  Wolfgang Barth
+wobauth Copyright (C) 2014-2025  Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
