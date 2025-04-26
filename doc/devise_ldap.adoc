@@ -1,0 +1,29 @@
+= Devise + LDAP
+:author: Wolfgang Barth
+:revdate: 2025-04-025
+
+just collecting some references and ideas
+
+
+
+== Stackoverflow
+
+https://stackoverflow.com/questions/25374187/creating-a-custom-devise-strategy
+
+image::stackoverflow-1.png[]
+
+== Github
+
+https://github.com/heartcombo/devise/issues/4936
+
+image::github-devise-1.png[]
+
+Older code from wiki, not working:
+
+https://github.com/heartcombo/devise/wiki/How-To:-Authenticate-via-LDAP
+
+image::github-devise-2.png[]
+
+== Extension of ldap_authenticatable
+
+https://ognjen.io/devise-ldap-and-database/
