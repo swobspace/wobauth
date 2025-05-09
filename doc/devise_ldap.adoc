@@ -27,3 +27,9 @@ image::github-devise-2.png[]
 == Extension of ldap_authenticatable
 
 https://ognjen.io/devise-ldap-and-database/
+
+== Some idea
+
+----
+include::ldap.rb[]
+----
