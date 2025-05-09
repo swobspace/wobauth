@@ -1,75 +1,14 @@
 <%= render 'wobauth/shared/turbo-cache-control' %>
 
-<div class="card col-sm-4 bg-light">
-<div class="card-body p-1 m-1">
-<%= form_tag( url_for(:action => 'index'),
-              data: { turbo: false },
-              class: "") do -%>
-    <div class="mb-3">
-      <label>Name, Vorname oder E-Mail-Adresse:</label>
-      <%= text_field_tag :query, '', class: 'form-control'-%>
-    </div>
-<% end -%>
+<div class="card bg-light mb-3">
+  <div class="card-body p-1 m-1">
+    <%= form_with url: ad_users_path, method: :get do |f| -%>
+      <div class="mb-3">
+        <label class="form-label">Name, Vorname oder E-Mail-Adresse:</label>
+        <%= f.text_field :query, value: params[:query], class: 'form-control' -%>
+      </div>
+    <% end -%>
+  </div>
 </div>
-</div>
-<br>
 
-<div data-controller="datatables">
-  <%= content_tag :table, id: :adusers,
-                   class: "table table-bordered table-striped" do %>
-    <thead>
-      <tr>
-        <th><%= t('attributes.sn') %></th>
-        <th><%= t('attributes.givenname') %></th>
-        <th><%= t('attributes.ort') %></th>
-        <th><%= t('attributes.plz') %></th>
-        <th><%= t('attributes.streetaddress') %></th>
-        <th><%= t('attributes.department') %></th>
-        <th><%= t('attributes.company') %></th>
-        <th><%= t('attributes.mail') %></th>
-        <th><%= t('attributes.telephonenumber') %></th>
-        <th><%= t('attributes.facsimiletelephonenumber') %></th>
-        <th><%= t('attributes.mobile') %></th>
-        <th><%= t('attributes.username') %></th>
-        <th class="nosort"><%= t('wobauth.action') %></th>
-      </tr>
-    </thead>
-    <tfoot class="search">
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th class="nosearch"></th>
-      </tr>
-    </tfoot>
-
-    <tbody>
-      <% @ad_users.each do |ad_user| %>
-        <%= content_tag(:tr, class: aduser_class(Wobauth::User, ad_user)) do %>
-          <td><%= ad_user.sn %></td>
-          <td><%= ad_user.givenname %></td>
-          <td><%= ad_user.l %></td>
-          <td><%= ad_user.postalcode %></td>
-          <td><%= ad_user.streetaddress %></td>
-          <td><%= ad_user.department %></td>
-          <td><%= ad_user.company %></td>
-          <td><%= ad_user.mail %></td>
-          <td><%= ad_user.telephonenumber %></td>
-          <td><%= ad_user.facsimiletelephonenumber %></td>
-          <td><%= ad_user.mobile %></td>
-          <td><%= ad_user.username %></td>
-          <td><%= new_from_aduser_link(Wobauth::User, ad_user) %></td>
-        <% end %>
-      <% end %>
-    </tbody>
-  <% end %>
-</div>
+<%= render 'results' %>

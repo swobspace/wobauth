@@ -1,0 +1,80 @@
+<div id="results">
+  <div data-controller="datatables">
+   <div class="table-responsive">
+    <table id="adusers" class="table table-bordered table-striped" role="datatable">
+      <thead>
+        <tr>
+          <th><%= t('attributes.sn') %></th>
+          <th><%= t('attributes.givenname') %></th>
+          <th><%= t('attributes.ort') %></th>
+          <th><%= t('attributes.plz') %></th>
+          <th><%= t('attributes.streetaddress') %></th>
+          <th><%= t('attributes.department') %></th>
+          <th><%= t('attributes.company') %></th>
+          <th><%= t('attributes.mail') %></th>
+          <th><%= t('attributes.telephonenumber') %></th>
+          <th class="notvisible"><%= t('attributes.facsimiletelephonenumber') %></th>
+          <th class="notvisible"><%= t('attributes.mobile') %></th>
+          <th class="notvisible"><%= t('attributes.samaccountname') %></th>
+          <th class="notvisible"><%= t('attributes.userprincipalname') %></th>
+          <th class="notvisible"><%= t('attributes.extensionattribute15') %></th>
+          <th class="notvisible"><%= t('attributes.valid') %></th>
+          <th class="notvisible"><%= t('attributes.disabled') %></th>
+          <th class="notvisible"><%= t('attributes.expirationdate') %></th>
+          <th class="notvisible"><%= t('attributes.groups') %></th>
+          <th class="nosort"><%= t('wobauth.action') %></th>
+        </tr>
+      </thead>
+      <tfoot class="search">
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <% @ad_users.each do |ad_user| %>
+          <%= content_tag(:tr, class: (ad_user.is_valid? ? "" : "invalid")) do %>
+            <td><%= ad_user.sn %></td>
+            <td><%= ad_user.givenname %></td>
+            <td><%= ad_user.l %></td>
+            <td><%= ad_user.postalcode %></td>
+            <td><%= ad_user.streetaddress %></td>
+            <td><%= ad_user.department %></td>
+            <td><%= ad_user.company %></td>
+            <td><%= ad_user.mail %></td>
+            <td><%= ad_user.telephonenumber %></td>
+            <td><%= ad_user.facsimiletelephonenumber %></td>
+            <td><%= ad_user.mobile %></td>
+            <td><%= ad_user.samaccountname %></td>
+            <td><%= ad_user.username %></td>
+            <td><%= ad_user.extensionattribute15 %></td>
+            <td><%= t(ad_user.is_valid?, scope: 'boolean', default: '') %></td>
+            <td><%= t(ad_user.disabled,  scope: 'boolean', default: 'Nein') %></td>
+            <td><%= ( ad_user.expirationdate.blank? ? 'n/a' : ad_user.expirationdate ) %></td>
+            <td><%= ad_user.memberof.map{|g| group_link(g)}.join("<br/>").html_safe %></td>
+            <td><%= new_from_aduser_link(Wobauth::User, ad_user) %></td>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ </div>
+</div>

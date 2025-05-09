@@ -20,7 +20,8 @@ group :development, :test do
   gem 'simple_form'
   gem 'devise'
   gem 'cancancan'
-  gem 'wobaduser'
 end
 
 gem 'wobapphelpers', git: 'https://github.com/swobspace/wobapphelpers', branch: 'master'
+gem 'wobaduser', git: 'https://github.com/swobspace/wobaduser.git', branch: 'master'
+
