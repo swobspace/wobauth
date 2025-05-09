@@ -1,0 +1,11 @@
+= Git branch master renamed to main
+
+.update local clones
+[source,sh]
+----
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+git fetch origin -p
+----
