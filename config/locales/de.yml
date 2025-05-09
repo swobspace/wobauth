@@ -43,8 +43,11 @@ de:
     description: Beschreibung
     displayname: Anzeigename
     email: E-Mail
+    expirationdate: Gültig bis
+    extensionattribute15: extensionAttribute15
     facsimiletelephonenumber: Telefax
     group: Gruppe
+    groups: Gruppen
     gruppen: Gruppen (auto)
     last_sign_in_at: Letzter Login
     last_sign_in_ip: Letzte Login-IP
@@ -60,6 +63,7 @@ de:
     postfach: Postfach
     postfachplz: PLZ (Postfach)
     role: Rolle
+    samaccountname: samAccountName
     sign_in_count: Anzahl Logins
     streetaddress: Straße, Nr.
     telephone: Telefon
@@ -68,6 +72,7 @@ de:
     user: Benutzer
     username: Username
     userprincipalname: Principalname
+    valid: gültig
     valid_from: gültig von
     valid_until: gültig bis
 
