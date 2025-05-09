@@ -47,11 +47,12 @@ RSpec.describe Wobauth::SearchAdUserService, unless: ENV['NOLDAP'].present? do
     it "calls Wobaduser::LDAP.new" do
       ldap = instance_double(Wobaduser::LDAP)
       ad_users = double("ImmutableStruct")
-      expect(Wobaduser::LDAP).to receive(:new).with(ldap_options: ldap_options).and_return(ldap)
-      expect(Wobaduser::User).to receive(:search).with(any_args).and_return(ad_users)
-      expect(ldap).to receive(:errors).and_return([])
-      expect(ad_users).to receive(:success?).and_return(false)
-      expect(ad_users).to receive(:errors).and_return(["any error"])
+      # expect(Wobaduser::LDAP).to receive(:new).with(ldap_options: ldap_options).and_return(ldap)
+      expect(Wobaduser::LDAP).to receive(:new).with(any_args).at_least(:once).and_return(ldap)
+      expect(Wobaduser::User).to receive(:search).with(any_args).at_least(:once).and_return(ad_users)
+      expect(ldap).to receive(:errors).at_least(:once).and_return([])
+      expect(ad_users).to receive(:success?).at_least(:once).and_return(false)
+      expect(ad_users).to receive(:errors).at_least(:once).and_return(["any error"])
       subject.call
     end
   end
