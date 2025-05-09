@@ -46,18 +46,26 @@ module Wobauth
     # use filter in Wobaduser::User.search
     # objectclass=user will be implicit added via Wobaduser::User.filter
     def user_filter(query)
-      filter  = "(&"
-      filter += "(|(sn=#{query}*)(givenName=#{query}*)(mail=#{query}*))"
-      filter += "(!(sAMAccountname=admin*))"
-      filter += "(!(sAMAccountname=*test*))"
-      filter += "(!(sn=*test*))"
-      filter += "(!(sn=*admin*))"
-      filter += "(!(givenName=*admin*))"
-      filter += "(UserAccountControl:1.2.840.113556.1.4.803:=512)"
-      filter += "(!(UserAccountControl:1.2.840.113556.1.4.803:=2))"
-      filter += "(!(primaryGroupID=512))"
-      filter += "(!(msExchHideFromAddressLists=TRUE))"
-      filter += ")"
+      filter = Net::LDAP::Filter.eq('objectClass', 'user')
+
+      if query =~ /all\:/
+        Rails.logger.debug("DEBUG:: query with all:")
+        q = query.gsub(/all:/, '')
+      else
+        filter = filter & ~(Net::LDAP::Filter.ex('UserAccountControl:1.2.840.113556.1.4.803', 2))
+        q = query
+      end
+
+      if q =~ /\Agroup:(.*)\z/
+        filter = filter & Net::LDAP::Filter.eq('memberOf', "#{$1}")
+      else
+        filter = filter & default_filter(q)
+      end
+      filter
+    end
+
+    def default_filter(query)
+      filter = "(|(sn=#{query}*)(givenName=#{query}*)(mail=#{query}*)(samaccountname=#{query})(userprincipalname=#{query}*)(extensionAttribute15=#{query}*))"
       filter = Net::LDAP::Filter.construct(filter)
     end
 
@@ -69,4 +77,4 @@ module Wobauth
       end
     end
   end
- end
+end
