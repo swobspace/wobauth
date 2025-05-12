@@ -6,13 +6,13 @@ module Wobauth
     def initialize(options = {})
       @options = options.symbolize_keys
       @ldap_options = options.fetch(:ldap_options, Wobauth.ldap_options)
-      if @ldap_options.blank?
-        raise RuntimeError, "ldap_options not set!"
-      end
       @query        = options.fetch(:query, false)
     end
 
     def call
+      if @ldap_options.blank?
+	return Result.new(success: false, error_messages: ["ldap not configured"], ad_users: [])
+      end
       unless query
 	return Result.new(success: false, error_messages: ["no query given"], ad_users: [])
       end
