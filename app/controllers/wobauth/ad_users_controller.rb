@@ -3,7 +3,10 @@ require_dependency "wobauth/application_controller"
 module Wobauth
   class AdUsersController < ApplicationController
     def index
-      if search_params.present?
+      if Wobauth.ldap_options.blank?
+        flash[:error] = "LDAP options not set, can't proceed"
+	@ad_users = []
+      elsif search_params.present?
 	result = SearchAdUserService.new(search_params.to_h).call
 	unless result.success?
 	  flash[:error] = result.error_messages.join(", ")
