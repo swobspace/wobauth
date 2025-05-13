@@ -20,7 +20,7 @@ GIT
 PATH
   remote: .
   specs:
-    wobauth (7.1.0)
+    wobauth (7.2.0)
       cancancan
       devise
       immutable-struct
