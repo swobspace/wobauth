@@ -1,21 +1,10 @@
 <ul class="navbar-nav">
-  <li class="nav-item dropdown">
-    <a href="#" class="nav-link dropdown-toggle" role="button" id="accountNavDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <% if user_signed_in? %>
+  <% if user_signed_in? %>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" role="button" id="accountNavDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	Account
-      <% else %>
-	Login
-      <% end %>
-    </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="accountNavDropdown">
-      <% unless user_signed_in? %>
-	<% if Wobauth.remote_authentication? %>
-	  <%= link_to "Single-Sign-On", wobauth.login_path, class: "dropdown-item" -%>
-	<% end %>
-	<%= link_to(wobauth.new_user_session_path, class: "dropdown-item") do -%>
-          <i class="fas fa-sign-in-alt"></i> Login-Formular
-        <% end %>
-      <% else %>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="accountNavDropdown">
         <%= button_to(wobauth.destroy_user_session_path,
                       method: :delete,
                       target: '_top',
@@ -30,7 +19,25 @@
             <i class="fas fa-user"></i> My Profile
           <% end %>
         <% end %>
+      </div>
+    </li>
+  <% elsif Wobauth.remote_authentication? %>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" role="button" id="accountNavDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Login
+      </a>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="accountNavDropdown">
+        <%= link_to "SingleSignOn", wobauth.login_path, class: "dropdown-item" -%>
+        <%= link_to(wobauth.new_user_session_path, class: "dropdown-item") do -%>
+          Login-Formular
+        <% end %>
+      </div>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to(wobauth.new_user_session_path, class: "nav-link") do -%>
+        <i class="fas fa-sign-in-alt"></i> Login
       <% end %>
-    </div>
-  </li>
+    </li>
+  <% end %>
 </ul>
