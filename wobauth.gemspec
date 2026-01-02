@@ -17,12 +17,12 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_runtime_dependency "rails", ">= 7.1", "<= 7.99"
+  s.add_runtime_dependency "rails", ">= 7.1", "< 8.1"
   s.add_runtime_dependency "wobaduser"
   s.add_runtime_dependency 'immutable-struct'
   s.add_runtime_dependency "wobapphelpers", ">= 6.00"
   s.add_runtime_dependency "simple_form"
-  s.add_runtime_dependency "devise"
+  s.add_runtime_dependency "devise", ">= 5.0.0.rc"
   s.add_runtime_dependency "cancancan"
   s.add_runtime_dependency "responders"
   s.add_dependency "stimulus-rails"

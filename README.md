@@ -153,6 +153,6 @@ included in this rails engine.
 Licence
 -------
 
-wobauth Copyright (C) 2014-2025 Wolfgang Barth
+wobauth Copyright (C) 2014-2026 Wolfgang Barth
 
 MIT license, see [LICENSE](LICENSE)
