@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "spec/factories.rb", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_runtime_dependency "rails", ">= 7.1", "< 8.1"
+  s.add_runtime_dependency "rails", ">= 7.1", "< 8.2"
   s.add_runtime_dependency "wobaduser"
   s.add_runtime_dependency 'immutable-struct'
   s.add_runtime_dependency "wobapphelpers", ">= 6.00"
