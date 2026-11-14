@@ -24,7 +24,7 @@ PATH
       cancancan
       devise (>= 5.0.0.rc)
       immutable-struct
-      rails (>= 7.1, < 8.1)
+      rails (>= 7.1, < 8.2)
       responders
       simple_form
       stimulus-rails
@@ -350,7 +350,7 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.9.0)
+    sqlite3 (2.10.2)
       mini_portile2 (~> 2.8.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
@@ -415,7 +415,7 @@ DEPENDENCIES
   view_component
   web-console
   wobaduser!
-  wobapphelpers!
+  wobapphelpers (>= 6.00, >= 0)!
   wobauth!
 
 BUNDLED WITH
